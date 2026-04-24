@@ -24,7 +24,7 @@ Assistant. Modules 1-3 use throwaway examples.
 | Tier | Module | Concept Post | Lab |
 |------|--------|--------------|-----|
 | 1 — Working with a single Claude | M1: Prompting as a design problem, not a phrasing trick | [post](modules/module-1-prompting-as-specification.md) | [lab](labs/module-1/) |
-| 1 | M2: Context is the product | — | — |
+| 1 | M2: Context is the product | [post](modules/module-2-context-is-the-product.md) | [lab](labs/module-2/) |
 | 1 | M3: From chat to Claude Code | — | — |
 | 2 — Session management and single-agent discipline | M4: Writing a CLAUDE.md that earns its keep | — | — |
 | 2 | M5: Sub-agents, one-session orchestration, and tool scoping | — | — |
