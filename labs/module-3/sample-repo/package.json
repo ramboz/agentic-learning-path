@@ -1,0 +1,23 @@
+{
+  "name": "md2html",
+  "version": "0.1.0",
+  "description": "A small CLI that converts Markdown to HTML.",
+  "type": "module",
+  "bin": {
+    "md2html": "./bin/md2html.js"
+  },
+  "main": "./lib/render.js",
+  "scripts": {
+    "test": "node --test 'test/**/*.test.js'",
+    "start": "node ./bin/md2html.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "marked": "^12.0.2",
+    "sanitize-html": "^2.13.0"
+  },
+  "license": "MIT"
+}
