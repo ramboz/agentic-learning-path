@@ -1,8 +1,20 @@
 # Voice rules
 
-Load-bearing summary. Full source: `_authoring/voice-notes.md` (calibrated
-from 5 wiki pages and 3 Slack threads, 2023-2025). Read the source the
-first time you draft for this curriculum; this file is the recall card.
+Load-bearing summary. This file is the recall card for the rules; the
+*calibration* lives in three places:
+
+- `_authoring/voice-notes.md` — the rules in long form, with reasoning.
+  Read this the first time you draft for the curriculum.
+- `_authoring/voice-samples-wiki.md` — five Adobe-internal wiki pages by
+  Julien. Pattern-match against these when drafting **doc-register**
+  content (concept sections, failure-mode tables, step-by-step labs).
+- `_authoring/voice-samples-slack.md` — three Adobe-internal Slack
+  threads where Julien was active. Pattern-match against these when
+  drafting **chat-register** content (openings, transitions, "what bit
+  me" anecdotes, bridges).
+
+The samples are not rules; they're examples. When the rules below are
+ambiguous, the samples settle the question.
 
 ## The hard rules (don't break)
 
