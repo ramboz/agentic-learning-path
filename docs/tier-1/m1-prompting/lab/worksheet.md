@@ -1,3 +1,9 @@
+---
+title: Worksheet (M1 lab artifact)
+description: Optional note-taking template for the Module 1 lab.
+unlisted: true
+---
+
 # Worksheet — Module 1 lab
 
 Optional template. Copy the block below once per prompt and fill in as

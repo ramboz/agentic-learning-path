@@ -1,6 +1,12 @@
+---
+title: Lab — Set up Claude Code and run tasks of increasing autonomy
+description: Self-paced 90-minute exercise for Module 3. Install Claude Code, work on a sample repo across four autonomy levels, calibrate your permissions posture.
+sidebar_label: Lab
+---
+
 # Lab — Set up Claude Code and run tasks of increasing autonomy
 
-[Module 3](../../modules/module-3-claude-code.md) lab. ~90 minutes. Self-paced. No submission, no review.
+[Module 3](../) lab. ~90 minutes. Self-paced. No submission, no review.
 
 The point of this lab is not to ship anything. It's to feel where the
 plan/edit/exec loop strains, and to build the reflex of intervening at the
@@ -13,21 +19,25 @@ not someone else's.
 - **Time:** ~90 minutes total. Setup is 10-15 minutes. Four tasks are
   60-70 minutes. The calibration pass at the end is 10 minutes and is
   most of the learning, so don't skip it.
-- **Prerequisites:** [Module 1](../../modules/module-1-prompting-as-specification.md) and [Module 2](../../modules/module-2-context-is-the-product.md) read. Claude Code account access.
+- **Prerequisites:** [Module 1](../../m1-prompting/) and [Module 2](../../m2-context/) read. Claude Code account access.
   Node.js 18 or later installed.
-- **What you'll work on:** A small Markdown-to-HTML CLI called `md2html`,
-  in the `sample-repo/` directory. From Module 4 onward, this same
-  codebase is the target that PR Assistant reviews. For this lab, you're
-  just learning Claude Code mechanics on it.
+- **What you'll work on:** A small Markdown-to-HTML CLI called `md2html`.
+  The source lives in the curriculum repo at
+  [`samples/m3-claude-code/`](https://github.com/ramboz/agentic-learning-path/tree/main/samples/m3-claude-code).
+  From Module 4 onward, this same codebase is the target that PR
+  Assistant reviews. For this lab, you're just learning Claude Code
+  mechanics on it.
 
 ## Setup
 
 1. Install Claude Code per the [current docs](https://docs.claude.com/en/docs/claude-code/overview).
 
-2. From this lab directory, install the sample repo's dependencies:
+2. Get the sample. Clone the curriculum repo (or copy the sample
+   subdirectory elsewhere — it's self-contained):
 
    ```
-   cd sample-repo
+   git clone https://github.com/ramboz/agentic-learning-path.git
+   cd agentic-learning-path/samples/m3-claude-code
    npm install
    ```
 
@@ -41,7 +51,7 @@ not someone else's.
    The tests should pass. The pipe should produce HTML containing
    `<h1>Hello</h1>`.
 
-4. Start a Claude Code session in `sample-repo/`:
+4. Start a Claude Code session inside the sample:
 
    ```
    claude
@@ -49,10 +59,10 @@ not someone else's.
 
 5. Sanity-check the install: ask Claude to describe the project. If the
    response makes sense, you're set up. If it's wildly off, check that
-   you started Claude Code from inside `sample-repo/` and that the
-   starter `CLAUDE.md` is being picked up.
+   you started Claude Code from inside `samples/m3-claude-code/` and that
+   the starter `CLAUDE.md` is being picked up.
 
-A note on `CLAUDE.md`: the one in `sample-repo/` is deliberately minimal.
+A note on `CLAUDE.md`: the one in `samples/m3-claude-code/` is deliberately minimal.
 Resist the urge to expand it before doing the lab. Module 4 covers when
 and how to grow it. Working with a thin one is part of the point. You're
 about to feel where its absences cost you, which is the motivation for M4.

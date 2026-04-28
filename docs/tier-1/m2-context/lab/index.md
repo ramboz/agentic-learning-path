@@ -1,3 +1,9 @@
+---
+title: Lab — Diagnose and fix a messy conversation
+description: Self-paced 60-minute exercise for Module 2. Diagnose three failure modes in a 50-turn conversation and fix each with a single move.
+sidebar_label: Lab
+---
+
 # Lab — Module 2: Diagnose and fix a messy conversation
 
 **Module:** 2 — Context is the product
@@ -24,9 +30,9 @@ You won't be told which turns contain which failures. That's the point.
 
 ## What you need
 
-- `messy-conversation.md` — the 50-turn conversation to diagnose
+- [The messy conversation](./messy-conversation) — the 50-turn conversation to diagnose
 - A Claude chat open in a browser tab (any plan, no special setup)
-- `worksheet.md` in this folder, if you want a template for notes (optional)
+- [Worksheet](./worksheet), if you want a template for notes (optional)
 
 ## The exercise
 
@@ -108,6 +114,6 @@ Compare which works best for that specific failure. Previews the iteration disci
 
 ## When you're done
 
-Close the lab. Move to [Module 3](../../modules/module-3-claude-code.md). No checkpoint, no submission, nothing blocking.
+Close the lab. Move to [Module 3](../../m3-claude-code/). No checkpoint, no submission, nothing blocking.
 
 If a diagnosis feels wrong or a fix doesn't work the way you expected, that's useful information, not a failure. Long conversations are genuinely hard to diagnose. The point of this lab is to build the reflex, not to nail every case on the first pass.

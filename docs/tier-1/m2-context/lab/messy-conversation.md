@@ -1,4 +1,10 @@
-# messy-conversation.md
+---
+title: Messy conversation (M2 lab artifact)
+description: A 50-turn conversation depicting an early failed attempt at building a PR review tool. Source material for the Module 2 lab.
+unlisted: true
+---
+
+# Messy conversation
 
 *A 50-turn conversation. An early attempt to build a PR review tool in
 chat-only mode. Read cold first, then diagnose.*

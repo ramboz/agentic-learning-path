@@ -1,3 +1,9 @@
+---
+title: Worksheet (M2 lab artifact)
+description: Optional note-taking template for the Module 2 lab.
+unlisted: true
+---
+
 # Worksheet — Module 2 lab
 
 Optional. Copy this file, rename it (e.g., `worksheet-2026-04-24.md`), and fill it in as you work through the lab. If you'd rather use your own notes format, ignore this.

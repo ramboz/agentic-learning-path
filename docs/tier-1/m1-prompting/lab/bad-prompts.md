@@ -1,3 +1,9 @@
+---
+title: Bad prompts (M1 lab artifact)
+description: Five deliberately bad prompts to rewrite as part of the Module 1 lab.
+unlisted: true
+---
+
 # Five bad prompts
 
 Five deliberately bad prompts for Module 1's lab. Each one is a real shape
