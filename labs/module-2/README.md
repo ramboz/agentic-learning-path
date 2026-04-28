@@ -108,6 +108,6 @@ Compare which works best for that specific failure. Previews the iteration disci
 
 ## When you're done
 
-Close the lab. Move to Module 3. No checkpoint, no submission, nothing blocking.
+Close the lab. Move to [Module 3](../../modules/module-3-claude-code.md). No checkpoint, no submission, nothing blocking.
 
 If a diagnosis feels wrong or a fix doesn't work the way you expected, that's useful information, not a failure. Long conversations are genuinely hard to diagnose. The point of this lab is to build the reflex, not to nail every case on the first pass.

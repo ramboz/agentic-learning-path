@@ -1,6 +1,6 @@
 # Lab — Set up Claude Code and run tasks of increasing autonomy
 
-Module 3 lab. ~90 minutes. Self-paced. No submission, no review.
+[Module 3](../../modules/module-3-claude-code.md) lab. ~90 minutes. Self-paced. No submission, no review.
 
 The point of this lab is not to ship anything. It's to feel where the
 plan/edit/exec loop strains, and to build the reflex of intervening at the
@@ -13,7 +13,7 @@ not someone else's.
 - **Time:** ~90 minutes total. Setup is 10-15 minutes. Four tasks are
   60-70 minutes. The calibration pass at the end is 10 minutes and is
   most of the learning, so don't skip it.
-- **Prerequisites:** Modules 1 and 2 read. Claude Code account access.
+- **Prerequisites:** [Module 1](../../modules/module-1-prompting-as-specification.md) and [Module 2](../../modules/module-2-context-is-the-product.md) read. Claude Code account access.
   Node.js 18 or later installed.
 - **What you'll work on:** A small Markdown-to-HTML CLI called `md2html`,
   in the `sample-repo/` directory. From Module 4 onward, this same

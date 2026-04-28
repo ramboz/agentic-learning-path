@@ -92,7 +92,7 @@ The single most useful habit inside the loop: read the plan before approving the
 
 A short tease, because Module 4 is the deep dive.
 
-CLAUDE.md is a markdown file at the root of your repo (or in a subdirectory, scoped to that subtree). The model reads it at session start and treats it as part of the persistent context. Functionally, it's the project-files concept from Module 2, applied to a codebase.
+CLAUDE.md is a markdown file at the root of your repo (or in a subdirectory, scoped to that subtree). The model reads it at session start and treats it as part of the persistent context. Functionally, it's the project-files concept from [Module 2](module-2-context-is-the-product.md), applied to a codebase.
 
 What goes in a useful CLAUDE.md, at a sketch level:
 
@@ -104,7 +104,7 @@ What goes in a useful CLAUDE.md, at a sketch level:
 
 What does not belong in a useful CLAUDE.md: anything that changes per task, anything you'd expect a senior engineer to read once and not need again, anything that's obvious from a quick file read.
 
-The over-context pattern from Module 2 applies directly here. A bloated CLAUDE.md costs attention on every turn. The pattern I've landed on is to keep CLAUDE.md itself short and reference other files for anything conditionally relevant, letting the model pull them in when the situation calls for it. Module 4 covers what to put in the root file, what to split out, and how to evolve the structure as the project grows.
+The over-context pattern from [Module 2](module-2-context-is-the-product.md) applies directly here. A bloated CLAUDE.md costs attention on every turn. The pattern I've landed on is to keep CLAUDE.md itself short and reference other files for anything conditionally relevant, letting the model pull them in when the situation calls for it. Module 4 covers what to put in the root file, what to split out, and how to evolve the structure as the project grows.
 
 ### Permissions
 
@@ -138,10 +138,10 @@ Most of the failure modes from chat carry over. Underspecified prompts, context 
 | Model loops on the same fix that doesn't work | Context insufficient to diagnose; model is guessing | Stop the loop. Read the failure yourself. Add the missing context, restart |
 | Ignores CLAUDE.md conventions | File too long, or the conventions are buried | Tighten CLAUDE.md; put load-bearing conventions near the top |
 | Edits a generated file as if it were source | "Do not touch" entries missing from CLAUDE.md or unclear | Add explicit "never edit X" entries; flag generated paths |
-| Quality drops sharply mid-session | Context filled with command output and stale plans | Start a new session with a distilled summary; this is the M2 move applied to Claude Code |
+| Quality drops sharply mid-session | Context filled with command output and stale plans | Start a new session with a distilled summary; this is the [M2](module-2-context-is-the-product.md) move applied to Claude Code |
 | Spends most of the loop reading files | Codebase navigation is slow without orientation | Add a short layout section to CLAUDE.md; the model spending three turns to find a file is a context problem |
 
-The meta-move stays the same as M1 and M2: before blaming the agent, check what you gave it. Permissions, plan quality, CLAUDE.md, the prompt itself. The list got longer. The discipline didn't change.
+The meta-move stays the same as [M1](module-1-prompting-as-specification.md) and [M2](module-2-context-is-the-product.md): before blaming the agent, check what you gave it. Permissions, plan quality, CLAUDE.md, the prompt itself. The list got longer. The discipline didn't change.
 
 ### When NOT to use Claude Code
 
@@ -181,7 +181,7 @@ For PMs and architects, this is where the lab track ends. The remaining concept 
 
 ### Lab handoff
 
-The lab for this module is a 90-minute setup-and-explore exercise. You install Claude Code, point it at a small sample repo, and run a sequence of tasks at increasing autonomy levels. The goal is not to ship anything; it's to feel where the loop strains and to calibrate your own sense of when to intervene. Instructions in `/labs/m3-claude-code/`.
+The lab for this module is a 90-minute setup-and-explore exercise. You install Claude Code, point it at a small sample repo, and run a sequence of tasks at increasing autonomy levels. The goal is not to ship anything; it's to feel where the loop strains and to calibrate your own sense of when to intervene. Instructions in [`labs/module-3/`](../labs/module-3/).
 
 ---
 
@@ -191,7 +191,7 @@ The lab for this module is a 90-minute setup-and-explore exercise. You install C
 
 **Goal.** Install Claude Code, run it on a small sample repo, and step through tasks at four autonomy levels. Build the reflex of intervening at the right phase of the plan/edit/exec loop. Calibrate your own permissions posture.
 
-**Setup.** You'll find a small sample repo at `/labs/m3-claude-code/sample-repo/`. It's a deliberately tiny Node.js project with a handful of files, a couple of tests, and a README. Clone it locally. The repo has a starter CLAUDE.md included; resist the urge to expand it before starting the lab. Module 4 covers when and how to grow it. For this lab, you're working with a minimal one on purpose.
+**Setup.** You'll find a small sample repo at [`labs/module-3/sample-repo/`](../labs/module-3/sample-repo/). It's a deliberately tiny Node.js project with a handful of files, a couple of tests, and a README. Clone it locally. The repo has a starter CLAUDE.md included; resist the urge to expand it before starting the lab. Module 4 covers when and how to grow it. For this lab, you're working with a minimal one on purpose.
 
 Install Claude Code per the current docs. Verify your install works by running it inside the sample repo and asking it to describe the project. If the response makes sense, you're set up.
 

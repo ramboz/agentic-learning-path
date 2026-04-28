@@ -148,7 +148,7 @@ The fix I shipped back to that repo is phase-scoped context. CrUX agent gets the
 
 Specification gets you a good single-turn result. This module assumed one prompt, one output, done.
 
-Real work runs longer. You ask a follow-up, then another. You paste in a document. You come back tomorrow with more questions about the same project. At some point the conversation is 40 turns deep and the model is contradicting something it said at turn 3. That's not a prompting problem. The spec is fine. It's a context problem. Module 2 picks up there.
+Real work runs longer. You ask a follow-up, then another. You paste in a document. You come back tomorrow with more questions about the same project. At some point the conversation is 40 turns deep and the model is contradicting something it said at turn 3. That's not a prompting problem. The spec is fine. It's a context problem. [Module 2](module-2-context-is-the-product.md) picks up there.
 
 ### TLDR
 
@@ -162,7 +162,7 @@ Real work runs longer. You ask a follow-up, then another. You paste in a documen
 
 ### Lab handoff
 
-The lab for this module is a 90-minute self-paced exercise in the diagnostic move. Take 5 bad prompts, rewrite each three ways, predict which will work best, then run. Instructions in `/labs/m1-specification/`.
+The lab for this module is a 90-minute self-paced exercise in the diagnostic move. Take 5 bad prompts, rewrite each three ways, predict which will work best, then run. Instructions in [`labs/module-1/`](../labs/module-1/).
 
 ---
 
@@ -172,7 +172,7 @@ The lab for this module is a 90-minute self-paced exercise in the diagnostic mov
 
 **Goal.** Build the habit of diagnosing and fixing prompts along three specific axes before running them. This is self-paced. There's no submission, no review. You're doing it for yourself.
 
-**Setup.** You'll find 5 deliberately bad prompts in the lab repo at `/labs/m1-specification/bad-prompts.md`. Each one is a real shape of prompt that shows up in practice: vague topic, missing format, no audience, underspecified task, over-broad help request.
+**Setup.** You'll find 5 deliberately bad prompts in the lab repo at [`labs/module-1/bad-prompts.md`](../labs/module-1/bad-prompts.md). Each one is a real shape of prompt that shows up in practice: vague topic, missing format, no audience, underspecified task, over-broad help request.
 
 **Exercise.** For each prompt, produce three rewrites along three fixed axes:
 
@@ -188,7 +188,7 @@ Before running any of the rewrites, **predict**. For each of the 5 prompts, writ
 
 Only then run them. All three rewrites, each one twice (for the noise floor).
 
-**What you'll have at the end.** For each of the 5 prompts: three rewrites, your prediction, actual outputs (two runs each), and a sense of whether your prediction held. Keep the notes somewhere you can go back to. You'll want to compare against yourself in Module 2 when the same prompts get longer conversations around them.
+**What you'll have at the end.** For each of the 5 prompts: three rewrites, your prediction, actual outputs (two runs each), and a sense of whether your prediction held. Keep the notes somewhere you can go back to. You'll want to compare against yourself in [Module 2](module-2-context-is-the-product.md) when the same prompts get longer conversations around them.
 
 **Time budget.** ~90 minutes. If it's taking three hours, you're polishing the rewrites rather than practicing the diagnostic move. Stop and move on.
 

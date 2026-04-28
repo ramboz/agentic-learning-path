@@ -11,7 +11,7 @@ phrasing trick"). No submission, no review. You do this for yourself.
 
 ## How to work through it
 
-1. Read Module 1's concept post if you haven't yet. The "What a spec-style
+1. Read [Module 1's concept post](../../modules/module-1-prompting-as-specification.md) if you haven't yet. The "What a spec-style
    prompt contains," "Common failure modes," and "Predict before you run"
    sections are the frame for this lab.
 2. Open `bad-prompts.md`. For each of the 5 prompts, produce three
@@ -28,6 +28,6 @@ practicing. Stop and move on.
 
 ## Keep the notes
 
-You'll want them in Module 2 (Context is the product), where the same
+You'll want them in [Module 2 (Context is the product)](../../modules/module-2-context-is-the-product.md), where the same
 prompts get longer conversations around them and you can compare how
 specification holds up when context compounds.
