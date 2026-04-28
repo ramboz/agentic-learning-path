@@ -20,9 +20,11 @@ If it needs the reasoning behind the rule, it reads here.
 | File | Purpose |
 |---|---|
 | `voice-notes.md` | Full voice calibration. Structural habits, sentence shape, register split, vocabulary tics, what to avoid. The `.claude/voice-rules.md` summary points here for detail. |
+| `voice-samples-wiki.md` | Five Adobe-internal wiki pages authored by Julien. Source material for **doc-register** pattern-matching when drafting structured curriculum content (concept sections, failure-mode tables, step-by-step labs). |
+| `voice-samples-slack.md` | Three Adobe-internal Slack threads where Julien was active. Source material for **chat-register** pattern-matching when drafting openings, transitions, "what bit me" anecdotes, and bridges. |
 | `decisions-log.md` | Every settled curriculum decision. Anchor project, tier shape, authorship model, infrastructure staging, things explicitly dropped. Reopen any decision only with a noted reason. |
 | `curriculum-outline.md` | The canonical 10-module outline. Module titles, lab descriptions, recommended slice ordering. Open structural questions live at the bottom. Stub modules in `docs/` link here. |
-| `chat-history/` | Raw scaffolding conversations. `project-scaffolding.md` covers overall structure; `module-{1,2,3}-scaffolding.md` cover per-module drafting. Useful for tracing back to *why* a decision landed where it did. |
+| `chat-history/` | Raw scaffolding conversations. `project-scaffolding.md` covers overall structure; `module-{1,2,3,4}-scaffolding.md` cover per-module drafting. Useful for tracing back to *why* a decision landed where it did. |
 
 ## What does NOT belong here
 
