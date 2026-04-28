@@ -1,0 +1,27 @@
+/**
+ * Site-wide CSS overrides. Docusaurus loads this on every page.
+ * Variables follow the Infima design system used by the classic theme.
+ */
+
+:root {
+  --ifm-color-primary: #2c5282;
+  --ifm-color-primary-dark: #2a4f7c;
+  --ifm-color-primary-darker: #284b75;
+  --ifm-color-primary-darkest: #213e60;
+  --ifm-color-primary-light: #2e578a;
+  --ifm-color-primary-lighter: #305b91;
+  --ifm-color-primary-lightest: #366aa5;
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #6db1ff;
+  --ifm-color-primary-dark: #4a9eff;
+  --ifm-color-primary-darker: #3895ff;
+  --ifm-color-primary-darkest: #0078ff;
+  --ifm-color-primary-light: #90c4ff;
+  --ifm-color-primary-lighter: #a2cdff;
+  --ifm-color-primary-lightest: #d6e8ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
