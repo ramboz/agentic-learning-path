@@ -8,9 +8,9 @@ description: File-based state as a design principle. Progress files, the .claude
 **Tier:** 2 (engineers primary; PMs/architects continue with concept post only)
 **Audience:** Engineers (PMs/architects can read concept post)
 **Length target:** ~3000 words concept post + ~700 words lab
-**Prerequisites:** Module 1 (Prompting as a design problem), Module 2 (Context is the product), Module 3 (From chat to Claude Code)
+**Prerequisites:** [Module 1](../../tier-1/m1-prompting/) (Prompting as a design problem), [Module 2](../../tier-1/m2-context/) (Context is the product), [Module 3](../../tier-1/m3-claude-code/) (From chat to Claude Code)
 **Standalone publishable:** Yes
-**Ends with bridge to:** Module 5 (Sub-agents, one-session orchestration, and tool scoping)
+**Ends with bridge to:** [Module 5](../m5-subagents/) (Sub-agents, one-session orchestration, and tool scoping)
 
 Note: this is the first module on the engineer-only lab track. The concept post stays useful for PMs and architects who want the mental model without building it.
 
@@ -33,7 +33,7 @@ Which leaves a question worth asking up front. If Claude can write a useful CLAU
 In a nutshell:
 
 1. Why state belongs in files, not in conversations or in your memory
-2. What CLAUDE.md does mechanically, beyond the M3 sketch
+2. What CLAUDE.md does mechanically, beyond the [M3](../../tier-1/m3-claude-code/) sketch
 3. The five categories of content that earn a place, with the test for each
 4. What does not earn a place, and the cost of getting that wrong
 5. Progress files: keeping multi-session work durable across sessions
@@ -43,11 +43,11 @@ In a nutshell:
 
 The lab is a 2-hour exercise. You take the PR Assistant sample repo (the curriculum's anchor project, entering here), run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after is the lab's main artifact.
 
-This module assumes Modules 1 through 3. Module 2's "context as workbench" is the foundation; this module is about the workbench tools that persist between sessions.
+This module assumes Modules [1](../../tier-1/m1-prompting/) through [3](../../tier-1/m3-claude-code/). [Module 2](../../tier-1/m2-context/)'s "context as workbench" is the foundation; this module is about the workbench tools that persist between sessions.
 
 ### The reframe: state belongs in files
 
-Module 2 framed the context window as a workbench: stateless between calls, reset every turn except for what's literally in scope. That's the per-turn picture. Zoom out one level: every stable thing about your project is also state. Project conventions, where things live, what you've already decided not to do. None of it persists by default.
+[Module 2](../../tier-1/m2-context/) framed the context window as a workbench: stateless between calls, reset every turn except for what's literally in scope. That's the per-turn picture. Zoom out one level: every stable thing about your project is also state. Project conventions, where things live, what you've already decided not to do. None of it persists by default.
 
 The lazy answer is to put it in your prompt. Re-paste it every session. Re-explain conventions when they come up. This works for an afternoon. It stops working the day you have to do it three times in a row. The friction is small, but it accumulates, and the part that eventually breaks is your willingness to keep doing it. You quietly stop pasting the conventions, and the model quietly stops following them.
 
@@ -57,11 +57,11 @@ This isn't a Claude Code idea. It's a design principle that Claude Code's CLAUDE
 
 A useful frame: the session is a process. The files are the database. If you wouldn't store user data in process memory and expect it to survive a restart, you shouldn't store project decisions there either.
 
-The corollary, which trips people up: a file is not free. Every line in CLAUDE.md is loaded into every session in the directory. The cost is attention, not tokens, and the budget is finite even when the token count is not. The reframe is "state in files, not heads." It is not "everything in files." Module 2's over-context warning applies here, just at a different scale.
+The corollary, which trips people up: a file is not free. Every line in CLAUDE.md is loaded into every session in the directory. The cost is attention, not tokens, and the budget is finite even when the token count is not. The reframe is "state in files, not heads." It is not "everything in files." [Module 2](../../tier-1/m2-context/)'s over-context warning applies here, just at a different scale.
 
 ### CLAUDE.md, mechanically
 
-Module 3 introduced CLAUDE.md as project-level persistent context. Quick mechanical recap before going deeper.
+[Module 3](../../tier-1/m3-claude-code/) introduced CLAUDE.md as project-level persistent context. Quick mechanical recap before going deeper.
 
 CLAUDE.md is a markdown file, conventionally at the repo root. Claude Code reads it automatically at session start. You can have multiple CLAUDE.md files scoped to subdirectories, in which case the model loads the ones relevant to the path you're working in. You can also reference other markdown files from CLAUDE.md (using `@filename.md` or just inline links), and the model will read those when the conversation calls for them.
 
@@ -75,7 +75,7 @@ A useful default structure:
 
 "Tight prose" is fuzzy on purpose. The cwv-agent CLAUDE.md is around 175 lines, but most of that is navigation tables and code-path references; the dense conventions section is closer to 20 lines. The cost is in the prose the model has to read and attend to, not in the file's total line count. A 200-line file that's 80% tables and references is fine. A 60-line file that's all conventions stacked end-to-end might already be too much.
 
-This is the same shape as the over-specifying section in Module 1 and the over-contextualizing section in Module 2, applied at the project level. Default to small for prose. Promote things in only when they earn it.
+This is the same shape as the over-specifying section in [Module 1](../../tier-1/m1-prompting/) and the over-contextualizing section in [Module 2](../../tier-1/m2-context/), applied at the project level. Default to small for prose. Promote things in only when they earn it.
 
 ### What earns a place in CLAUDE.md
 
@@ -105,7 +105,7 @@ A worked example for shape, drawn from cwv-agent (the recurring example from ear
 
 The direct content covers, roughly: a "Quick Start" reading order for new contributors, a "Code & Configuration" section with key source file paths grouped by subsystem (orchestration, analysis, data collection, prompts), a short "Code Quality Standards" section with conventions and a few load-bearing guardrails, and a "Common Tasks" section with run commands.
 
-The referenced content (full architecture, individual design decisions, research notes) lives in `.claude/architecture.md`, `.claude/design-*.md`, `.claude/research-*.md`. Loaded on demand when the conversation calls for them. Not in scope every session. The shape mirrors the phase-scoped context fix from Module 1's PR #68: don't load everything every time; load what the situation calls for. Same principle, different scope (project-level instead of sub-agent-level).
+The referenced content (full architecture, individual design decisions, research notes) lives in `.claude/architecture.md`, `.claude/design-*.md`, `.claude/research-*.md`. Loaded on demand when the conversation calls for them. Not in scope every session. The shape mirrors the phase-scoped context fix from [Module 1](../../tier-1/m1-prompting/)'s PR #68: don't load everything every time; load what the situation calls for. Same principle, different scope (project-level instead of sub-agent-level).
 
 One specific entry in the conventions section is worth pulling out as a real example of anti-knowledge compressed into a guardrail:
 
@@ -159,7 +159,7 @@ The pattern: write the rejected approach down, in a file loaded when the relevan
 
 **As a guardrail in CLAUDE.md.** Short and imperative, in the conventions section. The cwv-agent LangChain example from above ("CRITICAL: Use camelCase, NOT v0.3 syntax") is one of these. Single line, enough specificity to override the model's instinct to reach for the wrong syntax. Use this when the rejected approach is a recurring trap likely to come up in many tasks.
 
-**In agent-specific prompt context.** When the anti-knowledge is scoped to a particular domain or sub-agent, it belongs with that agent's context, not in the global CLAUDE.md. cwv-agent does this for CMS-specific patterns: each CMS has a context file under `src/prompts/contexts/` with its own anti-patterns documented. The agents that work in a given CMS load the relevant one. Agents working in a different domain don't carry the noise. Same idea as the phase-scoped context fix from Module 1, applied to anti-knowledge specifically.
+**In agent-specific prompt context.** When the anti-knowledge is scoped to a particular domain or sub-agent, it belongs with that agent's context, not in the global CLAUDE.md. cwv-agent does this for CMS-specific patterns: each CMS has a context file under `src/prompts/contexts/` with its own anti-patterns documented. The agents that work in a given CMS load the relevant one. Agents working in a different domain don't carry the noise. Same idea as the phase-scoped context fix from [Module 1](../../tier-1/m1-prompting/), applied to anti-knowledge specifically.
 
 **In a progress file's failed-approaches section.** When the anti-knowledge is scoped to a specific in-flight task rather than a project-wide convention. Rough template:
 
@@ -198,9 +198,9 @@ The meta-move stays the same as the previous modules: before blaming the prompt 
 
 ### The graveyard problem
 
-The mirror-image failure mode. Module 1 had over-specifying. Module 2 had over-contextualizing. The CLAUDE.md version is the graveyard: a file that has accumulated every constraint you ever needed to clarify once, with no deletion discipline.
+The mirror-image failure mode. [Module 1](../../tier-1/m1-prompting/) had over-specifying. [Module 2](../../tier-1/m2-context/) had over-contextualizing. The CLAUDE.md version is the graveyard: a file that has accumulated every constraint you ever needed to clarify once, with no deletion discipline.
 
-Symptoms: a dense prose section you can't skim in under a minute, sections labeled "old" or "deprecated," entries you can't remember why you added, the same point stated three times in different words, conventions that contradict each other. The fix is the same shape as the over-context fix from Module 2. Treat the file as code. Prune entries that don't earn their keep. The test: if you removed this entry, would the next session degrade?
+Symptoms: a dense prose section you can't skim in under a minute, sections labeled "old" or "deprecated," entries you can't remember why you added, the same point stated three times in different words, conventions that contradict each other. The fix is the same shape as the over-context fix from [Module 2](../../tier-1/m2-context/). Treat the file as code. Prune entries that don't earn their keep. The test: if you removed this entry, would the next session degrade?
 
 Honest pull-back: I haven't hit the graveyard hard in my own work, and I think the reason is that Claude has done most of the maintenance. When I let it author or restructure CLAUDE.md, it tends to produce something tighter than what I'd leave to grow on its own. The navigation-index structure from the opening helps too, since most of the volume can never accumulate in the prose layer in the first place: it's in referenced files that only load when needed.
 
@@ -210,9 +210,9 @@ Both of those are mitigations, not guarantees. If you write CLAUDE.md by hand an
 
 CLAUDE.md and progress files give you durable, project-level state. They're the simplest application of file-based state: one project, one CLAUDE.md, one task, one progress file. Read at session start, updated as work proceeds.
 
-The next step up is when the work itself is too large for a single Claude session to hold without losing the thread. You start wanting specialized agents (one to plan, one to write, one to review, one to run tests), each with its own scoped instructions and its own scoped tool access. The same file-based state principle applies, but now the files are scoped per agent. Sub-agents are markdown files with their own task descriptions and their own permissions. Module 5 picks up there: how to decompose work into sub-agents within a single session, when to do it, and when to leave the work to a single Claude.
+The next step up is when the work itself is too large for a single Claude session to hold without losing the thread. You start wanting specialized agents (one to plan, one to write, one to review, one to run tests), each with its own scoped instructions and its own scoped tool access. The same file-based state principle applies, but now the files are scoped per agent. Sub-agents are markdown files with their own task descriptions and their own permissions. [Module 5](../m5-subagents/) picks up there: how to decompose work into sub-agents within a single session, when to do it, and when to leave the work to a single Claude.
 
-This is also where the curriculum's anchor project, PR Assistant, gets decomposed for the first time. The lab in this module gets you to one Claude Code session with a CLAUDE.md reviewing PRs. Module 5's lab splits that into three persona reviewers (security, performance, readability), each as a sub-agent.
+This is also where the curriculum's anchor project, PR Assistant, gets decomposed for the first time. The lab in this module gets you to one Claude Code session with a CLAUDE.md reviewing PRs. [Module 5](../m5-subagents/)'s lab splits that into three persona reviewers (security, performance, readability), each as a sub-agent.
 
 ### TLDR
 
@@ -240,7 +240,7 @@ The lab for this module introduces the curriculum's anchor project: PR Assistant
 
 The repo intentionally ships without a CLAUDE.md. There's a `STARTER-NOTES.md` describing what the project is and a `SEEDED-ISSUES.md` listing what's been planted (don't read this until the calibration step).
 
-Verify your Claude Code install from Module 3 still works. Confirm you're on the latest version.
+Verify your Claude Code install from [Module 3](../../tier-1/m3-claude-code/) still works. Confirm you're on the latest version.
 
 **Exercise.**
 
@@ -280,7 +280,7 @@ Then prune. Open your CLAUDE.md and ask: which lines did the model use in Step 3
 - One thing it didn't help with that you thought it would
 - One entry you'd add or remove if you ran the lab again tomorrow
 
-**What you'll have at the end.** Two recorded review sessions for direct comparison, a working CLAUDE.md sized for the project, and a personal calibration of where the file's leverage came from. Keep all of these. Module 5 builds on this CLAUDE.md when you decompose PR Assistant into sub-agents.
+**What you'll have at the end.** Two recorded review sessions for direct comparison, a working CLAUDE.md sized for the project, and a personal calibration of where the file's leverage came from. Keep all of these. [Module 5](../m5-subagents/) builds on this CLAUDE.md when you decompose PR Assistant into sub-agents.
 
 **Time budget.** ~2 hours. The setup-and-friction-watching in Step 1 takes longer than feels comfortable; that's the point. The pruning in Step 4 is where most learners discover their CLAUDE.md was longer than it needed to be.
 
@@ -291,7 +291,7 @@ Then prune. Open your CLAUDE.md and ask: which lines did the model use in Step 3
 - Treating Step 4 as optional. The pruning step is most of the learning. The first draft is rarely the right size.
 - Documenting things "in case the model needs them." If you didn't see the model need it in Step 1, it's speculation. Leave it out.
 
-**Extension, optional.** Add a `progress.md` file before running Step 3. Pretend the PR review is a multi-session task and write down the goal, status, and one rejected approach. See whether the model uses it. The pattern matters more than getting it right; you'll formalize it more in Module 7 when work spans real overnight runs.
+**Extension, optional.** Add a `progress.md` file before running Step 3. Pretend the PR review is a multi-session task and write down the goal, status, and one rejected approach. See whether the model uses it. The pattern matters more than getting it right; you'll formalize it more in [Module 7](../../tier-3/m7-headless/) when work spans real overnight runs.
 
 ---
 
