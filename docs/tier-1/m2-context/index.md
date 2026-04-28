@@ -1,3 +1,8 @@
+---
+title: M2 — Context is the product
+description: Context window management, conversation degradation, and the "Claude forgot vs. Claude never had it" diagnostic.
+---
+
 # Module 2 — Context is the product
 
 **Tier:** 1 (everyone)
@@ -36,11 +41,11 @@ In a nutshell:
 
 The lab is a 60-minute exercise on diagnosing a deliberately messy 50-turn conversation, fixing it three ways, and measuring which fix actually worked.
 
-This module assumes [Module 1](module-1-prompting-as-specification.md). It extends the "prompts are specs" frame to "context is the product." If you skipped M1, the four-component diagnostic from there shows up here too.
+This module assumes [Module 1](../m1-prompting/). It extends the "prompts are specs" frame to "context is the product." If you skipped M1, the four-component diagnostic from there shows up here too.
 
 ### The reframe
 
-[Module 1](module-1-prompting-as-specification.md) reframed prompt engineering from incantation to specification. That works at the scale of a single turn. Beyond that, the frame has to expand.
+[Module 1](../m1-prompting/) reframed prompt engineering from incantation to specification. That works at the scale of a single turn. Beyond that, the frame has to expand.
 
 The thing you're managing across a real piece of work is not a prompt. It's everything the model can see when it generates the next response. That's the context window. Your prompt is one contribution to it, often a small one. The rest comes from the system prompt, the conversation history, any attached files, any project knowledge, any artifacts in scope.
 
@@ -118,7 +123,7 @@ The trap: you're sure you said it. So sure that you skip the scroll-back. Roughl
 | Quality drops sharply after a long document paste | Attachment displaced earlier context | Summarize the attachment's relevance explicitly, or move it to a project file |
 | Model apologizes, retries, produces the same wrong thing | Context problem, not prompt problem | Stop rewording the prompt. Fix the context or start fresh |
 
-The meta-move is the same as [M1](module-1-prompting-as-specification.md)'s: before blaming the prompt, check the context. The failure-mode table front-loads the checks you'd otherwise spend minutes rediscovering live.
+The meta-move is the same as [M1](../m1-prompting/)'s: before blaming the prompt, check the context. The failure-mode table front-loads the checks you'd otherwise spend minutes rediscovering live.
 
 ### Tools for managing context across conversations
 
@@ -138,7 +143,7 @@ The progression when something starts to matter: paste it into the current turn,
 
 ### Over-contextualizing
 
-There's an opposite failure mode to the one we've been discussing. If the context is bloated with things the current turn doesn't need, the model's attention is spent parsing noise. Scale [M1](module-1-prompting-as-specification.md)'s over-specifying pattern up from prompt to context, and this is what you get.
+There's an opposite failure mode to the one we've been discussing. If the context is bloated with things the current turn doesn't need, the model's attention is spent parsing noise. Scale [M1](../m1-prompting/)'s over-specifying pattern up from prompt to context, and this is what you get.
 
 Symptoms:
 
@@ -173,7 +178,7 @@ One caveat the opening showed: the summary is only as good as what you remember 
 
 So far, everything here has assumed the chat interface: conversations, projects, artifacts, attachments. That's where most people start and where many stay. It's also not where Claude does its most interesting work.
 
-When the work shifts from "help me think through this" to "go do this thing in my codebase," the chat interface starts to strain. File paths get pasted in and out. Diffs get copied, edited, copied back. The context window fills with ceremony: here's the file, here's what I changed, here's what broke. [Module 3](module-3-claude-code.md) is about the transition from chat to Claude Code, and what happens when the terminal becomes the interface and the filesystem becomes part of the context.
+When the work shifts from "help me think through this" to "go do this thing in my codebase," the chat interface starts to strain. File paths get pasted in and out. Diffs get copied, edited, copied back. The context window fills with ceremony: here's the file, here's what I changed, here's what broke. [Module 3](../m3-claude-code/) is about the transition from chat to Claude Code, and what happens when the terminal becomes the interface and the filesystem becomes part of the context.
 
 The context principles from this module carry over directly. What changes is the mechanics.
 
@@ -189,7 +194,7 @@ The context principles from this module carry over directly. What changes is the
 
 ### Lab handoff
 
-The lab for this module is a 60-minute exercise in context diagnosis. You'll get a deliberately messy 50-turn conversation with several documented failure modes. Your job is to diagnose three of them, propose a single-move fix for each, and measure whether the fix worked. Instructions in [`labs/module-2/`](../labs/module-2/).
+The lab for this module is a 60-minute exercise in context diagnosis. You'll get a deliberately messy 50-turn conversation with several documented failure modes. Your job is to diagnose three of them, propose a single-move fix for each, and measure whether the fix worked. Instructions in [the lab](./lab/).
 
 ---
 
@@ -199,7 +204,7 @@ The lab for this module is a 60-minute exercise in context diagnosis. You'll get
 
 **Goal.** Practice the "Claude forgot vs. never had it" diagnostic on a real long conversation, then fix each issue with a single, specific move. Build the reflex to ask "is this a prompt problem or a context problem?"
 
-**Setup.** The lab repo contains [`labs/module-2/messy-conversation.md`](../labs/module-2/messy-conversation.md), a 50-turn conversation depicting an early attempt at building a PR review tool in chat-only mode (before the disciplined approach the curriculum's anchor project takes from M4 onward). It's been built to contain several documented failure modes:
+**Setup.** [The messy conversation page](./lab/messy-conversation) contains a 50-turn conversation depicting an early attempt at building a PR review tool in chat-only mode (before the disciplined approach the curriculum's anchor project takes from M4 onward). It's been built to contain several documented failure modes:
 
 - Two "Claude forgot" cases (information present earlier, ignored later)
 - One "Claude never had it" case (user references a file that was never pasted)

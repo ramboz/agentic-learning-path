@@ -1,3 +1,8 @@
+---
+title: M4 — Writing a CLAUDE.md that earns its keep
+description: File-based state as a design principle. Progress files, the .claude/ pattern, and pruning entries that don't earn their place.
+---
+
 # Module 4 — Writing a CLAUDE.md that earns its keep
 
 **Tier:** 2 (engineers primary; PMs/architects continue with concept post only)
@@ -221,7 +226,7 @@ This is also where the curriculum's anchor project, PR Assistant, gets decompose
 
 ### Lab handoff
 
-The lab for this module introduces the curriculum's anchor project: PR Assistant. You'll clone the sample repo, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after comparison is the artifact you keep. Instructions in `/labs/m4-claude-md/`.
+The lab for this module introduces the curriculum's anchor project: PR Assistant. You'll clone the sample repo, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after comparison is the artifact you keep. The lab spec lands separately — this draft includes the lab design notes below as the seed.
 
 ---
 
