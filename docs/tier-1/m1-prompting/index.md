@@ -167,43 +167,7 @@ Real work runs longer. You ask a follow-up, then another. You paste in a documen
 
 ### Lab handoff
 
-The lab for this module is a 90-minute self-paced exercise in the diagnostic move. Take 5 bad prompts, rewrite each three ways, predict which will work best, then run. Instructions in [the lab](./lab/).
-
----
-
-## Lab design
-
-### Lab: Rewrite 5 bad prompts, three ways each
-
-**Goal.** Build the habit of diagnosing and fixing prompts along three specific axes before running them. This is self-paced. There's no submission, no review. You're doing it for yourself.
-
-**Setup.** You'll find 5 deliberately bad prompts at [the bad-prompts page](./lab/bad-prompts). Each one is a real shape of prompt that shows up in practice: vague topic, missing format, no audience, underspecified task, over-broad help request.
-
-**Exercise.** For each prompt, produce three rewrites along three fixed axes:
-
-1. **Specification rewrite.** Add constraints, audience, length, format. The four components from the concept post. Don't add examples or restructure the task. Just specify what was missing.
-2. **Example rewrite.** Keep the original mostly intact, but include 1-2 examples of what good output looks like. This is the "show don't tell" variant.
-3. **Decomposition rewrite.** Break the task into steps. Ask the model to plan first, then execute. Good for anything where the task has dependencies (i.e. "summarize then rank" rather than "give me the top 3").
-
-Before running any of the rewrites, **predict**. For each of the 5 prompts, write down:
-
-- Which rewrite you expect to produce the best output
-- One sentence describing what "best" means for that prompt
-- What you expect the other two rewrites to get wrong
-
-Only then run them. All three rewrites, each one twice (for the noise floor).
-
-**What you'll have at the end.** For each of the 5 prompts: three rewrites, your prediction, actual outputs (two runs each), and a sense of whether your prediction held. Keep the notes somewhere you can go back to. You'll want to compare against yourself in [Module 2](../m2-context/) when the same prompts get longer conversations around them.
-
-**Time budget.** ~90 minutes. If it's taking three hours, you're polishing the rewrites rather than practicing the diagnostic move. Stop and move on.
-
-**Common traps:**
-
-- Making the "specification rewrite" so long it's actually three rewrites in one. Keep it to the one axis.
-- Running each rewrite once. The noise-floor discussion in the post is why you run each twice.
-- Skipping the prediction step because it feels silly. The prediction is most of the value.
-
-**Extension, optional.** Take the winning rewrite from each of the 5 and see if you can shorten it by 30% without degrading the output. That's the over-specification test from the concept post, applied.
+The lab takes 5 deliberately bad prompts and asks you to rewrite each three ways, predict which version wins before running, then run and compare. The prediction is what builds the diagnostic reflex. ~90 minutes, self-paced. Lab spec at [./lab/](./lab/).
 
 ---
 
