@@ -170,8 +170,8 @@ The lab takes 5 deliberately bad prompts and asks you to rewrite each three ways
 
 ## References
 
-- **Anthropic prompting docs.** Official guide covering mechanics (system prompts, few-shot, XML tags) with examples. Useful as a reference once you have the frame. Less useful for building the frame itself. `https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview`
-- **Simon Willison's weblog.** Ongoing practitioner notes on prompting, with honest reporting of what works and what doesn't. Good counterweight to hype. `https://simonwillison.net/`
-- **"Prompt report" (Schulhoff et al., 2024).** A systematic survey of prompting techniques with empirical evaluations. Skim it for the taxonomy. The useful finding for this module is that most "clever" techniques produce small gains compared to basic specification. `https://arxiv.org/abs/2406.06608`
-- **Shreya Shankar et al. on prompt evaluation.** Applied work on evaluating prompt quality systematically. Matters more for production systems. Worth reading if Module 6 (oracles) catches your attention. `https://arxiv.org/abs/2404.12272`
-- **cwv-agent PR #68**. The concrete PR referenced in the over-specifying section. If you want to see what phase-scoped context looks like in practice rather than in the abstract, this is the diff. `https://github.com/ramboz/cwv-agent/pull/68`
+- [**Anthropic prompting docs**](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview). Official guide covering mechanics (system prompts, few-shot, XML tags) with examples. Useful as a reference once you have the frame. Less useful for building the frame itself.
+- [**Simon Willison's weblog**](https://simonwillison.net/). Ongoing practitioner notes on prompting, with honest reporting of what works and what doesn't. Good counterweight to hype.
+- [**"Prompt report" (Schulhoff et al., 2024)**](https://arxiv.org/abs/2406.06608). A systematic survey of prompting techniques with empirical evaluations. Skim it for the taxonomy. The useful finding for this module is that most "clever" techniques produce small gains compared to basic specification.
+- [**Shreya Shankar et al. on prompt evaluation**](https://arxiv.org/abs/2404.12272). Applied work on evaluating prompt quality systematically. Matters more for production systems. Worth reading if [Module 6](../../tier-2/m6-oracle/) (oracles) catches your attention.
+- [**cwv-agent PR #68**](https://github.com/ramboz/cwv-agent/pull/68). The concrete PR referenced in the over-specifying section. If you want to see what phase-scoped context looks like in practice rather than in the abstract, this is the diff.

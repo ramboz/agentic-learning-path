@@ -197,8 +197,8 @@ The lab hands you a deliberately messy 50-turn conversation with several planted
 
 ## References
 
-- **Anthropic's long-context guidance.** Practical notes from Anthropic on how Claude handles long conversations and documents, including when to use projects. Useful for mechanical details like effective context length and attachment handling. `https://docs.claude.com/en/docs/build-with-claude/long-context-tips`
-- **"Lost in the Middle" (Liu et al., 2023).** The canonical paper on attention degradation in long contexts. Finding: models attend best to the start and end of a long context, worst to the middle. Helps explain why correction-loop failures look the way they do. `https://arxiv.org/abs/2307.03172`
-- **Simon Willison on context engineering.** Ongoing practitioner notes on long-context work with examples. Good counterweight to the paper-only view. `https://simonwillison.net/tags/prompt-engineering/`
-- **"Needle in a haystack" benchmarks.** A family of evaluations measuring how well models retrieve specific facts from long contexts. Useful intuition-builder; less useful as a direct predictor of real-conversation performance. `https://github.com/gkamradt/LLMTest_NeedleInAHaystack`
-- **Anthropic docs on projects and memory.** Product docs for the tools referenced in the module. Lookup reference, not reading material. `https://support.claude.com/`
+- [**Anthropic's long-context guidance**](https://docs.claude.com/en/docs/build-with-claude/long-context-tips). Practical notes from Anthropic on how Claude handles long conversations and documents, including when to use projects. Useful for mechanical details like effective context length and attachment handling.
+- [**"Lost in the Middle" (Liu et al., 2023)**](https://arxiv.org/abs/2307.03172). The canonical paper on attention degradation in long contexts. Finding: models attend best to the start and end of a long context, worst to the middle. Helps explain why correction-loop failures look the way they do.
+- [**Simon Willison on context engineering**](https://simonwillison.net/tags/prompt-engineering/). Ongoing practitioner notes on long-context work with examples. Good counterweight to the paper-only view.
+- [**"Needle in a haystack" benchmarks**](https://github.com/gkamradt/LLMTest_NeedleInAHaystack). A family of evaluations measuring how well models retrieve specific facts from long contexts. Useful intuition-builder; less useful as a direct predictor of real-conversation performance.
+- [**Anthropic docs on projects and memory**](https://support.claude.com/). Product docs for the tools referenced in the module. Lookup reference, not reading material.

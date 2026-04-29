@@ -189,7 +189,7 @@ The lab is a setup-and-explore exercise. You install Claude Code, point it at a 
 
 ## References
 
-- **Claude Code documentation.** Official docs covering installation, configuration, permissions, and the plan/edit/exec mechanics. The single best reference for current syntax. Mechanical details change quarter to quarter; defer to docs over anything specific in this module. `https://docs.claude.com/en/docs/claude-code/overview`
-- **Anthropic's CLAUDE.md guidance.** Official notes on what makes a useful CLAUDE.md and what to avoid. Pairs with Module 4's deeper treatment. `https://docs.claude.com/en/docs/claude-code/memory`
-- **Simon Willison on agentic coding tools.** Ongoing practitioner notes on Claude Code and similar tools, with concrete examples and failure stories. Counterweight to vendor docs. `https://simonwillison.net/tags/claude-code/`
-- **Geoffrey Huntley's writing on Claude Code in practice.** A practitioner's collection on running Claude Code with autonomy. The Ralph loop itself comes up in Module 7; the day-to-day Claude Code posts are the relevant ones for this module. `https://ghuntley.com/`
+- [**Claude Code documentation**](https://docs.claude.com/en/docs/claude-code/overview). Official docs covering installation, configuration, permissions, and the plan/edit/exec mechanics. The single best reference for current syntax. Mechanical details change quarter to quarter; defer to docs over anything specific in this module.
+- [**Anthropic's CLAUDE.md guidance**](https://docs.claude.com/en/docs/claude-code/memory). Official notes on what makes a useful CLAUDE.md and what to avoid. Pairs with [Module 4](../../tier-2/m4-claude-md/)'s deeper treatment.
+- [**Simon Willison on agentic coding tools**](https://simonwillison.net/tags/claude-code/). Ongoing practitioner notes on Claude Code and similar tools, with concrete examples and failure stories. Counterweight to vendor docs.
+- [**Geoffrey Huntley's writing on Claude Code in practice**](https://ghuntley.com/). A practitioner's collection on running Claude Code with autonomy. The Ralph loop itself comes up in [Module 7](../../tier-3/m7-headless/); the day-to-day Claude Code posts are the relevant ones for this module.
