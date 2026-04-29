@@ -194,50 +194,7 @@ The context principles from this module carry over directly. What changes is the
 
 ### Lab handoff
 
-The lab for this module is a 60-minute exercise in context diagnosis. You'll get a deliberately messy 50-turn conversation with several documented failure modes. Your job is to diagnose three of them, propose a single-move fix for each, and measure whether the fix worked. Instructions in [the lab](./lab/).
-
----
-
-## Lab design
-
-### Lab: Diagnose and fix a messy conversation
-
-**Goal.** Practice the "Claude forgot vs. never had it" diagnostic on a real long conversation, then fix each issue with a single, specific move. Build the reflex to ask "is this a prompt problem or a context problem?"
-
-**Setup.** [The messy conversation page](./lab/messy-conversation) contains a 50-turn conversation depicting an early attempt at building a PR review tool in chat-only mode (before the disciplined approach the curriculum's anchor project takes from M4 onward). It's been built to contain several documented failure modes:
-
-- Two "Claude forgot" cases (information present earlier, ignored later)
-- One "Claude never had it" case (user references a file that was never pasted)
-- One correction-loop case (same mistake twice despite a correction)
-- One over-contextualization case (early attachment dominates later responses)
-- Red herrings may be added later (responses that look wrong but are actually fine given the context)
-
-You won't be told which is which. That's the lab.
-
-**Exercise.**
-
-1. **Read the conversation cold.** No notes, no diagnosis. Get the shape.
-2. **Second pass with the diagnostic.** For each turn where the response feels off, stop and ask: Claude forgot, Claude never had it, or something else? Note it.
-3. **Pick three to fix.** Not all of them. Three that you think are fixable with a single move.
-4. **For each of the three, write:**
-   - Which failure mode it is
-   - The single move to fix it (restate? attach? start fresh with a summary?)
-   - A one-sentence prediction of what the output should look like after the fix
-5. **Run the fixes.** Paste the relevant portion of the conversation plus your fix into a new Claude conversation. Compare against your prediction.
-6. **Flag any red herrings.** At the end, note which turns you think were actually fine despite looking off.
-
-**What you'll have at the end.** Three diagnoses, three fixes, three predictions, and a comparison. Plus a calibration check: did you correctly identify any red herrings, or did you "fix" something that wasn't broken?
-
-**Time budget.** ~60 minutes. The first pass is fast. The diagnosis pass is where the time goes. If you're spending more than 15 minutes per fix, you're over-engineering the rewrite. The point is the single move, not a perfect prompt.
-
-**Common traps:**
-
-- Treating every off-sounding response as a context problem. Some are fine.
-- Conflating "forgot" and "never had it" and reaching for the same fix for both. The fixes are different. If your fix for a "never had it" case is to restate what's in the conversation, you didn't diagnose it.
-- Fixing everything with "start fresh." Sometimes it's right. If it's your answer for all three, you're not practicing the specific moves.
-- Missing the "never had it" case by scrolling within the current conversation and finding nothing contradictory. That's the point. When the model never had it, there's nothing to find. The fix is to add it, not to reword anything.
-
-**Extension, optional.** Take one of the "Claude forgot" cases and try three different fixes: in-turn restatement, summary-then-ask, and a fresh conversation with distilled context. Compare which works best for that specific failure. Previews the iteration discipline M6 will formalize.
+The lab hands you a deliberately messy 50-turn conversation with several planted failure modes. You diagnose three of them, propose a single-move fix for each, and measure whether the fix worked. The "Claude forgot vs. Claude never had it" distinction is the diagnostic to build. ~60 minutes, self-paced. Lab spec at [./lab/](./lab/).
 
 ---
 

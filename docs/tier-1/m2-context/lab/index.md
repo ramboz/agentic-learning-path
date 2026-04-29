@@ -4,16 +4,9 @@ description: Self-paced 60-minute exercise for Module 2. Diagnose three failure 
 sidebar_label: Lab
 ---
 
-# Lab — Module 2: Diagnose and fix a messy conversation
+# Lab — Diagnose and fix a messy conversation
 
-**Module:** 2 — Context is the product
-**Time budget:** ~60 minutes
-**Prerequisites:** Finished reading Module 2 (at least through the "Claude forgot vs. Claude never had it" section)
-**Submission:** None. This is self-paced.
-
----
-
-## What this lab is
+[Module 2](../) lab. ~60 minutes. Self-paced. No submission, no review.
 
 You're handed a deliberately messy 50-turn conversation. Your job is to diagnose what went wrong at specific points, pick three issues you think are fixable with a single move each, and test whether your fixes actually work.
 
@@ -28,11 +21,17 @@ The failures in the conversation are planted. They include:
 
 You won't be told which turns contain which failures. That's the point.
 
-## What you need
+## Before you start
 
-- [The messy conversation](./messy-conversation) — the 50-turn conversation to diagnose
-- A Claude chat open in a browser tab (any plan, no special setup)
-- [Worksheet](./worksheet), if you want a template for notes (optional)
+- **Time:** ~60 minutes total. Step 2 (diagnosis) is where most of the time goes; Steps 1 and 5 are short.
+- **Prerequisites:** Module 2 concept post finished, at least through the "Claude forgot vs. Claude never had it" section.
+- **What you'll work on:** [The messy conversation](./messy-conversation) — a 50-turn chat with planted failure modes.
+
+## Setup
+
+1. Open [the messy conversation](./messy-conversation) in one tab.
+2. Open a Claude chat in another tab (any plan, no special setup).
+3. Optional: copy [the worksheet](./worksheet) into a scratch file for note-taking.
 
 ## The exercise
 
@@ -102,6 +101,12 @@ No submission. The artifact is for you.
 - **Missing "never had it" by scrolling the conversation and finding nothing.** That's what "never had it" looks like. The absence is the signal. The fix is to add the missing information, not to reword anything.
 - **Polishing fix prompts.** The point is the single diagnostic move, not a maximally clever rewrite. If you're spending 15+ minutes on one fix, you're over-engineering.
 
+## When you're done
+
+You should have three diagnoses, three fixes, three predictions, and a calibration check. The artifact is for you. Move to [Module 3](../../m3-claude-code/) when ready.
+
+If a diagnosis feels wrong or a fix doesn't work the way you expected, that's useful information, not a failure. Long conversations are genuinely hard to diagnose. The point of this lab is to build the reflex, not to nail every case on the first pass.
+
 ## Extension, optional
 
 Take one of the "Claude forgot" cases and try three different fixes:
@@ -110,10 +115,4 @@ Take one of the "Claude forgot" cases and try three different fixes:
 2. Summary-then-ask (one turn that summarizes all relevant decisions, followed by a separate turn with the question)
 3. Fresh conversation with distilled context (new conversation, seeded with a concise summary of what's been established)
 
-Compare which works best for that specific failure. Previews the iteration discipline Module 6 will formalize.
-
-## When you're done
-
-Close the lab. Move to [Module 3](../../m3-claude-code/). No checkpoint, no submission, nothing blocking.
-
-If a diagnosis feels wrong or a fix doesn't work the way you expected, that's useful information, not a failure. Long conversations are genuinely hard to diagnose. The point of this lab is to build the reflex, not to nail every case on the first pass.
+Compare which works best for that specific failure. Previews the iteration discipline [Module 6](../../../tier-2/m6-oracle/) will formalize.
