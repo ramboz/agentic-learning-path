@@ -6,7 +6,7 @@ pagination_label: M1 — Prompting
 
 # Module 1 — Prompting as a design problem, not a phrasing trick
 
-**Tier 1** — for everyone (PMs, architects, engineers).
+**Tier 1** — for everyone (PMs, architects, engineers).  
 **Prerequisites:** None. Frame-setter for the whole curriculum.
 
 ---

@@ -1,10 +1,11 @@
 ---
-title: Lab — Rewrite 5 bad prompts, three ways each
+title: Lab 1 — Rewrite 5 bad prompts, three ways each
 description: Self-paced 90-minute exercise for Module 1. Diagnose and fix five deliberately bad prompts along three axes, predict before running, compare.
 sidebar_label: Lab
+pagination_label: M1 Lab — Prompting
 ---
 
-# Lab — Rewrite 5 bad prompts, three ways each
+# Lab 1 — Rewrite 5 bad prompts, three ways each
 
 [Module 1](../) lab. ~90 minutes. Self-paced. No submission, no review.
 

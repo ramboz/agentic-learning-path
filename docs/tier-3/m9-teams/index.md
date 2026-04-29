@@ -1,6 +1,7 @@
 ---
 title: M9 — Agent Teams and the manager-worker mental model
 description: Claude Code's experimental Agent Teams, shared task lists, and reframing yourself from coder to engineering manager for agents. Coming soon.
+pagination_label: M9 — Agent Teams
 ---
 
 # Module 9 — Agent Teams and the manager-worker mental model

@@ -1,6 +1,7 @@
 ---
 title: M7 — Headless mode and the Ralph loop
 description: First module where Claude runs without a human watching. claude -p, structured output, budget controls, agentic laziness. Coming soon.
+pagination_label: M7 — Headless mode
 ---
 
 # Module 7 — Headless mode and the Ralph loop

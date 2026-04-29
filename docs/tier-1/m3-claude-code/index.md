@@ -6,7 +6,7 @@ pagination_label: M3 — Claude Code
 
 # Module 3 — From chat to Claude Code
 
-**Tier 1** — for everyone (PMs, architects, engineers).
+**Tier 1** — for everyone (PMs, architects, engineers).  
 **Prerequisites:** [Module 1](../m1-prompting/) (Prompting as a design problem), [Module 2](../m2-context/) (Context is the product).
 
 Note: this is the last module on the PM/architect lab track. From M4 onward, the lab track is engineer-only; PMs and architects continue with concept posts of M4-6.

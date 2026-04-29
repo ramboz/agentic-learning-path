@@ -1,6 +1,7 @@
 ---
 title: M10 — Crews, MCP, and knowing when you've over-engineered
 description: Multi-tool systems, MCP servers, ambient agents, and an honest discussion of when a crew is worse than a single well-instructed agent. Coming soon.
+pagination_label: M10 — Crews
 ---
 
 # Module 10 — Crews: multi-tool systems, MCP, and knowing when you've over-engineered

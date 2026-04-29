@@ -1,10 +1,11 @@
 ---
-title: Lab — Set up Claude Code and run tasks of increasing autonomy
+title: Lab 3 — Set up Claude Code and run tasks of increasing autonomy
 description: Self-paced 90-minute exercise for Module 3. Install Claude Code, work on a sample repo across four autonomy levels, calibrate your permissions posture.
 sidebar_label: Lab
+pagination_label: M3 Lab — Claude Code
 ---
 
-# Lab — Set up Claude Code and run tasks of increasing autonomy
+# Lab 3 — Set up Claude Code and run tasks of increasing autonomy
 
 [Module 3](../) lab. ~90 minutes. Self-paced. No submission, no review.
 

@@ -6,7 +6,7 @@ pagination_label: M2 — Context
 
 # Module 2 — Context is the product
 
-**Tier 1** — for everyone (PMs, architects, engineers).
+**Tier 1** — for everyone (PMs, architects, engineers).  
 **Prerequisites:** [Module 1](../m1-prompting/) (Prompting as a design problem).
 
 ---

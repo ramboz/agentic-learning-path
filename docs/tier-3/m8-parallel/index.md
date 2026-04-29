@@ -1,6 +1,7 @@
 ---
 title: M8 — Parallel workers, worktrees, and racing hypotheses
 description: Multiple Claude Code processes, git worktrees, one-agent-one-file discipline, and when parallelism hurts. Coming soon.
+pagination_label: M8 — Parallel workers
 ---
 
 # Module 8 — Parallel workers, worktrees, and racing hypotheses

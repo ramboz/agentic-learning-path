@@ -1,6 +1,7 @@
 ---
 title: M5 — Sub-agents, one-session orchestration, and tool scoping
 description: Built-in Explore/Plan/General-Purpose sub-agents, custom sub-agents as markdown files, and scoped tool permissions. Coming soon.
+pagination_label: M5 — Sub-agents
 ---
 
 # Module 5 — Sub-agents, one-session orchestration, and tool scoping

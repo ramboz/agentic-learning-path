@@ -1,10 +1,11 @@
 ---
-title: Lab — Diagnose and fix a messy conversation
+title: Lab 2 — Diagnose and fix a messy conversation
 description: Self-paced 60-minute exercise for Module 2. Diagnose three failure modes in a 50-turn conversation and fix each with a single move.
 sidebar_label: Lab
+pagination_label: M2 Lab — Context
 ---
 
-# Lab — Diagnose and fix a messy conversation
+# Lab 2 — Diagnose and fix a messy conversation
 
 [Module 2](../) lab. ~60 minutes. Self-paced. No submission, no review.
 

@@ -39,7 +39,14 @@ const sidebars: SidebarsConfig = {
       label: 'Tier 2 — Session management & single-agent discipline',
       collapsed: true,
       items: [
-        'tier-2/m4-claude-md/index',
+        {
+          type: 'category',
+          label: 'M4 — Writing a CLAUDE.md that earns its keep',
+          items: [
+            {type: 'doc', id: 'tier-2/m4-claude-md/index', label: 'Concept'},
+            {type: 'doc', id: 'tier-2/m4-claude-md/lab/index', label: 'Lab'},
+          ],
+        },
         'tier-2/m5-subagents/index',
         'tier-2/m6-oracle/index',
       ],

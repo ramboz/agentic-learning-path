@@ -1,6 +1,7 @@
 ---
 title: M6 — The oracle problem
 description: Conceptual hinge of the curriculum. Types of oracles, why composite objective oracles beat subjective ones, and noise handling. Coming soon.
+pagination_label: M6 — Oracle problem
 ---
 
 # Module 6 — The oracle problem
