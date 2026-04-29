@@ -1,16 +1,13 @@
 ---
 title: M1 — Prompting as a design problem
 description: Frame-setter. Why "prompt engineering" is misleading; the real skill is specification.
+pagination_label: M1 — Prompting
 ---
 
 # Module 1 — Prompting as a design problem, not a phrasing trick
 
-**Tier:** 1 (everyone)
-**Audience:** Mixed (PMs, architects, engineers)
-**Length target:** ~3000 words concept post + ~700 words lab
+**Tier 1** — for everyone (PMs, architects, engineers).
 **Prerequisites:** None. Frame-setter for the whole curriculum.
-**Standalone publishable:** Yes
-**Ends with bridge to:** Module 2 (Context is the product)
 
 ---
 

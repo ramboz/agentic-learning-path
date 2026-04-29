@@ -1,16 +1,13 @@
 ---
 title: M4 — Writing a CLAUDE.md that earns its keep
 description: File-based state as a design principle. Progress files, the .claude/ pattern, and pruning entries that don't earn their place.
+pagination_label: M4 — CLAUDE.md
 ---
 
 # Module 4 — Writing a CLAUDE.md that earns its keep
 
-**Tier:** 2 (engineers primary; PMs/architects continue with concept post only)
-**Audience:** Engineers (PMs/architects can read concept post)
-**Length target:** ~3000 words concept post + ~700 words lab
-**Prerequisites:** [Module 1](../../tier-1/m1-prompting/) (Prompting as a design problem), [Module 2](../../tier-1/m2-context/) (Context is the product), [Module 3](../../tier-1/m3-claude-code/) (From chat to Claude Code)
-**Standalone publishable:** Yes
-**Ends with bridge to:** [Module 5](../m5-subagents/) (Sub-agents, one-session orchestration, and tool scoping)
+**Tier 2** — engineers primary; PMs/architects can read the concept post but the lab is engineer-track.
+**Prerequisites:** [Module 1](../../tier-1/m1-prompting/) (Prompting as a design problem), [Module 2](../../tier-1/m2-context/) (Context is the product), [Module 3](../../tier-1/m3-claude-code/) (From chat to Claude Code).
 
 Note: this is the first module on the engineer-only lab track. The concept post stays useful for PMs and architects who want the mental model without building it.
 
@@ -226,72 +223,7 @@ This is also where the curriculum's anchor project, PR Assistant, gets decompose
 
 ### Lab handoff
 
-The lab for this module introduces the curriculum's anchor project: PR Assistant. You'll clone the sample repo, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after comparison is the artifact you keep. The lab spec lands separately — this draft includes the lab design notes below as the seed.
-
----
-
-## Lab design
-
-### Lab: Build a CLAUDE.md for PR Assistant
-
-**Goal.** Feel the difference a good CLAUDE.md makes by experiencing both states. Build the habit of writing one that earns its keep, not one that documents everything.
-
-**Setup.** Clone the PR Assistant sample repo from `github.com/ramboz/pr-assistant-lab` (the curriculum's anchor project, entering here for the first time). The repo is a small TypeScript project that wraps GitHub's PR API and contains seeded issues: bugs, style violations, and design problems planted across the codebase to give Claude Code something concrete to find and fix.
-
-The repo intentionally ships without a CLAUDE.md. There's a `STARTER-NOTES.md` describing what the project is and a `SEEDED-ISSUES.md` listing what's been planted (don't read this until the calibration step).
-
-Verify your Claude Code install from [Module 3](../../tier-1/m3-claude-code/) still works. Confirm you're on the latest version.
-
-**Exercise.**
-
-**Step 1: Run without a CLAUDE.md (~25 minutes).** Open Claude Code in the repo. Ask it to review one of the open PRs (the repo includes a `MOCK-PRS/` directory with three sample PRs as branches). Watch carefully. Note specifically:
-
-- How many turns does it spend orienting itself before getting to the review?
-- Does it run the test command? Does it know how to?
-- Does it make assumptions about conventions that don't match the codebase?
-- Does it edit any files it shouldn't?
-
-Don't help it. The friction is the data.
-
-**Step 2: Write a CLAUDE.md (~30 minutes).** Based on what you learned in Step 1, write a CLAUDE.md for the repo. Use the five categories from the concept post as a checklist:
-
-1. How to operate the project
-2. Project layout
-3. Conventions and idioms
-4. Things to never touch
-5. Standing decisions
-
-Constraint: keep the prose under 80 lines. If you're going over, you're documenting things that don't earn their place. Real projects, especially ones using the navigation-index pattern with referenced detail docs, will reasonably run longer; what matters here is that the directly-loaded prose stays tight. The constraint is a teaching constraint on a small repo, not a rule you'll carry forward.
-
-**Step 3: Run with the CLAUDE.md (~25 minutes).** Open a fresh Claude Code session. Ask it to review the same PR from Step 1. Note the same observations. Compare directly:
-
-- Did the orientation turns disappear?
-- Did it run the test command without being told?
-- Did it follow the conventions you wrote down?
-- Where did your CLAUDE.md help, and where did it not?
-
-**Step 4: Calibration pass (~20 minutes).** Now read `SEEDED-ISSUES.md`. For each seeded issue, check whether the run with CLAUDE.md caught it. Some issues are designed to be caught only with proper convention awareness; others should be catchable either way. Note which ones your CLAUDE.md helped with and which it didn't.
-
-Then prune. Open your CLAUDE.md and ask: which lines did the model use in Step 3? Which lines were ignored? Delete the ignored ones and shrink the file.
-
-**Step 5: Reflection (~10 minutes).** Write three sentences:
-
-- One thing your CLAUDE.md helped with that you didn't expect
-- One thing it didn't help with that you thought it would
-- One entry you'd add or remove if you ran the lab again tomorrow
-
-**What you'll have at the end.** Two recorded review sessions for direct comparison, a working CLAUDE.md sized for the project, and a personal calibration of where the file's leverage came from. Keep all of these. [Module 5](../m5-subagents/) builds on this CLAUDE.md when you decompose PR Assistant into sub-agents.
-
-**Time budget.** ~2 hours. The setup-and-friction-watching in Step 1 takes longer than feels comfortable; that's the point. The pruning in Step 4 is where most learners discover their CLAUDE.md was longer than it needed to be.
-
-**Common traps:**
-
-- Writing the CLAUDE.md before running Step 1. The friction is the data; without it, you'll write a generic CLAUDE.md template that doesn't reflect this project.
-- Going over the 80-line constraint. The constraint forces choices. If you can't fit everything you want, that's the lab teaching you which entries earn their place.
-- Treating Step 4 as optional. The pruning step is most of the learning. The first draft is rarely the right size.
-- Documenting things "in case the model needs them." If you didn't see the model need it in Step 1, it's speculation. Leave it out.
-
-**Extension, optional.** Add a `progress.md` file before running Step 3. Pretend the PR review is a multi-session task and write down the goal, status, and one rejected approach. See whether the model uses it. The pattern matters more than getting it right; you'll formalize it more in [Module 7](../../tier-3/m7-headless/) when work spans real overnight runs.
+The lab for this module introduces the curriculum's anchor project: PR Assistant. You'll clone the sample repo, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after comparison is the artifact you keep. ~2 hours, self-paced. Lab spec at [./lab/](./lab/).
 
 ---
 

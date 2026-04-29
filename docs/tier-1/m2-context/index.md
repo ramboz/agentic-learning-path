@@ -1,16 +1,13 @@
 ---
 title: M2 — Context is the product
 description: Context window management, conversation degradation, and the "Claude forgot vs. Claude never had it" diagnostic.
+pagination_label: M2 — Context
 ---
 
 # Module 2 — Context is the product
 
-**Tier:** 1 (everyone)
-**Audience:** Mixed (PMs, architects, engineers)
-**Length target:** ~3000 words concept post + ~700 words lab
-**Prerequisites:** Module 1 (Prompting as a design problem)
-**Standalone publishable:** Yes
-**Ends with bridge to:** Module 3 (From chat to Claude Code)
+**Tier 1** — for everyone (PMs, architects, engineers).
+**Prerequisites:** [Module 1](../m1-prompting/) (Prompting as a design problem).
 
 ---
 
