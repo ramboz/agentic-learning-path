@@ -186,48 +186,7 @@ For PMs and architects, this is where the lab track ends. The remaining concept 
 
 ### Lab handoff
 
-The lab for this module is a 90-minute setup-and-explore exercise. You install Claude Code, point it at a small sample repo, and run a sequence of tasks at increasing autonomy levels. The goal is not to ship anything; it's to feel where the loop strains and to calibrate your own sense of when to intervene. Instructions in [the lab](./lab/).
-
----
-
-## Lab design
-
-### Lab: Set up Claude Code and run tasks of increasing autonomy
-
-**Goal.** Install Claude Code, run it on a small sample repo, and step through tasks at four autonomy levels. Build the reflex of intervening at the right phase of the plan/edit/exec loop. Calibrate your own permissions posture.
-
-**Setup.** You'll find a small sample repo at [`samples/m3-claude-code/`](https://github.com/ramboz/agentic-learning-path/tree/main/samples/m3-claude-code) in the curriculum repo. It's a deliberately tiny Node.js project with a handful of files, a couple of tests, and a README. Clone the curriculum repo and copy the sample, or `npx degit` the path. The sample has a starter CLAUDE.md included; resist the urge to expand it before starting the lab. Module 4 covers when and how to grow it. For this lab, you're working with a minimal one on purpose.
-
-Install Claude Code per the current docs. Verify your install works by running it inside the sample repo and asking it to describe the project. If the response makes sense, you're set up.
-
-**Exercise.** Four tasks, in order. Each one ratchets up the autonomy and the failure surface.
-
-**Task 1: read-only.** Ask Claude Code to summarize the project's structure and identify one piece of code that could use a comment. No edits. The point is to get familiar with the interface and watch what tool calls happen under the hood. Note: how many file reads did it take? Did the model navigate efficiently or did it read more than it needed?
-
-**Task 2: single-file edit.** Pick a small change with a clear specification. "Add a comment to function X explaining what it does" or "rename variable Y to something clearer in file Z." Approve the plan, watch the edit, run the tests. Note: did the plan match what you wanted? If you'd waved through the plan without reading, would the edit have surprised you?
-
-**Task 3: multi-file change with planning.** A change that touches two or three files. Something like "add a new utility function in `lib/` and use it in `index.js`." Use plan mode. Read the plan carefully before approving. If the plan is vague, reject it and ask for a more specific one. Note: how often did you need to push back on the plan? Were the edits cleaner because the plan was tighter?
-
-**Task 4: open-ended task with a permissions trap.** A task with at least one reasonable interpretation that would touch something you didn't intend. "Clean up the dependencies in this project" is a good shape: the model might propose `npm prune`, `npm uninstall` of a package it deems unused, or edits to package.json. At least one of those moves has consequences. Watch carefully. Reject the moves you wouldn't endorse. Note: where did you intervene? Did the model handle the rejection cleanly or did it push back in a way that suggested a context gap?
-
-After all four tasks, take ten minutes for a calibration pass:
-
-- For each task, what was the most attention-worthy moment? Was it the plan, an edit, or a command?
-- Did your default permissions feel right, too tight, or too loose?
-- If you ran the same four tasks tomorrow with what you've learned, what would you do differently?
-
-**What you'll have at the end.** A working Claude Code setup, a feel for the plan/edit/exec loop, and a personal answer to the calibration questions above. Plus a sense of where Claude Code's friction lives in practice, which will pay off in Modules 4 through 10.
-
-**Time budget.** ~90 minutes, including setup. Setup might take 10-15 minutes the first time. The four tasks together should take 60-70 minutes if you're not getting precious about the outputs. The calibration pass is the last 10.
-
-**Common traps:**
-
-- Approving everything without reading. The point of the lab is the noticing, not the shipping. If you're hitting "yes" without reading, slow down.
-- Spending too long on Task 1. It's a warm-up. Five to ten minutes.
-- Skipping the calibration pass at the end because you finished the tasks. The pass is most of the learning. The tasks were instrumentation.
-- Treating Task 4 as a "make it work" exercise. It's a "watch carefully" exercise. A clean rejection is a good outcome.
-
-**Extension, optional.** Run Task 4 again with a deliberately tighter permissions config (every command needs approval, no exceptions) and see how it feels. Then once with a deliberately looser one. The point is calibration: you're not picking a permanent posture, you're learning what each setting buys and costs.
+The lab is a setup-and-explore exercise. You install Claude Code, point it at a small sample repo, and run four tasks at increasing autonomy levels. The point isn't to ship anything; it's to feel where the plan/edit/exec loop strains and to calibrate your own sense of when to intervene. ~90 minutes, self-paced. Lab spec at [./lab/](./lab/).
 
 ---
 
