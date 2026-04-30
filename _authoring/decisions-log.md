@@ -22,13 +22,17 @@ reason.
 
 ## Structure
 
-- 10 modules, 3 tiers.
+- 12 modules, 3 tiers.
 - Tier 1 (M1-3) for everyone.
-- Tier 2 (M4-6) engineers primary; PMs/architects get concept-post subset
+- Tier 2 (M4-7) engineers primary; PMs/architects get concept-post subset
   without labs.
-- Tier 3 (M7-10) engineers only.
+- Tier 3 (M8-12) engineers only.
 - Orchestration ceiling: goes all the way to 24h+ systems with oracles, CI
   integration, ambient agents, MCP crews.
+- Two new modules inserted after harness-engineering verification pass
+  (April 2026): M5 (Path-scoped instructions with Rules) and M9 (Hooks).
+  Each module from old M5 onward shifted by one or two slots. Rationale
+  in the "Curriculum updates" section below.
 
 ## Module structure
 
@@ -119,3 +123,40 @@ reason.
 - Answer keys for lab prompts (would collapse the exercise)
 - Lab submission/review framing (labs are self-paced)
 - TLDR at start of module (competes with opening hook for attention)
+- Auto-memory (`~/.claude/projects/<project>/memory/`) as a taught primitive.
+  Real Claude Code feature since v2.1.59 but stabilizing; coverage deferred.
+  M2's memory paragraph narrowed to Claude.com chat memory specifically
+  rather than rewritten to forward-point at a future module that isn't on
+  the roadmap.
+
+## Curriculum updates
+
+### Harness-engineering verification pass (April 2026)
+
+Cross-checked a colleague's "harness engineering" blog post against the
+curriculum and `code.claude.com/docs/en/`. Two structural inserts and one
+expansion came out of it:
+
+- **New M5: Path-scoped instructions with Rules.** Covers `.claude/rules/`
+  with `paths:` glob frontmatter. Sits right after M4 because it's the
+  natural answer to "my CLAUDE.md is getting too big." Explicit contrast
+  with M6 skills (always-on file-path scope vs on-demand invocation
+  scope) is load-bearing pedagogy — the boundary is easy to mix up since
+  both primitives can carry `paths:` frontmatter.
+- **New M9: Hooks.** Lands after M8 Headless because hooks earn their keep
+  when Claude runs unattended; teaching them earlier would land flat. The
+  meta-judge pattern (Stop hook spawns reviewer that uses M7's oracle to
+  grade, retries below threshold) presupposes both M7 and M8.
+- **M6 (was M5) expanded** to cover skills alongside sub-agents. Skills
+  and `.claude/commands/` were merged in the docs; the curriculum reflects
+  that. Sub-agent vs skill is the key decision the module teaches.
+
+Choices recorded so future-you can trace the why:
+
+- The blog claimed "hooks fire shell commands at three lifecycle points" —
+  there are 29. Curriculum coverage of hooks lists the real surface even
+  if only a handful get taught in depth.
+- Slash commands as a separate primitive: out of date. Curriculum teaches
+  skills as the primary unit and notes `.claude/commands/` as compat shim.
+- Plugins: not in scope. Packaging, not pedagogy. One-line callout in M12
+  if multi-team distribution becomes a real case.

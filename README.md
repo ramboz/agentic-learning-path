@@ -31,13 +31,15 @@ lives in [`samples/m3-claude-code/`](samples/m3-claude-code/) here.
 | 1 — Working with a single Claude | [M1: Prompting as a design problem](docs/tier-1/m1-prompting/index.md) |
 | 1 | [M2: Context is the product](docs/tier-1/m2-context/index.md) |
 | 1 | [M3: From chat to Claude Code](docs/tier-1/m3-claude-code/index.md) |
-| 2 — Session management & single-agent discipline | [M4: Writing a CLAUDE.md that earns its keep](docs/tier-2/m4-claude-md/index.md) |
-| 2 | [M5: Sub-agents, one-session orchestration, and tool scoping](docs/tier-2/m5-subagents/index.md) (stub) |
-| 2 | [M6: The oracle problem](docs/tier-2/m6-oracle/index.md) (stub) |
-| 3 — Orchestration & crews | [M7: Headless mode and the Ralph loop](docs/tier-3/m7-headless/index.md) (stub) |
-| 3 | [M8: Parallel workers, worktrees, and racing hypotheses](docs/tier-3/m8-parallel/index.md) (stub) |
-| 3 | [M9: Agent Teams and the manager-worker mental model](docs/tier-3/m9-teams/index.md) (stub) |
-| 3 | [M10: Crews, MCP, and knowing when you've over-engineered](docs/tier-3/m10-crews/index.md) (stub) |
+| 2 — Persistence, decomposition, and quality signal | [M4: Writing a CLAUDE.md that earns its keep](docs/tier-2/m4-claude-md/index.md) |
+| 2 | [M5: Path-scoped instructions with Rules](docs/tier-2/m5-rules/index.md) (stub) |
+| 2 | [M6: Sub-agents and Skills](docs/tier-2/m6-subagents-skills/index.md) (stub) |
+| 2 | [M7: The oracle problem](docs/tier-2/m7-oracle/index.md) (stub) |
+| 3 — Orchestration & crews | [M8: Headless mode and the Ralph loop](docs/tier-3/m8-headless/index.md) (stub) |
+| 3 | [M9: Hooks](docs/tier-3/m9-hooks/index.md) (stub) |
+| 3 | [M10: Parallel workers, worktrees, and racing hypotheses](docs/tier-3/m10-parallel/index.md) (stub) |
+| 3 | [M11: Agent Teams and the manager-worker mental model](docs/tier-3/m11-teams/index.md) (stub) |
+| 3 | [M12: Crews, MCP, and knowing when you've over-engineered](docs/tier-3/m12-crews/index.md) (stub) |
 
 ## Run the site locally
 

@@ -16,13 +16,13 @@ That gap is real, and it isn't just mine. Most of the organization sits somewher
 
 ## What this curriculum covers
 
-Ten modules across three tiers. Concept posts and hands-on labs ship together. Each module is publishable on its own; later modules build on the earlier ones.
+Twelve modules across three tiers. Concept posts and hands-on labs ship together. Each module is publishable on its own; later modules build on the earlier ones.
 
-The curriculum is being written on a spiral schedule, one module at a time. Right now, M1 to M4 are published. M5 to M10 are stubs that link to outline notes while I draft them.
+The curriculum is being written on a spiral schedule, one module at a time. Right now, M1 to M4 are published. M5 to M12 are stubs that link to outline notes while I draft them.
 
 - **Tier 1 (everyone).** M1 to M3. Prompting as a specification problem, context as the product, the move from chat to Claude Code.
-- **Tier 2 (engineers, with concept-post subset for PMs and architects).** M4 to M6. CLAUDE.md as a state file, sub-agents and tool scoping, the oracle problem.
-- **Tier 3 (engineers only).** M7 to M10. Headless mode and the Ralph loop, parallel workers and worktrees, Agent Teams, multi-tool crews and MCP.
+- **Tier 2 (engineers, with concept-post subset for PMs and architects).** M4 to M7. CLAUDE.md as a state file, path-scoped rules, sub-agents and skills, the oracle problem.
+- **Tier 3 (engineers only).** M8 to M12. Headless mode and the Ralph loop, hooks for unattended runs, parallel workers and worktrees, Agent Teams, multi-tool crews and MCP.
 
 ## How to read it
 

@@ -1,10 +1,14 @@
 # Curriculum Outline
 
-10 modules, 3 tiers. Hands-on labs + concept posts shipped together.
+12 modules, 3 tiers. Hands-on labs + concept posts shipped together.
 
 Anchor project from M4 onward: **PR Assistant** — code review crew with
 persona reviewers, growing into a GitHub Action with Ralph loop + MCP
 integration. M1-3 use throwaway examples.
+
+Each module after M3 adds exactly one new dimension to PR Assistant.
+The artifact stack composes — CLAUDE.md → rules → sub-agents/skills →
+oracle.sh → hooks — and nothing gets thrown away.
 
 ## Tier 1 — Working with a single Claude (everyone)
 
@@ -24,12 +28,14 @@ artifacts, "Claude forgot vs. Claude never had it."
 
 ### M3: From chat to Claude Code
 Transition from browser to terminal. CLAUDE.md intro, permissions,
-plan/edit/exec loop. When NOT to use Claude Code.
+plan/edit/exec loop. When NOT to use Claude Code. Closes with a one-paragraph
+preview of the `.claude/` ecosystem (rules, agents, skills, hooks) so curious
+readers can peek into Tier 2 and 3.
 - Lab: set up Claude Code on a small repo; tasks of increasing autonomy.
 - Publishable standalone.
-- **PM/architect track ends here with concept-post subset of M4-6.**
+- **PM/architect track: continues into Tier 2 concept posts.**
 
-## Tier 2 — Session management and single-agent discipline
+## Tier 2 — Persistence, decomposition, and quality signal
 
 ### M4: Writing a CLAUDE.md that earns its keep
 File-based state as a design principle. Progress files with failed-approaches
@@ -39,14 +45,29 @@ sections.
 - Publishable standalone.
 - **Claude Code + GitHub repo transition for the meta-project happens here.**
 
-### M5: Sub-agents, one-session orchestration, and tool scoping
+### M5: Path-scoped instructions with Rules
+When CLAUDE.md gets too big, you scope it. `.claude/rules/` with `paths:`
+glob frontmatter. Always-on instructions that load only when Claude reads
+matching files. Explicit contrast with M6 skills (always-on vs on-demand)
+to head off the easy mix-up.
+- Lab: refactor the M4 CLAUDE.md into `.claude/rules/` files. Add path-scoped
+  rules for src/api, tests, and docs. Show how a `paths:` rule loads only
+  when Claude touches matching files.
+- Publishable standalone.
+
+### M6: Sub-agents, Skills, and tool scoping
 Built-in Explore/Plan/General-Purpose; custom sub-agents as markdown files;
-scoped tool permissions.
+skills (`.claude/skills/SKILL.md`) for reusable workflows and on-demand
+knowledge. The sub-agent vs skill decision: skill = prompt loaded on demand
+into the main conversation; sub-agent = work in its own context, returns a
+summary. Slash commands covered as the compatibility shim that's been
+merged into skills.
 - Lab: decompose PR Assistant into 3 persona sub-agents (security, perf,
-  readability).
+  readability). Pull recurring patterns into skills (`/pr-summary`,
+  `/explain-code`). Use `/agents` interactive command as the entry point.
 - Meta-crew begins here (lab validator agent).
 
-### M6: The oracle problem
+### M7: The oracle problem
 Conceptual hinge of the curriculum. Types of oracles, why composite objective
 oracles beat subjective ones, noise handling.
 - Lab: build `./oracle.sh <pr-branch>` — composite score from CI + lint +
@@ -54,29 +75,43 @@ oracles beat subjective ones, noise handling.
   modules.**
 - Publishable standalone; strongest reframe piece. Candidate to write first,
   out of order.
+- **PM/architect track ends here with concept-post subset of M4-7.**
 
 ## Tier 3 — Orchestration and crews (engineers only)
 
-### M7: Headless mode and the Ralph loop
+### M8: Headless mode and the Ralph loop
 First module where Claude runs without a human watching. `claude -p`,
-structured output, budget controls, agentic laziness.
-- Lab: wrap PR Assistant in Ralph loop; run overnight; inspect in morning.
+structured output, budget controls, agentic laziness. Worked example with
+the `--agents` JSON flag for inline sub-agent definitions.
+- Lab: wrap PR Assistant in Ralph loop with M7's oracle as the exit signal;
+  run overnight; inspect in morning.
 - Publishable standalone (viral-adjacent).
 
-### M8: Parallel workers, worktrees, and racing hypotheses
+### M9: Hooks
+Guardrails for unattended runs. The full hook surface (29+ events), then
+deep dive on the load-bearing four: `PreToolUse`, `PostToolUse`,
+`SubagentStop`, `InstructionsLoaded`. The meta-judge pattern (Stop hook
+spawns a reviewer that uses M7's oracle to grade and retries below
+threshold) is the worked example — it presupposes M7 and M8.
+- Lab: add hooks to make the M8 Ralph loop safe. `PreToolUse(Bash)`
+  validates commands; `Stop` hook spawns the meta-judge.
+- Publishable standalone.
+
+### M10: Parallel workers, worktrees, and racing hypotheses
 Multiple Claude Code processes, git worktrees, one-agent-one-file discipline.
 When parallelism hurts.
-- Lab: race 4 fix strategies in separate worktrees; keep highest oracle
+- Lab: race 4 fix strategies in separate worktrees; oracle picks the highest
   score.
-- Needs M7.
+- Needs M8.
 
-### M9: Agent Teams and the manager-worker mental model
+### M11: Agent Teams and the manager-worker mental model
 Claude Code's experimental Agent Teams; shared task lists; reframing user
-from coder to engineering manager for agents.
+from coder to engineering manager for agents. Explicit answer to "sub-agents
+are flat" from M6.
 - Lab: run PR Assistant as Agent Team — lead + 3 teammates.
-- Needs M7-8.
+- Needs M8-10.
 
-### M10: Crews — multi-tool systems, MCP, and knowing when you've over-engineered
+### M12: Crews — multi-tool systems, MCP, and knowing when you've over-engineered
 MCP servers, external tools, ambient agents. Honest discussion of when a
 crew is worse than a single well-instructed agent.
 - Lab: package as GitHub Action with Slack MCP for notifications. One-page
@@ -85,7 +120,9 @@ crew is worse than a single well-instructed agent.
 
 ## Open structural questions
 
-- M8/M9 split: possible candidate for collapse if Agent Teams automates
-  worktree dance well enough. Decide while walking M8.
-- M6 publication timing: strong candidate to write and publish first, out
+- M10/M11 split: possible candidate for collapse if Agent Teams automates
+  worktree dance well enough. Decide while walking M10.
+- M7 publication timing: strong candidate to write and publish first, out
   of order. Revisit after M1-3 drafted.
+- Plugins: not currently scoped. One-line callout in M12 if Adobe-internal
+  multi-team distribution case justifies it.

@@ -36,7 +36,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Tier 2 — Session management & single-agent discipline',
+      label: 'Tier 2 — Persistence, decomposition, and quality signal',
       collapsed: true,
       items: [
         {
@@ -47,8 +47,9 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'tier-2/m4-claude-md/lab/index', label: 'Lab'},
           ],
         },
-        'tier-2/m5-subagents/index',
-        'tier-2/m6-oracle/index',
+        'tier-2/m5-rules/index',
+        'tier-2/m6-subagents-skills/index',
+        'tier-2/m7-oracle/index',
       ],
     },
     {
@@ -56,10 +57,11 @@ const sidebars: SidebarsConfig = {
       label: 'Tier 3 — Orchestration & crews',
       collapsed: true,
       items: [
-        'tier-3/m7-headless/index',
-        'tier-3/m8-parallel/index',
-        'tier-3/m9-teams/index',
-        'tier-3/m10-crews/index',
+        'tier-3/m8-headless/index',
+        'tier-3/m9-hooks/index',
+        'tier-3/m10-parallel/index',
+        'tier-3/m11-teams/index',
+        'tier-3/m12-crews/index',
       ],
     },
   ],

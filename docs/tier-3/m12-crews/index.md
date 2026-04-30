@@ -1,10 +1,10 @@
 ---
-title: M10 — Crews, MCP, and knowing when you've over-engineered
+title: M12 — Crews, MCP, and knowing when you've over-engineered
 description: Multi-tool systems, MCP servers, ambient agents, and an honest discussion of when a crew is worse than a single well-instructed agent. Coming soon.
-pagination_label: M10 — Crews
+pagination_label: M12 — Crews
 ---
 
-# Module 10 — Crews: multi-tool systems, MCP, and knowing when you've over-engineered
+# Module 12 — Crews: multi-tool systems, MCP, and knowing when you've over-engineered
 
 **Status:** Coming soon. Outline in [`_authoring/curriculum-outline.md`](https://github.com/ramboz/agentic-learning-path/blob/main/_authoring/curriculum-outline.md).
 
@@ -12,4 +12,4 @@ Curriculum finale. Crews coordinate multiple agents across multiple tools — MC
 
 The lab packages PR Assistant as a GitHub Action with a Slack MCP for notifications. The deliverable is a one-page post-mortem on whether the complexity was worth it.
 
-Not publishable standalone — depends on M7 through M9.
+Not publishable standalone — depends on M8 through M11.

@@ -207,9 +207,9 @@ Both of those are mitigations, not guarantees. If you write CLAUDE.md by hand an
 
 CLAUDE.md and progress files give you durable, project-level state. They're the simplest application of file-based state: one project, one CLAUDE.md, one task, one progress file. Read at session start, updated as work proceeds.
 
-The next step up is when the work itself is too large for a single Claude session to hold without losing the thread. You start wanting specialized agents (one to plan, one to write, one to review, one to run tests), each with its own scoped instructions and its own scoped tool access. The same file-based state principle applies, but now the files are scoped per agent. Sub-agents are markdown files with their own task descriptions and their own permissions. [Module 5](../m5-subagents/) picks up there: how to decompose work into sub-agents within a single session, when to do it, and when to leave the work to a single Claude.
+The next step up is when CLAUDE.md itself grows past the point where loading it into every session feels free. The instructions for your API code load every turn even when the turn only touches CSS. [Module 5](../m5-rules/) covers `.claude/rules/`: smaller markdown files with optional `paths:` glob frontmatter that load only when Claude reads matching files. Same file-based state principle as CLAUDE.md, with surgical scoping. The further step, specialized agents and reusable workflows, lands in [Module 6](../m6-subagents-skills/).
 
-This is also where the curriculum's anchor project, PR Assistant, gets decomposed for the first time. The lab in this module gets you to one Claude Code session with a CLAUDE.md reviewing PRs. [Module 5](../m5-subagents/)'s lab splits that into three persona reviewers (security, performance, readability), each as a sub-agent.
+This is also where the curriculum's anchor project, PR Assistant, starts its arc. The lab in this module gets you to one Claude Code session with a CLAUDE.md reviewing PRs. [Module 5](../m5-rules/)'s lab refactors that CLAUDE.md into path-scoped rules. [Module 6](../m6-subagents-skills/)'s lab decomposes the review into three persona reviewers (security, performance, readability) as sub-agents.
 
 ### TLDR
 

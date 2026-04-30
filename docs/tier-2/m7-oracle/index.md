@@ -1,10 +1,10 @@
 ---
-title: M6 — The oracle problem
+title: M7 — The oracle problem
 description: Conceptual hinge of the curriculum. Types of oracles, why composite objective oracles beat subjective ones, and noise handling. Coming soon.
-pagination_label: M6 — Oracle problem
+pagination_label: M7 — Oracle problem
 ---
 
-# Module 6 — The oracle problem
+# Module 7 — The oracle problem
 
 **Status:** Coming soon. Outline in [`_authoring/curriculum-outline.md`](https://github.com/ramboz/agentic-learning-path/blob/main/_authoring/curriculum-outline.md).
 

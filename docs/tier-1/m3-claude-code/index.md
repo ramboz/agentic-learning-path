@@ -169,7 +169,9 @@ The transition from chat to Claude Code surfaces one persistent file you'll touc
 
 A good CLAUDE.md is the difference between a Claude Code session that orients itself in 30 seconds and one that spends three turns figuring out where the test command lives. It's also the place where over-context bites hardest, because it's loaded into every session in the directory whether you remember it or not. Module 4 covers what earns a place in the file, what doesn't, and how to evolve it without it turning into a graveyard of every constraint you ever had to clarify once.
 
-For PMs and architects, this is where the lab track ends. The remaining concept posts (M4-6) are still worth reading even without the labs; CLAUDE.md, sub-agents, and oracles are mental models that show up in any conversation about how engineering teams use these tools. The labs are how engineers internalize them. The concepts apply more broadly.
+Past CLAUDE.md, `.claude/` grows. Tier 2 covers path-scoped rules (instructions that load only when Claude reads matching files), sub-agents (separate contexts that handle side tasks and return summaries), skills (reusable prompts and workflows that load on demand), and oracles (composite quality signals you can run as a script). Tier 3 adds hooks for unattended runs and MCP servers for external tools. You don't need any of it to start. The modules ahead introduce each piece roughly in the order most users find they need it.
+
+For PMs and architects, this is where the lab track ends. The remaining concept posts (M4-7) are still worth reading even without the labs; CLAUDE.md, scoping rules, sub-agents and skills, and oracles are mental models that show up in any conversation about how engineering teams use these tools. The labs are how engineers internalize them. The concepts apply more broadly.
 
 ### TLDR
 
@@ -192,4 +194,4 @@ The lab is a setup-and-explore exercise. You install Claude Code, point it at a 
 - [**Claude Code documentation**](https://docs.claude.com/en/docs/claude-code/overview). Official docs covering installation, configuration, permissions, and the plan/edit/exec mechanics. The single best reference for current syntax. Mechanical details change quarter to quarter; defer to docs over anything specific in this module.
 - [**Anthropic's CLAUDE.md guidance**](https://docs.claude.com/en/docs/claude-code/memory). Official notes on what makes a useful CLAUDE.md and what to avoid. Pairs with [Module 4](../../tier-2/m4-claude-md/)'s deeper treatment.
 - [**Simon Willison on agentic coding tools**](https://simonwillison.net/tags/claude-code/). Ongoing practitioner notes on Claude Code and similar tools, with concrete examples and failure stories. Counterweight to vendor docs.
-- [**Geoffrey Huntley's writing on Claude Code in practice**](https://ghuntley.com/). A practitioner's collection on running Claude Code with autonomy. The Ralph loop itself comes up in [Module 7](../../tier-3/m7-headless/); the day-to-day Claude Code posts are the relevant ones for this module.
+- [**Geoffrey Huntley's writing on Claude Code in practice**](https://ghuntley.com/). A practitioner's collection on running Claude Code with autonomy. The Ralph loop itself comes up in [Module 8](../../tier-3/m8-headless/); the day-to-day Claude Code posts are the relevant ones for this module.

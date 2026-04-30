@@ -134,7 +134,7 @@ A single conversation is one unit of context. Real work spans many. The tools be
 
 **CLAUDE.md (Claude Code).** Covered in depth in M4. Functionally parallel to project instructions: persistent context loaded into every Claude Code session in a given directory. Teased here because the mental model carries over.
 
-**Memory features.** Some interfaces support remembering facts across sessions. Useful in limited ways; not a substitute for explicit project files. If something is load-bearing for a project, put it in project files, not memory. Memory is for preferences, not for specs.
+**Memory features (Claude app).** The Claude app remembers some facts across chat sessions. Useful in limited ways; not a substitute for explicit project files. If something is load-bearing for a project, put it in project files, not chat memory. Memory in this shape is for preferences, not for specs.
 
 The progression when something starts to matter: paste it into the current turn, then attach it as a file, then promote it to project files, then codify it in CLAUDE.md if it's code-level. Each step makes it more durably available, at the cost of a little more setup.
 

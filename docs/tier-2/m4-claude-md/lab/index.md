@@ -11,7 +11,7 @@ pagination_label: M4 Lab — CLAUDE.md
 
 The point of this lab is to feel the difference a good CLAUDE.md makes by experiencing both states. You'll run Claude Code on a repo without one, watch the friction, write the file, and run again. The before-and-after is what you keep.
 
-This is the curriculum's anchor project entering for the first time. PR Assistant grows over Modules 4 through 10, so the CLAUDE.md you write here is what Module 5 inherits when it decomposes review into sub-agents.
+This is the curriculum's anchor project entering for the first time. PR Assistant grows over Modules 4 through 12, so the CLAUDE.md you write here is what Module 5 refactors into path-scoped rules and what Module 6 inherits when it decomposes review into sub-agents.
 
 ## Before you start
 
@@ -106,7 +106,7 @@ Write three sentences:
 - A working CLAUDE.md sized for the project
 - A personal calibration of where the file's leverage came from
 
-Keep all of these. Module 5 builds on this CLAUDE.md when it decomposes PR Assistant into sub-agents.
+Keep all of these. Module 5 builds on this CLAUDE.md when it refactors into path-scoped rules; Module 6 picks up from there to decompose PR Assistant into sub-agents.
 
 ## Common traps
 
@@ -154,8 +154,8 @@ STEP 5: Reflection
 
 You should have a working CLAUDE.md, two review sessions for comparison, and a feel for which entries earned their place. The pruning step is where most learners discover their first draft was longer than it needed to be; if that happened, the file did its job.
 
-That last calibration is the bridge into [Module 5](../../m5-subagents/), which takes the same project and decomposes the review into three persona reviewers (security, performance, readability), each as a sub-agent. The CLAUDE.md you wrote here is the global state those sub-agents inherit.
+That last calibration is the bridge into [Module 5](../../m5-rules/), which takes the CLAUDE.md you just wrote and refactors it into path-scoped rules. The decomposition into persona reviewers as sub-agents lands in [Module 6](../../m6-subagents-skills/) once you've seen what scope-by-path can do.
 
 ## Extension, optional
 
-Add a `progress.md` file before running Step 3. Pretend the PR review is a multi-session task and write down the goal, status, and one rejected approach. See whether the model uses it. The pattern matters more than getting it right; you'll formalize it more in Module 7 when work spans real overnight runs.
+Add a `progress.md` file before running Step 3. Pretend the PR review is a multi-session task and write down the goal, status, and one rejected approach. See whether the model uses it. The pattern matters more than getting it right; you'll formalize it more in Module 8 when work spans real overnight runs.

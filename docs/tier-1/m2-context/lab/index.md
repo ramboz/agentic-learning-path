@@ -116,4 +116,4 @@ Take one of the "Claude forgot" cases and try three different fixes:
 2. Summary-then-ask (one turn that summarizes all relevant decisions, followed by a separate turn with the question)
 3. Fresh conversation with distilled context (new conversation, seeded with a concise summary of what's been established)
 
-Compare which works best for that specific failure. Previews the iteration discipline [Module 6](../../../tier-2/m6-oracle/) will formalize.
+Compare which works best for that specific failure. Previews the iteration discipline [Module 7](../../../tier-2/m7-oracle/) will formalize.
