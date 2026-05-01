@@ -231,7 +231,6 @@ The lab for this module introduces the curriculum's anchor project: PR Assistant
 
 - [**Anthropic's CLAUDE.md guidance**](https://docs.claude.com/en/docs/claude-code/memory). Official notes on the file's mechanics, scoping, and recommended structure. The closest thing to canonical reference.
 - [**Claude Code documentation overview**](https://docs.claude.com/en/docs/claude-code/overview). Broader doc set covering settings, permissions, and the `@filename.md` reference syntax used in CLAUDE.md.
-- [**Geoffrey Huntley on CLAUDE.md patterns**](https://ghuntley.com/). Practitioner notes on what's worked and what hasn't in real Claude Code projects. Concrete examples; useful counterweight to vendor docs.
-- [**Simon Willison on agentic coding workflows**](https://simonwillison.net/tags/claude-code/). Ongoing notes that include CLAUDE.md examples and progress-file patterns from real projects.
+- [**"claude_code_docs_map.md" (Willison)**](https://simonwillison.net/2025/Oct/24/claude-code-docs-map/). Worked example of a markdown map file as on-demand context: the model reaches for it only when it needs to. Pattern transfers directly to the file-based state principle this module argues for.
 - [**The cwv-agent repo**](https://github.com/ramboz/cwv-agent). Real CLAUDE.md and the `.claude/` referenced-docs structure described in the concept post. Skim it for shape, not content.
 - [**PR Assistant sample repo**](https://github.com/ramboz/pr-assistant-lab). The lab's working repo, with seeded issues and the starting state intentionally missing a CLAUDE.md.
