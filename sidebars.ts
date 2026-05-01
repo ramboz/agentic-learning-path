@@ -47,7 +47,14 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'tier-2/m4-claude-md/lab/index', label: 'Lab'},
           ],
         },
-        'tier-2/m5-rules/index',
+        {
+          type: 'category',
+          label: 'M5 — Path-scoped instructions with Rules',
+          items: [
+            {type: 'doc', id: 'tier-2/m5-rules/index', label: 'Concept'},
+            {type: 'doc', id: 'tier-2/m5-rules/lab/index', label: 'Lab'},
+          ],
+        },
         'tier-2/m6-subagents-skills/index',
         'tier-2/m7-oracle/index',
       ],
