@@ -55,7 +55,14 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'tier-2/m5-rules/lab/index', label: 'Lab'},
           ],
         },
-        'tier-2/m6-subagents-skills/index',
+        {
+          type: 'category',
+          label: 'M6 — Sub-agents and Skills',
+          items: [
+            {type: 'doc', id: 'tier-2/m6-subagents-skills/index', label: 'Concept'},
+            {type: 'doc', id: 'tier-2/m6-subagents-skills/lab/index', label: 'Lab'},
+          ],
+        },
         'tier-2/m7-oracle/index',
       ],
     },
