@@ -11,36 +11,32 @@ pagination_label: M2 — Context
 
 ---
 
-## Concept post
-
-### Opening
-
 About a year ago, when I started exploring vibe-coding on larger projects, I tried porting a 100K-line C# trading bot I hadn't written to Node.js, modernizing the stack along the way. I didn't know the project at all, so I wanted Claude to extract the architecture, reason about a more modern approach, and then port it to JS with high fidelity. This was before planning mode, before multi-step plans, before Claude Code was generally available.
 
-I was already aware I needed new sessions for new tasks, to avoid hallucinations and context exhaustion. But I was splitting sessions by "feature" or "slice," and porting each slice was a 50+ turn discussion. By the end of every slice I was running into the same wall: reminding the model of decisions we'd made earlier, re-correcting the same mistakes, flagging self-contradictions. Every session had a pile of "I apologize for the oversight" messages stacked up.
+I was already treating sessions as disposable — new task, new session, or things would start going sideways. But I was splitting by section of the codebase, and working through each section was a 50+ message back-and-forth. By the end of every section I was running into the same wall: reminding the model of decisions we'd made earlier, re-correcting the same mistakes, flagging self-contradictions. Every session ended with a pile of "I apologize for the oversight" messages stacked up.
 
 My workaround at the time was to generate markdown files with intermediate status, decisions, and open threads, then use those to resume in a fresh session. It mostly worked. Projects didn't exist yet. Neither did any real shared memory. The markdown was load-bearing by necessity.
 
 Looking back, I'd been thinking about this wrong. I was treating the session as where the work happened, and when the session got saturated, I blamed the model for not keeping up. The actual shift was realizing the session wasn't where the state belonged. It was one contribution to a larger thing I needed to manage deliberately, and my job was managing that larger thing, not writing better prompts inside an overfilled window.
 
-### What this module covers
+## What this module covers
 
-In a nutshell:
+By the end of this module, you'll be able to:
 
-1. Why the context window, not the prompt, is the thing you're actually managing
-2. The four layers of context and where each one comes from
-3. How long conversations degrade, and why "longer" isn't the only failure mode
-4. The "Claude forgot vs. Claude never had it" diagnostic and why the fix differs by case
-5. The failure-mode table: symptom, diagnosis, single-move fix
-6. Tools for managing context across conversations: projects, artifacts, attachments
-7. Over-contextualizing as the mirror-image failure mode
-8. When to close the conversation and start fresh
+1. Explain what the context window is and why it's the thing you're actually managing
+2. Identify the four layers of context and where each one comes from
+3. Recognize how long conversations degrade before they overflow
+4. Apply the "Claude forgot vs. Claude never had it" diagnostic and choose the right fix
+5. Use the failure-mode table to diagnose and fix context problems in one move
+6. Choose the right tool for managing context across conversations: projects, artifacts, attachments
+7. Recognize over-contextualizing and trim it
+8. Know when to close a conversation and start fresh
 
 The lab is a 60-minute exercise on diagnosing a deliberately messy 50-turn conversation, fixing it three ways, and measuring which fix actually worked.
 
 This module assumes [Module 1](../m1-prompting/). It extends the "prompts are specs" frame to "context is the product." If you skipped M1, the four-component diagnostic from there shows up here too.
 
-### The reframe
+## The reframe
 
 [Module 1](../m1-prompting/) reframed prompt engineering from incantation to specification. That works at the scale of a single turn. Beyond that, the frame has to expand.
 
@@ -53,6 +49,8 @@ A useful mental model: context is a workbench, not a memory. The model doesn't "
 That's the uncomfortable part. You, the human, are a stateful system. You remember what you said at turn 3. The model is stateless between calls. It reads the whole workbench fresh each time. If turn 3 is still on the bench, great. If it got shoved off, the model reads the next prompt without it and responds accordingly.
 
 Most of the "Claude is being weird" moments are variations on this. The workbench doesn't match what you think is on it.
+
+## How context works
 
 ### The four layers of context
 
@@ -106,7 +104,7 @@ The baseline diagnosis is still cheap: a 30-second scroll-back.
 
 The trap: you're sure you said it. So sure that you skip the scroll-back. Roughly half the time you'll be right. The other half, you're thinking of a parallel conversation, a doc, or a message from yesterday. The scroll-back is cheap. Skipping it wastes an hour.
 
-### Failure modes and the move that fixes each
+## Failure modes and the move that fixes each
 
 | Symptom | Diagnosis | Fix |
 |---|---|---|
@@ -121,6 +119,8 @@ The trap: you're sure you said it. So sure that you skip the scroll-back. Roughl
 | Model apologizes, retries, produces the same wrong thing | Context problem, not prompt problem | Stop rewording the prompt. Fix the context or start fresh |
 
 The meta-move is the same as [M1](../m1-prompting/)'s: before blaming the prompt, check the context. The failure-mode table front-loads the checks you'd otherwise spend minutes rediscovering live.
+
+## Managing context
 
 ### Tools for managing context across conversations
 
@@ -154,7 +154,7 @@ The same test from M1 applies, adapted: remove a piece of context and see if it 
 
 Everything in context costs attention, even when it's free in tokens. "It fit in the window" is not the same as "it helped." Attention is a budget too, and the budget is finite even when the token count isn't.
 
-The same failure mode shows up at the sub-agent level, which is where I hit it first. In cwv-agent (the recurring example from M1), every phase-specific sub-agent was receiving the full `getTechnicalContext(cms)` payload: around 60 bullets covering CMS quirks, performance optimizations, and anti-patterns across every Core Web Vital. Useful for the code-review agent. Pure noise for the CrUX agent, which analyzes field data and never touches code. My working assumption had been that more context was fine as long as I was under the token limit. It wasn't. The fix was phase-scoped context per sub-agent ([PR #68 in the cwv-agent repo](https://github.com/ramboz/cwv-agent/pull/68) has the diff). The chat equivalent is pulling files out of project context once they're no longer pulling their weight, even if they felt essential the day you added them.
+The same pattern scales up. In multi-step automated workflows, over-contextualizing a single step is an easy trap — routing the full project context to a stage that only needs a fraction of it. The check is the same: remove a piece of context, see if that step's output degrades. But that's a later-module problem. The chat equivalent applies directly: pull files out of project context once they're no longer pulling their weight, even if they felt essential the day you added them.
 
 ### When to close the conversation and start fresh
 
@@ -171,7 +171,7 @@ The transition cost is real but small. A distilled summary of a 40-turn conversa
 
 One caveat the opening showed: the summary is only as good as what you remember to put in it. The "never had it" failure mode described above often starts as a fresh-conversation move that dropped a decision. If you're going to distill, distill against the original, not against what you remember of the original. Scroll back to the key turns. Quote them into the summary verbatim where it matters. The extra minute saves the hour you'd spend hunting a decision that silently fell out two sessions back.
 
-### Bridge to Module 3
+## Bridge to Module 3
 
 So far, everything here has assumed the chat interface: conversations, projects, artifacts, attachments. That's where most people start and where many stay. It's also not where Claude does its most interesting work.
 
@@ -179,7 +179,7 @@ When the work shifts from "help me think through this" to "go do this thing in m
 
 The context principles from this module carry over directly. What changes is the mechanics.
 
-### TLDR
+## TLDR
 
 1. **Context is the product, not the prompt.** What you're managing across real work is the whole context window, not just the latest message.
 2. **Four layers of context: system prompt, persistent, conversation history, just-in-time.** Different failure modes per layer, different fixes.
@@ -189,9 +189,9 @@ The context principles from this module carry over directly. What changes is the
 6. **Over-contextualizing is the other failure mode.** Everything in context costs attention, even when it's free in tokens.
 7. **Start fresh when the conversation is more noise than signal.** Distill against the original, not against what you remember. The summary is only as good as what you put in it.
 
-### Lab handoff
+## Lab handoff
 
-The lab hands you a deliberately messy 50-turn conversation with several planted failure modes. You diagnose three of them, propose a single-move fix for each, and measure whether the fix worked. The "Claude forgot vs. Claude never had it" distinction is the diagnostic to build. ~60 minutes, self-paced. Lab spec at [./lab/](./lab/).
+The lab hands you a deliberately messy 50-turn conversation with several planted failure modes. You diagnose three of them, propose a single-move fix for each, and measure whether the fix worked. The "Claude forgot vs. Claude never had it" distinction is the diagnostic to build. The lab is at [./lab/](./lab/).
 
 ---
 

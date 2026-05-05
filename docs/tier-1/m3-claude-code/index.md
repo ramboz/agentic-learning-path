@@ -9,36 +9,32 @@ pagination_label: M3 — Claude Code
 **Tier 1** — for everyone (PMs, architects, engineers).  
 **Prerequisites:** [Module 1](../m1-prompting/) (Prompting as a design problem), [Module 2](../m2-context/) (Context is the product).
 
-Note: this is the last module on the PM/architect lab track. From M4 onward, the lab track is engineer-only; PMs and architects continue with concept posts of M4-6.
+Note: from M4 on, the labs are engineer-only. PMs and architects continue with concept posts through M4-6.
 
 ---
 
-## Concept post
-
-### Opening
-
-Early on with CWV work, one of the first things I needed was to gather field metrics — RUM data, PageSpeed runs, CrUX exports. Each one needed a small script. In the early days I wrote them in chat, iterating toward a working artifact one turn at a time, answering the model's questions as we both discovered edge cases neither of us had planned for. The scripts worked. Getting there was a slog. Most of the turns were me ferrying details between the model and the code: paste the error, paste the next attempt, paste the next error.
+Early on with a performance monitoring project, one of the first things I needed was to gather field data — usage metrics, PageSpeed scores, web vitals exports. Each one needed a small script. In the early days I wrote them in chat, iterating toward a working artifact one turn at a time, answering the model's questions as we both discovered edge cases neither of us had planned for. The scripts worked. Getting there was a slog. Most of the turns were me ferrying details between the model and the code: paste the error, paste the next attempt, paste the next error.
 
 When I moved the same work to Claude Code, the shape changed. The brainstorming and the edge-case discovery still happened, but they happened in a plan I could review before any code was written. Once the plan was right, execution mostly ran on its own. My job stopped being "type every change" and became "approve the ones that mattered." The total amount of attention was probably similar. The places it was now spent were the ones where my judgement was actually doing work.
 
-### What this module covers
+## What this module covers
 
-In a nutshell:
+By the end of this module, you'll be able to:
 
-1. Why the chat interface eventually strains under codebase work, and what changes when you move to a terminal-based agent
-2. The mental shift from "Claude as advisor" to "Claude as operator," and what that does to your job
-3. What Claude Code actually is, mechanically — what it can read, what it can write, what it can run
-4. The plan/edit/exec loop, and where to apply the brakes inside it
-5. CLAUDE.md as a brief preview (Module 4 goes deep)
-6. The permissions model, and why it's the most important configuration in the tool
-7. New failure modes specific to this mode of work
-8. When you should not use Claude Code, and reach for chat instead
+1. Recognize when the chat interface starts to strain under codebase work, and know why Claude Code changes things
+2. Understand the shift from "Claude as advisor" to "Claude as operator," and what it means for your job
+3. Know what Claude Code actually does — what it reads, edits, and runs
+4. Work with the plan/edit/exec loop and apply the brakes in the right places
+5. Set up a first CLAUDE.md (Module 4 goes deep; this is the preview)
+6. Configure permissions, and understand why they're the most important setting in the tool
+7. Recognize failure modes specific to the operator role
+8. Know when to reach for chat instead
 
 The lab is a 90-minute setup-and-explore exercise. You install Claude Code on a small repo, run tasks of increasing autonomy, and watch where the loop strains.
 
-This module is the last one on the all-audiences track for hands-on labs. From Module 4 on, the labs assume an engineer's setup. PMs and architects continuing through Tier 2 will get concept-post versions of Modules 4 through 6 without the implementation work.
+From Module 4 on, the labs are engineer-only. PMs and architects get concept posts for Modules 4 through 6.
 
-### The reframe: advisor vs. operator
+## The reframe: advisor vs. operator
 
 In chat, Claude is your advisor. You bring it the problem, it suggests an approach, you do the work. The conversation is the medium and you are the bridge between any answer and any change in the world. If the suggestion is wrong, the cost is a few minutes of your time and a fresh prompt.
 
@@ -53,6 +49,8 @@ This shift is small to describe and large to live with. Three things change.
 **Your job changes.** In chat, your job is to specify well and judge the response. In Claude Code, your job is to specify well, judge the planned actions, watch what's executed, and intervene when the agent drifts. The judging-actions part is new. It's also where most of the early mistakes happen. If you treat Claude Code like fast chat, you'll approve actions you wouldn't have endorsed if you'd read them first.
 
 The advisor frame caps the damage from a bad turn. The operator frame doesn't, on its own. The discipline of permissions and the plan/edit/exec loop is what brings the cap back.
+
+## How Claude Code works
 
 ### What Claude Code actually is
 
@@ -89,6 +87,8 @@ The brakes you have inside the loop:
 - **Stop the loop.** The model is going around in circles, or has misunderstood something foundational? Stop the session, fix the context (often by editing CLAUDE.md or starting a new session with a corrected prompt), restart.
 
 The single most useful habit inside the loop: read the plan before approving the first edit. If the plan is vague or wrong, the edits won't fix it, and you'll spend the rest of the loop nudging the model toward the goal you should have specified at the planning step.
+
+## Configuration
 
 ### CLAUDE.md, briefly
 
@@ -128,7 +128,7 @@ The specific shape of the drift, in my experience: you write a permission patter
 
 I don't have a clean fix to recommend. What I'd suggest, tentatively: when you find yourself adding the third wildcard to a pattern, that's the signal to stop and reconsider whether the underlying class of commands should be pre-approved at all, rather than pre-approve a broader version of it. The discipline I'm reaching for is "treat each broadening as a deliberate choice, not a maintenance task." I'm not consistently doing it yet.
 
-### Failure modes new to this mode
+## Failure modes and the move that fixes each
 
 Most of the failure modes from chat carry over. Underspecified prompts, context gaps, attention dilution, all of it still applies. A few are new or sharpened by the operator role.
 
@@ -145,7 +145,7 @@ Most of the failure modes from chat carry over. Underspecified prompts, context 
 
 The meta-move stays the same as [M1](../m1-prompting/) and [M2](../m2-context/): before blaming the agent, check what you gave it. Permissions, plan quality, CLAUDE.md, the prompt itself. The list got longer. The discipline didn't change.
 
-### When NOT to use Claude Code
+## When NOT to use Claude Code
 
 A draft list to react against:
 
@@ -163,7 +163,7 @@ The fix is to make the switch explicit. When a real question comes up mid-execut
 
 **Anything where the cost of a mistake is unbounded.** Shared production codebases, infra repos, anything where a wrong edit affects other people, deploy pipelines that touch real users. Claude Code can do this work, but the calibration of permissions and review needs to be tighter than the default, and most people aren't going to do that work every session. If the blast radius of a mistake is large, either pair-program with the agent in a much stricter mode, or do the work in chat and apply the changes yourself.
 
-### Bridge to Module 4
+## Bridge to Module 4
 
 The transition from chat to Claude Code surfaces one persistent file you'll touch repeatedly: CLAUDE.md. This module gave it a sketch. Module 4 makes it the subject.
 
@@ -171,9 +171,9 @@ A good CLAUDE.md is the difference between a Claude Code session that orients it
 
 Past CLAUDE.md, `.claude/` grows. Tier 2 covers path-scoped rules (instructions that load only when Claude reads matching files), sub-agents (separate contexts that handle side tasks and return summaries), skills (reusable prompts and workflows that load on demand), and oracles (composite quality signals you can run as a script). Tier 3 adds hooks for unattended runs and MCP servers for external tools. You don't need any of it to start. The modules ahead introduce each piece roughly in the order most users find they need it.
 
-For PMs and architects, this is where the lab track ends. The remaining concept posts (M4-7) are still worth reading even without the labs; CLAUDE.md, scoping rules, sub-agents and skills, and oracles are mental models that show up in any conversation about how engineering teams use these tools. The labs are how engineers internalize them. The concepts apply more broadly.
+For PMs and architects, this is where the hands-on labs end. The remaining concept posts (M4-7) are still worth reading; CLAUDE.md, scoping rules, sub-agents and skills, and oracles are mental models that come up in any conversation about how engineering teams use these tools. The labs are how engineers internalize them. The concepts apply more broadly.
 
-### TLDR
+## TLDR
 
 1. **Claude Code shifts the model from advisor to operator.** It has hands. The inputs, outputs, and your job all change. Treating it like fast chat is the most common early mistake.
 2. **The plan/edit/exec loop is where the work happens, and the brakes live inside it.** Reject bad plans before approving any edits. Treat command approvals as the most attention-worthy step.
@@ -183,9 +183,9 @@ For PMs and architects, this is where the lab track ends. The remaining concept 
 6. **Not every task wants Claude Code.** Course-correcting mid-execution, exploratory thinking, architecture decisions, reading-heavy work. Chat is often better. The interface should match the shape of the work.
 7. **The discipline didn't change. The list got longer.** Specify well, manage context, watch the failure modes. Same job; more places to apply it.
 
-### Lab handoff
+## Lab handoff
 
-The lab is a setup-and-explore exercise. You install Claude Code, point it at a small sample repo, and run four tasks at increasing autonomy levels. The point isn't to ship anything; it's to feel where the plan/edit/exec loop strains and to calibrate your own sense of when to intervene. ~90 minutes, self-paced. Lab spec at [./lab/](./lab/).
+The lab is a setup-and-explore exercise. You install Claude Code, point it at a small sample repo, and run four tasks at increasing autonomy levels. The point isn't to ship anything; it's to feel where the plan/edit/exec loop strains and to calibrate your own sense of when to intervene. The lab is at [./lab/](./lab/).
 
 ---
 

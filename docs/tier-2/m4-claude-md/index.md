@@ -9,13 +9,9 @@ pagination_label: M4 — CLAUDE.md
 **Tier 2** — engineers primary; PMs/architects can read the concept post but the lab is engineer-track.
 **Prerequisites:** [Module 1](../../tier-1/m1-prompting/) (Prompting as a design problem), [Module 2](../../tier-1/m2-context/) (Context is the product), [Module 3](../../tier-1/m3-claude-code/) (From chat to Claude Code).
 
-Note: this is the first module on the engineer-only lab track. The concept post stays useful for PMs and architects who want the mental model without building it.
+Note: the lab is engineer-only. The concept post is still worth reading for PMs and architects who want the mental model without building it.
 
 ---
-
-## Concept post
-
-### Opening
 
 The first CLAUDE.md I wrote tried to do too much. I treated it like a README: project description, install steps, conventions, file layout, a section on what not to touch, a section on running tests, every gotcha I'd hit during onboarding. Two screens of content, all in one file. The model didn't seem to use it well. Responses would either ignore the conventions I'd written down or quote them at me when they weren't relevant.
 
@@ -25,24 +21,24 @@ That structure has held up. The CLAUDE.md in cwv-agent today still follows rough
 
 Which leaves a question worth asking up front. If Claude can write a useful CLAUDE.md mostly on its own, why is this module here? Because evaluating "is this entry earning its place" is a skill, and the file is loaded into every session whether it earns the cost or not. The mechanics matter even when the writing is mostly delegated. You're going to be reading what Claude produces and deciding what to keep, what to prune, and what to split out. That's the work.
 
-### What this module covers
+## What this module covers
 
-In a nutshell:
+By the end of this module, you'll be able to:
 
-1. Why state belongs in files, not in conversations or in your memory
-2. What CLAUDE.md does mechanically, beyond the [M3](../../tier-1/m3-claude-code/) sketch
-3. The five categories of content that earn a place, with the test for each
-4. What does not earn a place, and the cost of getting that wrong
-5. Progress files: keeping multi-session work durable across sessions
-6. Anti-knowledge: documenting what didn't work, at whatever layer fits
-7. The failure-mode table for CLAUDE.md and progress files
-8. The graveyard problem, and how to evolve a file without becoming it
+1. Explain why project state belongs in files, not in your memory or fresh prompts
+2. Use CLAUDE.md for project-level persistent context, beyond the [M3](../../tier-1/m3-claude-code/) preview
+3. Evaluate any candidate entry using the five categories and their tests
+4. Recognize what doesn't earn a place, and the cost of getting that wrong
+5. Set up progress files to keep multi-session work durable
+6. Document anti-knowledge — what didn't work — at whatever layer fits
+7. Diagnose CLAUDE.md failures using the failure-mode table
+8. Evolve the file without it becoming a graveyard
 
-The lab is a 2-hour exercise. You take the PR Assistant sample repo (the curriculum's anchor project, entering here), run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after is the lab's main artifact.
+The lab is a 2-hour exercise. You take the PR Assistant sample repo, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after is the lab's main artifact.
 
 This module assumes Modules [1](../../tier-1/m1-prompting/) through [3](../../tier-1/m3-claude-code/). [Module 2](../../tier-1/m2-context/)'s "context as workbench" is the foundation; this module is about the workbench tools that persist between sessions.
 
-### The reframe: state belongs in files
+## The reframe: state belongs in files
 
 [Module 2](../../tier-1/m2-context/) framed the context window as a workbench: stateless between calls, reset every turn except for what's literally in scope. That's the per-turn picture. Zoom out one level: every stable thing about your project is also state. Project conventions, where things live, what you've already decided not to do. None of it persists by default.
 
@@ -55,6 +51,8 @@ This isn't a Claude Code idea. It's a design principle that Claude Code's CLAUDE
 A useful frame: the session is a process. The files are the database. If you wouldn't store user data in process memory and expect it to survive a restart, you shouldn't store project decisions there either.
 
 The corollary, which trips people up: a file is not free. Every line in CLAUDE.md is loaded into every session in the directory. The cost is attention, not tokens, and the budget is finite even when the token count is not. The reframe is "state in files, not heads." It is not "everything in files." [Module 2](../../tier-1/m2-context/)'s over-context warning applies here, just at a different scale.
+
+## Working with CLAUDE.md
 
 ### CLAUDE.md, mechanically
 
@@ -98,9 +96,14 @@ The test: if the model edited this file, would it cause a problem you'd have to 
 
 The test: have you, in a previous session, told the model "we're not doing that" about something it suggested? If yes, write the decision down. The model has no other way to know.
 
-A worked example for shape, drawn from cwv-agent (the recurring example from earlier modules). The repo is a Claude Code agent that analyzes Core Web Vitals data. Its CLAUDE.md is structured as a navigation index. The root file is mostly tables pointing to detailed docs in a `.claude/` subdirectory, with a few sections of direct content for things every session needs.
+A worked example for shape, drawn from cwv-agent. The repo is a Claude Code agent that analyzes Core Web Vitals data. Its CLAUDE.md is structured as a navigation index. The root file is mostly tables pointing to detailed docs in a `.claude/` subdirectory, with a few sections of direct content for things every session needs.
 
-The direct content covers, roughly: a "Quick Start" reading order for new contributors, a "Code & Configuration" section with key source file paths grouped by subsystem (orchestration, analysis, data collection, prompts), a short "Code Quality Standards" section with conventions and a few load-bearing guardrails, and a "Common Tasks" section with run commands.
+The direct content covers, roughly:
+
+- **Quick Start** — reading order for new contributors
+- **Code & Configuration** — key source file paths grouped by subsystem (orchestration, analysis, data collection, prompts)
+- **Code Quality Standards** — conventions and a few load-bearing guardrails
+- **Common Tasks** — run commands
 
 The referenced content (full architecture, individual design decisions, research notes) lives in `.claude/architecture.md`, `.claude/design-*.md`, `.claude/research-*.md`. Loaded on demand when the conversation calls for them. Not in scope every session. The shape mirrors the phase-scoped context fix from [Module 1](../../tier-1/m1-prompting/)'s PR #68: don't load everything every time; load what the situation calls for. Same principle, different scope (project-level instead of sub-agent-level).
 
@@ -177,7 +180,7 @@ Three things make this work regardless of where it lives:
 
 The cost of maintaining anti-knowledge is low: a paragraph or a bullet, written in the moment when the failure is fresh. The cost of not maintaining it is high. Every fresh session restarts the same dead ends.
 
-### Failure modes and the move that fixes each
+## Failure modes and the move that fixes each
 
 | Symptom | Diagnosis | Fix |
 |---|---|---|
@@ -193,7 +196,7 @@ The cost of maintaining anti-knowledge is low: a paragraph or a bullet, written 
 
 The meta-move stays the same as the previous modules: before blaming the prompt or the model, check what's in the file. Most disappointing Claude Code outputs in a long-running project come from a CLAUDE.md or progress file that's stale, bloated, or missing the load-bearing entry. The check is cheap. The fix is usually a five-minute edit.
 
-### The graveyard problem
+## The graveyard problem
 
 The mirror-image failure mode. [Module 1](../../tier-1/m1-prompting/) had over-specifying. [Module 2](../../tier-1/m2-context/) had over-contextualizing. The CLAUDE.md version is the graveyard: a file that has accumulated every constraint you ever needed to clarify once, with no deletion discipline.
 
@@ -203,7 +206,7 @@ Honest pull-back: I haven't hit the graveyard hard in my own work, and I think t
 
 Both of those are mitigations, not guarantees. If you write CLAUDE.md by hand and never let Claude prune it, the graveyard is the default end state. Two habits prevent it. First, ask Claude to review and tighten the file periodically, especially after a stretch of additions. Second, when you're tempted to add a one-off correction as a permanent rule, pause and ask whether the same correction would apply in three other sessions you can imagine. If you can't think of three, leave it out.
 
-### Bridge to Module 5
+## Bridge to Module 5
 
 CLAUDE.md and progress files give you durable, project-level state. They're the simplest application of file-based state: one project, one CLAUDE.md, one task, one progress file. Read at session start, updated as work proceeds.
 
@@ -211,7 +214,7 @@ The next step up is when CLAUDE.md itself grows past the point where loading it 
 
 This is also where the curriculum's anchor project, PR Assistant, starts its arc. The lab in this module gets you to one Claude Code session with a CLAUDE.md reviewing PRs. [Module 5](../m5-rules/)'s lab refactors that CLAUDE.md into path-scoped rules. [Module 6](../m6-subagents-skills/)'s lab decomposes the review into three persona reviewers (security, performance, readability) as sub-agents.
 
-### TLDR
+## TLDR
 
 1. **State belongs in files, not in your head or in fresh prompts.** CLAUDE.md is the simplest expression for project conventions; progress files extend the principle to multi-session work; anti-knowledge files extend it to things the model would otherwise rediscover.
 2. **CLAUDE.md prose is loaded every session. Every line of it costs attention.** Default to small for prose. Tables and references are nearly free; what costs is the dense conventions section. Promote content into the prose layer only when it clears the recurring cost.
@@ -221,9 +224,9 @@ This is also where the curriculum's anchor project, PR Assistant, starts its arc
 6. **The graveyard is the mirror-image failure.** Letting Claude help maintain the file mitigates it; the navigation-index structure mitigates it further. Neither is a guarantee. Treat CLAUDE.md as code.
 7. **The discipline transfers from Modules 1 through 3.** Specify well, manage context, scope tightly. The medium changed; the job didn't.
 
-### Lab handoff
+## Lab handoff
 
-The lab for this module introduces the curriculum's anchor project: PR Assistant. You'll clone the sample repo, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after comparison is the artifact you keep. ~2 hours, self-paced. Lab spec at [./lab/](./lab/).
+The lab uses PR Assistant, a sample repo you'll return to through Modules 4-6. Clone it, run Claude Code on it without a CLAUDE.md, watch the friction, write one, and run again. The before-and-after is what you keep. The lab is at [./lab/](./lab/).
 
 ---
 

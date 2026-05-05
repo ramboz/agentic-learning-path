@@ -31,6 +31,12 @@ ambiguous, the samples settle the question.
    no exhortations.
 5. **No hedging phrases.** No "it seems," "I believe," "perhaps."
    Replace with a number, a specific observation, or a direct claim.
+6. **Reader-facing, not author-facing.** Audit for anything that
+   describes the curriculum's structure from the author's point of view:
+   "frame-setter for the whole curriculum," "each module is publishable
+   on its own," "entering here." A reader who arrived at this page cold
+   has no use for those phrases. If it belongs anywhere, it belongs in
+   `_authoring/`, not in `docs/`.
 
 ## The watch-list (max one per paragraph)
 
@@ -87,6 +93,38 @@ in doubt for structured content, drift toward doc-register.
   not imperative, not passive.
 - **Open with one of: "Context," "Use Case," "Problem Statement."** No
   throat-clearing.
+- **First-person consistency in anecdotes.** If the voice is
+  first-person for an anecdote, stay first-person throughout. Don't
+  switch to "most people I've watched" when the observation is really
+  about the author's own experience. "I'd been treating..." beats
+  "Most people treat..." unless the claim genuinely extends past one
+  person's experience.
+- **Paired examples use the same format.** When showing a bad version
+  and a good version of something (prompt, config, code), both go in
+  the same visual container. Both prose, or both in a fenced code
+  block. Inconsistent formatting creates a reading snag exactly where
+  clarity matters most.
+- **Word precision in loaded choices.** Prefer the plain word over the
+  elevated one. "Opposite" not "inverse." Prefer the neutral word over
+  the judgmental one. "Better phrasing" not "clever phrasing." The
+  existing "plain verbs" rule applies to nouns and adjectives too.
+
+## Example and audience scope
+
+- **No forward references in examples.** If an example requires
+  knowledge of a concept, tool, or system introduced in a later module,
+  replace it. The test: could a reader who has only completed the
+  listed prerequisites follow this example without Googling a term?
+  For Tier 1 modules (audience: everyone), that means everyday
+  non-engineering examples where possible. Technical examples that
+  require knowing what a HAR file is, how a sub-agent works, or what
+  cwv-agent does belong in Tier 2+, where those prerequisites exist.
+- **Examples match the audience of the module, not the author's
+  current work.** The author's own codebase is a good source of real
+  examples, but only when the audience has the context to follow it.
+  An example from cwv-agent is appropriate in M5 (Tier 2, engineers
+  who've been through M4). It is not appropriate in M1 (Tier 1,
+  everyone).
 
 ## Things to actively avoid
 
@@ -113,3 +151,12 @@ Before any module ships, run this pass:
    chat-register.
 6. Read the failure-mode table. If it sounds like a story, rewrite in
    doc-register.
+7. Scan for author-facing phrases ("frame-setter," "publishable on its
+   own," "entering here"). Remove or move to `_authoring/`.
+8. Check every worked example against the module's prerequisites. If
+   the example requires knowledge from a later module, replace it.
+9. Find any before/after paired examples. Confirm both use the same
+   visual format (both prose or both fenced code blocks).
+10. Find any anecdote that switches from first-person to "most people."
+    If the observation is from the author's own experience, rewrite
+    in first-person.

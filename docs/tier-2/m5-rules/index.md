@@ -9,37 +9,33 @@ pagination_label: M5 — Rules
 **Tier 2** — engineers primary; PMs and architects can read the concept post but the lab is engineer-track.
 **Prerequisites:** [Module 1](../../tier-1/m1-prompting/) (Prompting as a design problem), [Module 2](../../tier-1/m2-context/) (Context is the product), [Module 3](../../tier-1/m3-claude-code/) (From chat to Claude Code), [Module 4](../m4-claude-md/) (Writing a CLAUDE.md that earns its keep).
 
-This module is a direct continuation of Module 4. The CLAUDE.md you wrote there is the input; this module's job is to scope it.
+This module picks up from Module 4. The CLAUDE.md you wrote there is the starting point.
 
 ---
 
-## Concept post
-
-### Opening
-
-When I started drafting this module, I hadn't written a rule yet. The order is honest about where my experience is: I read the playbook, then I tried it.
+When I started writing this module, I hadn't written a rule yet. The order is honest about where my experience is: I read the playbook, then I tried it.
 
 So I opened cwv-agent (the same repo from [Module 1](../../tier-1/m1-prompting/)'s PR #68) and asked Claude to look at the CLAUDE.md and tell me whether anything earned a path-scoped split. It came back with three candidates. The one I was most confident about was the rule for the `src/rules/` directory. Each module there follows an opinionated API with no formal interface, and it's the kind of place a fresh session would land on a plausible-looking shape that's wrong in ways tests don't catch. The other two, for prompts and for schemas, felt right too. [PR #69](https://github.com/ramboz/cwv-agent/pull/69) is the result of that review.
 
-If you read the rest of this post and notice it leans on principle rather than war stories, that's why. The principle, load less when you can and scope rules to where they earn their keep, is what I was learning while I drafted. The war stories are coming.
+If you read the rest of this post and notice it leans on principle rather than war stories, that's why. The principle — load less when you can, scope rules to where they earn their keep — is one I was still working out when I started. The war stories are coming.
 
-### What this module covers
+## What this module covers
 
-In a nutshell:
+By the end of this module, you'll be able to:
 
-1. Why a CLAUDE.md that's been pruned can still be too much for the turn you're on
-2. What `.claude/rules/` does mechanically, and how `paths:` glob frontmatter changes the loading rule
-3. How to split a working CLAUDE.md without losing the conventions that ought to stay global
-4. The boundary between rules and skills, the two primitives most likely to be confused
-5. A worked example from cwv-agent ([PR #69](https://github.com/ramboz/cwv-agent/pull/69)): three path-scoped rules and a tightened CLAUDE.md, on the same repo [Module 1](../../tier-1/m1-prompting/)'s PR #68 came from
-6. The failure-mode table for rules: globs that miss, splits that fragment, conventions that should never have left CLAUDE.md
-7. Honest caveat about when scoping costs more than it saves
+1. Recognize when a well-pruned CLAUDE.md is still loading too much for a given turn
+2. Set up `.claude/rules/` with `paths:` frontmatter to scope instructions to matching files
+3. Split a working CLAUDE.md without losing the conventions that should stay global
+4. Tell rules from skills — the two primitives most likely to be confused
+5. Walk through a real refactor: three path-scoped rules and a tightened CLAUDE.md from cwv-agent ([PR #69](https://github.com/ramboz/cwv-agent/pull/69))
+6. Use the failure-mode table to debug rules that miss, split wrong, or over-fire
+7. Calibrate when scoping costs more than it saves
 
 The lab is a 2-hour exercise. You take the CLAUDE.md you wrote in [Module 4](../m4-claude-md/lab/), split the entries that earn path scoping into `.claude/rules/`, run the same review against two mock PRs, and inspect which rules actually loaded for which file changes. The before-and-after is the lab's main artifact, same shape as Module 4.
 
 This module assumes [Modules 1](../../tier-1/m1-prompting/) through [4](../m4-claude-md/). [Module 4](../m4-claude-md/)'s "state in files, not in your head" is the foundation; this module is about giving that state a finer-grained loading rule.
 
-### The reframe: scope is the next move after pruning
+## The reframe: scope is the next move after pruning
 
 [Module 4](../m4-claude-md/) treated CLAUDE.md as a budget. Every line is loaded every session, every turn, regardless of what the turn is doing. The discipline was pruning: an entry earns its place or it doesn't. The graveyard problem was about entries that stopped earning their place but stayed.
 
@@ -48,6 +44,8 @@ Scoping is what comes after pruning, not instead of it. You've already cut the e
 The principle from [Module 4](../m4-claude-md/) doesn't change. State belongs in files, loaded at session start, evolved as the project evolves. What changes is the granularity. Instead of one file loaded uniformly, you keep a thin core in CLAUDE.md and split the path-specific parts into separate files that load only when matching paths come into scope.
 
 Same idea as the phase-scoped context fix from [Module 1](../../tier-1/m1-prompting/), applied at a different scope. Don't load everything every time. Load what the situation calls for.
+
+## The mechanics
 
 ### How rules work, mechanically
 
@@ -134,7 +132,7 @@ What came out of CLAUDE.md and what stayed: the conventions sections for rule mo
 
 The decision rule, simplified: conventions about a place go in rules; conventions about the project stay in CLAUDE.md.
 
-### Failure modes and the move that fixes each
+## Failure modes and the move that fixes each
 
 | Symptom | Diagnosis | Fix |
 |---|---|---|
@@ -150,19 +148,19 @@ The decision rule, simplified: conventions about a place go in rules; convention
 
 The meta-move stays the same as [Module 4](../m4-claude-md/): before blaming the model, check what's in the file. The new check is one level deeper, since rules can fail by not loading as well as by being wrong.
 
-### Honest caveat: when rules don't earn their keep
+## Honest caveat: when rules don't earn their keep
 
 Honest pull-back: I haven't had time to feel the difference. I shipped PR #69, ran cwv-agent a few times, didn't make any substantial changes to the codebase. The runtime experience hasn't shifted noticeably. I can picture how the rules would help the next time I extend the tool, especially in `src/rules/` where the opinionated API is easy to get wrong, but that's a forecast, not a measurement.
 
 So take the rest of this module as principled, not battle-tested. If you have one CLAUDE.md and it's working, leave it alone. The threshold for splitting probably exists, but I haven't lived through enough sessions on the rules-version of cwv-agent to tell you where it sits, and the cost of three small markdown files plus a thinner CLAUDE.md is small enough that I don't want to manufacture one. If your CLAUDE.md is loud and you can name the entries that load every session for no reason, scope them. Otherwise wait until the friction is real.
 
-### Bridge to Module 6
+## Bridge to Module 6
 
 Rules are the always-on half of the scoping picture. They load when their paths match, automatically, whether you asked for them or not. The other half is on-demand: instructions that load when you (or the model) decide they're relevant, not when a path comes into scope. [Module 6](../m6-subagents-skills/) covers skills (reusable workflows invoked deliberately) and sub-agents (specialists that work in their own context and return summaries). The rules-vs-skills table above is a preview; the full treatment lands there.
 
-The PR Assistant arc continues. [Module 4](../m4-claude-md/lab/) gave you one Claude Code session reviewing PRs with a CLAUDE.md. This module's lab refactors that CLAUDE.md into rules. [Module 6](../m6-subagents-skills/)'s lab decomposes the review itself into three persona reviewers (security, performance, readability) as sub-agents, with a couple of skills (`/pr-summary`, `/explain-code`) for the recurring patterns. Nothing thrown away, one new layer per module.
+The PR Assistant arc continues. [Module 4](../m4-claude-md/lab/) gave you one Claude Code session reviewing PRs with a CLAUDE.md. This module's lab refactors that CLAUDE.md into rules. [Module 6](../m6-subagents-skills/)'s lab decomposes the review itself into three persona reviewers (security, performance, readability) as sub-agents, with a couple of skills (`/pr-summary`, `/explain-code`) for the recurring patterns. Each lab builds on the previous one — you're not starting over, just adding a layer.
 
-### TLDR
+## TLDR
 
 1. **Scoping is the move after pruning, not instead of it.** [Module 4](../m4-claude-md/) made CLAUDE.md tight. This module makes the loading rule finer. Same principle, finer granularity.
 2. **Conventions about a place go in rules; conventions about the project stay in CLAUDE.md.** That's the decision rule for what splits and what doesn't. Cross-cutting things stay global.
@@ -172,9 +170,9 @@ The PR Assistant arc continues. [Module 4](../m4-claude-md/lab/) gave you one Cl
 6. **Duplication across rules signals a project-wide convention.** If three rules say the same thing, the convention belongs in CLAUDE.md.
 7. **The discipline transfers from [Modules 1](../../tier-1/m1-prompting/) through [4](../m4-claude-md/).** Specify well, manage context, scope tightly, prune what doesn't earn its place. The medium gets one more layer; the job is the same.
 
-### Lab handoff
+## Lab handoff
 
-The lab refactors the CLAUDE.md you wrote in [Module 4](../m4-claude-md/lab/) into a `.claude/rules/` directory plus a trimmed root file. You'll run the same review task from Module 4 against two mock PRs (`mock-pr/api-rate-limiting`, scoped to `src/api/`, and `mock-pr/tests-fixture-overhaul`, scoped to test files), inspect which rules loaded for each, and compare the result against the Module 4 baseline. ~2 hours, self-paced. Lab spec at [./lab/](./lab/).
+The lab refactors the CLAUDE.md you wrote in [Module 4](../m4-claude-md/lab/) into a `.claude/rules/` directory plus a trimmed root file. You'll run the same review task against two mock PRs, inspect which rules loaded for each, and compare the result against the Module 4 baseline. The lab is at [./lab/](./lab/).
 
 ---
 

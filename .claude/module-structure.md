@@ -101,6 +101,60 @@ End of concept page. Doc-register. Each reference is:
 3-6 references per module. Mix vendor docs, practitioner notes, and
 academic where it earns its place. No "further reading" filler.
 
+## Heading structure
+
+The sidebar TOC is driven by H2 and H3 headings. The goal is a clear
+two-level structure where structural beats stand out and content
+sections sit visibly beneath them.
+
+### Structural beats (always H2)
+
+These headings appear in every module in this order:
+
+- `What this module covers`
+- `The reframe` (with an optional subtitle: `The reframe: <core concept>`)
+- One or two **content group** H2s (see below)
+- `Failure modes and the move that fixes each`
+- `Bridge to Module N`
+- `TLDR`
+- `Lab handoff`
+- `References`
+
+Structural beats should use consistent names across modules. "The
+reframe" is always "The reframe" (not "The frame shift," not "The
+mental model"). "Failure modes and the move that fixes each" is always
+that phrase, not a per-module variant.
+
+### Content groups (H2 parents with H3 children)
+
+The concept sections between the reframe and failure modes are grouped
+under one or two H2 parent headings. Each parent heading names the
+block of content beneath it; the individual sections inside it are H3.
+
+Examples across published modules:
+
+| Module | Parent H2 | H3 children |
+|---|---|---|
+| M1 | What a spec-style prompt contains | Task, Constraints, Context, Examples |
+| M1 | Iteration: prompts aren't one-shot | Know your noise floor, Stop when diminishing returns kick in |
+| M2 | How context works | The four layers, How long conversations degrade, Claude forgot vs. never had it |
+| M2 | Managing context | Tools, Over-contextualizing, When to start fresh |
+| M3 | How Claude Code works | What it actually is, The plan/edit/exec loop |
+| M3 | Configuration | CLAUDE.md briefly, Permissions |
+| M4 | Working with CLAUDE.md | CLAUDE.md mechanically, What earns a place, What doesn't, Progress files, Anti-knowledge |
+| M5 | The mechanics | How rules work, Rules vs skills, Worked example |
+
+A few sections stay as standalone H2s when they're a deliberate
+structural beat rather than a sub-topic: "The graveyard problem" in
+M4, "Honest caveat" in M5, "When NOT to use Claude Code" in M3.
+
+### H3 within a section
+
+Use H3 freely within a content section when the section has two or
+more named sub-topics that the reader might want to navigate to
+directly. Don't promote every bold label to H3 — only the ones where
+a sub-heading meaningfully aids navigation.
+
 ## Front-matter requirements
 
 Every module page needs:
