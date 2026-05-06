@@ -125,28 +125,41 @@ reframe" is always "The reframe" (not "The frame shift," not "The
 mental model"). "Failure modes and the move that fixes each" is always
 that phrase, not a per-module variant.
 
-### Content groups (H2 parents with H3 children)
+### Content sections (H2s between reframe and failure modes)
 
-The concept sections between the reframe and failure modes are grouped
-under one or two H2 parent headings. Each parent heading names the
-block of content beneath it; the individual sections inside it are H3.
+The concept sections between the reframe and failure modes are H2s.
+Two patterns are in use, both sanctioned:
+
+**Umbrella H2 with H3 children.** When several sub-topics naturally
+group under a single conceptual heading, use one H2 as the umbrella
+and H3s for the sub-topics inside. M1-M5 use this pattern.
+
+**Standalone H2s, one per topic.** When each major topic is distinct
+enough to read as its own section, use sequential H2s and reach for
+**bolded paragraph leads** for sub-points inside each. M6 uses this
+pattern.
+
+Pick whichever fits the material. Don't mix the two inside a single
+module; pick one and stay with it.
 
 Examples across published modules:
 
-| Module | Parent H2 | H3 children |
+| Module | Pattern | H2(s) and children |
 |---|---|---|
-| M1 | What a spec-style prompt contains | Task, Constraints, Context, Examples |
-| M1 | Iteration: prompts aren't one-shot | Know your noise floor, Stop when diminishing returns kick in |
-| M2 | How context works | The four layers, How long conversations degrade, Claude forgot vs. never had it |
-| M2 | Managing context | Tools, Over-contextualizing, When to start fresh |
-| M3 | How Claude Code works | What it actually is, The plan/edit/exec loop |
-| M3 | Configuration | CLAUDE.md briefly, Permissions |
-| M4 | Working with CLAUDE.md | CLAUDE.md mechanically, What earns a place, What doesn't, Progress files, Anti-knowledge |
-| M5 | The mechanics | How rules work, Rules vs skills, Worked example |
+| M1 | umbrella | What a spec-style prompt contains → Task, Constraints, Context, Examples |
+| M1 | umbrella | Iteration: prompts aren't one-shot → Know your noise floor, Stop when diminishing returns kick in |
+| M2 | umbrella | How context works → The four layers, How long conversations degrade, Claude forgot vs. never had it |
+| M2 | umbrella | Managing context → Tools, Over-contextualizing, When to start fresh |
+| M3 | umbrella | How Claude Code works → What it actually is, The plan/edit/exec loop |
+| M3 | umbrella | Configuration → CLAUDE.md briefly, Permissions |
+| M4 | umbrella | Working with CLAUDE.md → CLAUDE.md mechanically, What earns a place, What doesn't, Progress files, Anti-knowledge |
+| M5 | umbrella | The mechanics → How rules work, Rules vs skills, Worked example |
+| M6 | standalone | Skills (own H2); Built-in sub-agents (own H2); Custom sub-agents (own H2); The sub-agent vs skill decision (own H2) |
 
-A few sections stay as standalone H2s when they're a deliberate
-structural beat rather than a sub-topic: "The graveyard problem" in
-M4, "Honest caveat" in M5, "When NOT to use Claude Code" in M3.
+A few sections stay as standalone H2s in either pattern when they're
+a deliberate structural beat rather than a sub-topic: "The graveyard
+problem" in M4, "Honest caveat" in M5 and M6, "When NOT to use Claude
+Code" in M3.
 
 ### H3 within a section
 

@@ -104,7 +104,7 @@ this sprint:
 
 Same inputs, task now specified. The output lands on the first try.
 
-## Common failure modes and the move that fixes each
+## Failure modes and the move that fixes each
 
 When an output disappoints, it usually fails along one of a small number of axes. The table below is the diagnostic cheat sheet. The meta-move underneath the table is the actual skill.
 

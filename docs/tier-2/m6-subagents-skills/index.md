@@ -13,13 +13,9 @@ This module picks up from [Module 5](../m5-rules/)'s rules (always-on when match
 
 ---
 
-## Concept post
-
-### Opening
-
 > _Julien writes._ Chat-register, 2–4 paragraphs. Natural angle: what happened the first time you tried to decompose a review into multiple reviewers — the moment it became clear that one Claude doing everything has a ceiling, and what that ceiling felt like. The M5 lab's optional extension hinted at this ("add a skill and notice it doesn't auto-load"); write about actually following that thread. Open with a specific moment or a specific friction. No "sub-agents" or "skills" in the first sentence.
 
-### What this module covers
+## What this module covers
 
 In a nutshell:
 
@@ -33,7 +29,7 @@ In a nutshell:
 
 The lab is a ~2-hour exercise. You inherit the `.claude/rules/` structure from [Module 5](../m5-rules/lab/), add two skills (`/pr-summary`, `/explain-code`), and decompose PR Assistant's review into three persona sub-agents (security, performance, readability). The output is a three-agent review crew you run against a new mock PR, with a direct comparison against the Module 5 rules-only baseline. [Module 7](../m7-oracle/) inherits these agents and adds the oracle exit signal. Prerequisites: Modules [1](../../tier-1/m1-prompting/) through [5](../m5-rules/) with the M5 lab done.
 
-### The reframe: from always-on loading to deliberate delegation
+## The reframe: from always-on loading to deliberate delegation
 
 [Module 4](../m4-claude-md/) gave you CLAUDE.md: project-level state loaded every session, every turn. [Module 5](../m5-rules/) refined the loading rule: path-scoped, still always-on when matching paths come into scope. Both primitives share the same property: the context they produce lives in the main conversation and the main session does all the work.
 
@@ -50,7 +46,7 @@ The question shifts from "what should always be loaded?" to "what should the mai
 
 The principle from [Modules 1](../../tier-1/m1-prompting/) through [5](../m5-rules/) doesn't change: load what the situation calls for; don't pay the full cost on every turn. This module adds two new ways to act on that principle.
 
-### Skills: on-demand workflows loaded into the main conversation
+## Skills: on-demand workflows loaded into the main conversation
 
 A skill is a markdown file in `.claude/skills/`. Claude Code loads it into the main conversation when invoked; the work unfolds visibly in the current session; after the skill finishes, the loaded instructions are freed.
 
@@ -78,7 +74,7 @@ Lifetime: active for the current invocation, then freed. Contrast with rules, wh
 
 **Skills vs CLAUDE.md.** If multi-step "how to do X" instructions are accumulating in CLAUDE.md, that's a signal they belong in a skill. CLAUDE.md should state rules, not procedures. A five-step review workflow you'd invoke only when you want a formal summary does not belong loaded on every session start.
 
-### Built-in sub-agents: Explore, Plan, General-Purpose
+## Built-in sub-agents: Explore, Plan, General-Purpose
 
 Claude Code ships with three sub-agents it uses internally during agentic tasks. You can also invoke them explicitly.
 
@@ -92,7 +88,7 @@ You can invoke any of these in a prompt directly: "Use the Explore sub-agent to 
 
 The read-only constraint on Explore earns its keep as a trust boundary. Routing all discovery through it first means write-capable agents aren't doing exploratory reads mixed with writes. The separation is the point.
 
-### Custom sub-agents: isolated context, scoped tools
+## Custom sub-agents: isolated context, scoped tools
 
 A custom sub-agent is a markdown file in `.claude/agents/`. The format is YAML frontmatter plus a markdown body that serves as the agent's persistent instructions.
 
@@ -128,7 +124,7 @@ Expect: a numbered list of findings with file, line, severity, and one sentence 
 Aggregate with the performance and readability reports when done.
 ```
 
-### The sub-agent vs skill decision
+## The sub-agent vs skill decision
 
 The load-bearing question is the trigger model, not the file format. Both are markdown files with frontmatter. The difference is where the work happens and who sees it.
 
@@ -169,7 +165,7 @@ direct token use. Return a numbered list with file, line, and severity.
 
 The rule applies automatically when Claude touches `src/api/**`. The skill runs in the main conversation when invoked. The sub-agent does isolated analysis and returns a summary. Same domain, different trigger.
 
-### Failure modes and the move that fixes each
+## Failure modes and the move that fixes each
 
 | Symptom | Diagnosis | Fix |
 |---|---|---|
@@ -184,17 +180,17 @@ The rule applies automatically when Claude touches `src/api/**`. The skill runs 
 
 The meta-check stays the same as earlier modules: before blaming the model, check what's in the file. For sub-agents, add one layer: before blaming the agent, verify the delegation prompt gave it the context it needed.
 
-### Honest caveat: when the overhead doesn't earn its keep
+## Honest caveat: when the overhead doesn't earn its keep
 
 > _Julien writes._ Chat-register, 2–3 paragraphs. Angles: a single Claude session with well-written rules can carry a small repo further than three specialized agents, because the overhead of writing output contracts and briefing each agent is real; the case where the three persona reviewers end up flagging the same things in different voices; where the cost of maintaining five files (two skills + three agents) in sync with the actual codebase outpaces the benefit. Honest about what you haven't yet seen save time vs cost time.
 
-### Bridge to Module 7
+## Bridge to Module 7
 
 The three persona reviewers produce findings. What they don't produce is a verdict. You can run security, performance, and readability reviews and still have no clear answer to "is this PR ready?"
 
 That's the oracle question. [Module 7](../m7-oracle/) builds `./oracle.sh`: a composite score from CI, lint, coverage, and seeded-issue detection. The sub-agents you built here are what the oracle will grade. The exit signal (run the crew until the score clears a threshold) presupposes both the crew (this module) and the scoring system (M7). The loop that uses both comes in [Module 8](../../tier-3/m8-headless/).
 
-### TLDR
+## TLDR
 
 1. **Skills load into the main conversation on demand; sub-agents work in their own context.** The trigger model is the difference, not the file format.
 2. **Use a skill when you want to watch and steer the work.** Use a sub-agent when you want isolated execution and a clean handoff.
@@ -204,9 +200,9 @@ That's the oracle question. [Module 7](../m7-oracle/) builds `./oracle.sh`: a co
 6. **Rules, skills, and sub-agents compose.** Rules load automatically when paths match; skills invoke on demand; sub-agents isolate. The orchestrator picks which trigger the situation calls for.
 7. **The M5 decision rule extends to a third option.** Rule if it applies wherever Claude is in the relevant code. Skill if it's a workflow you'd invoke deliberately. Sub-agent if the work earns its own context.
 
-### Lab handoff
+## Lab handoff
 
-The lab picks up the `.claude/rules/` structure from [Module 5](../m5-rules/lab/) and adds two skills and three persona sub-agents on top. You run the same PR through three states: rules-only, skills-added, and three-agent crew. ~2 hours, self-paced. Lab spec at [./lab/](./lab/).
+The lab picks up the `.claude/rules/` structure from [Module 5](../m5-rules/lab/) and adds two skills and three persona sub-agents on top. You run the same PR through three states: rules-only, skills-added, and three-agent crew. ~2 hours, self-paced. The lab is at [./lab/](./lab/).
 
 ---
 
