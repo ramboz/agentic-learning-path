@@ -11,9 +11,7 @@ pagination_label: M6 Lab — Sub-agents and Skills
 
 The lab adds the on-demand and isolated layers to PR Assistant's existing rules structure. You'll build two skills for recurring tasks and three persona sub-agents for the review itself, then run the same PR through three states: rules-only (the M5 baseline), skills-added, and three-agent crew. The comparison is the artifact.
 
-This is the third slice of the PR Assistant arc. [Module 5](../../m5-rules/lab/) produced the rules structure; this lab builds on top of it. [Module 7](../../m7-oracle/) inherits the three persona agents and adds the oracle exit signal. Nothing produced here gets thrown away.
-
-One note for context: the lab validator agent you build here (a sub-agent that reviews its own output) is the first member of the meta-crew introduced in the curriculum outline. It shows up again in [Module 9](../../../tier-3/m9-hooks/) as the foundation for a stop-hook reviewer.
+The `.claude/rules/` structure from [Module 5](../../m5-rules/lab/) is the starting point. This lab adds two skills and three persona sub-agents on top of it. [Module 7](../../m7-oracle/) inherits the three agents and builds the oracle exit signal on top of them.
 
 ## Before you start
 
@@ -53,8 +51,6 @@ A note on the starting point: this lab assumes you finished [Module 5](../../m5-
 ## The exercise
 
 ### Step 1: Run a review with just the rules (the baseline)
-
-~15 minutes.
 
 Check out `mock-pr/add-review-engine`. Fresh Claude Code session. Ask for a review of the diff against `main`. Note:
 
@@ -117,8 +113,6 @@ Invoke it on `src/reviewer/index.ts`. The skill should give you a clear picture 
 **Time:** ~10 minutes.
 
 ### Step 4: Compare skills against the rules-only baseline
-
-~10 minutes.
 
 Run `/pr-summary` and `/explain-code` on the `mock-pr/add-review-engine` branch. Note:
 
