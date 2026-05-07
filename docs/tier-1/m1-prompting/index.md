@@ -178,7 +178,9 @@ Specification gets you a good single-turn result. This module assumed one prompt
 
 Real work runs longer. You ask a follow-up, then another. You paste in a document. You come back tomorrow with more questions about the same project. At some point the conversation is 40 turns deep and the model is contradicting something it said at turn 3. That's not a prompting problem. The spec is fine. It's a context problem. [Module 2](../m2-context/) picks up there.
 
-## TLDR
+## TL;DR
+
+:::tldr
 
 1. **Prompts are specs, not incantations.** The gap between a vague prompt and a specified one dwarfs the gap between two well-specified prompts phrased differently. Work on the spec first, the phrasing last.
 2. **Four components make a spec: task, constraints, context, examples.** Most disappointing outputs are missing one of these. Check which before blaming the model.
@@ -187,6 +189,8 @@ Real work runs longer. You ask a follow-up, then another. You paste in a documen
 5. **Know your noise floor.** The same prompt run three times produces different outputs. If your "improvement" is smaller than the run-to-run spread, you moved nothing.
 6. **Over-specifying is a real failure mode.** If the prompt is longer than the output, you're writing the output yourself. The test: remove a constraint, rerun, see if it matters.
 7. **Stop when iterations stop paying.** The first three usually matter a lot. After five or six, you're polishing. Ship and move on.
+
+:::
 
 ## Lab handoff
 

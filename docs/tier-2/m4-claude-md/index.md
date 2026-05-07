@@ -214,7 +214,9 @@ The next step up is when CLAUDE.md itself grows past the point where loading it 
 
 This is also where the curriculum's anchor project, PR Assistant, starts its arc. The lab in this module gets you to one Claude Code session with a CLAUDE.md reviewing PRs. [Module 5](../m5-rules/)'s lab refactors that CLAUDE.md into path-scoped rules. [Module 6](../m6-subagents-skills/)'s lab decomposes the review into three persona reviewers (security, performance, readability) as sub-agents.
 
-## TLDR
+## TL;DR
+
+:::tldr
 
 1. **State belongs in files, not in your head or in fresh prompts.** CLAUDE.md is the simplest expression for project conventions; progress files extend the principle to multi-session work; anti-knowledge files extend it to things the model would otherwise rediscover.
 2. **CLAUDE.md prose is loaded every session. Every line of it costs attention.** Default to small for prose. Tables and references are nearly free; what costs is the dense conventions section. Promote content into the prose layer only when it clears the recurring cost.
@@ -223,6 +225,8 @@ This is also where the curriculum's anchor project, PR Assistant, starts its arc
 5. **Anti-knowledge belongs at whatever layer fits the scope.** A guardrail in CLAUDE.md for project-wide traps, agent-specific prompts for domain-scoped patterns, a failed-approaches section in progress files for in-flight tasks. Without it, every fresh session restarts the same dead ends.
 6. **The graveyard is the mirror-image failure.** Letting Claude help maintain the file mitigates it; the navigation-index structure mitigates it further. Neither is a guarantee. Treat CLAUDE.md as code.
 7. **The discipline transfers from Modules 1 through 3.** Specify well, manage context, scope tightly. The medium changed; the job didn't.
+
+:::
 
 ## Lab handoff
 

@@ -213,7 +213,9 @@ The three persona reviewers produce findings. What they don't produce is a verdi
 
 That's the oracle question. [Module 7](../m7-oracle/) builds `./oracle.sh`: a composite score from CI, lint, coverage, and seeded-issue detection. The sub-agents you built here are what the oracle will grade. The exit signal (run the crew until the score clears a threshold) presupposes both the crew (this module) and the scoring system (M7). The loop that uses both comes in [Module 8](../../tier-3/m8-headless/).
 
-## TLDR
+## TL;DR
+
+:::tldr
 
 1. **Skills load into the main conversation on demand; sub-agents work in their own context.** The trigger model is the difference, not the file format.
 2. **Use a skill when you want to watch and steer the work.** Use a sub-agent when you want isolated execution and a clean handoff.
@@ -222,6 +224,8 @@ That's the oracle question. [Module 7](../m7-oracle/) builds `./oracle.sh`: a co
 5. **Write a structured output contract before writing the agent, not after.** Agents that return whatever seems useful are hard to aggregate across three reviewers.
 6. **Rules, skills, and sub-agents compose.** Rules load automatically when paths match; skills invoke on demand; sub-agents isolate. The orchestrator picks which trigger the situation calls for.
 7. **The M5 decision rule extends to a third option.** Rule if it applies wherever Claude is in the relevant code. Skill if it's a workflow you'd invoke deliberately. Sub-agent if the work earns its own context.
+
+:::
 
 ## Lab handoff
 

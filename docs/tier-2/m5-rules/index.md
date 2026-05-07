@@ -160,7 +160,9 @@ Rules are the always-on half of the scoping picture. They load when their paths 
 
 The PR Assistant arc continues. [Module 4](../m4-claude-md/lab/) gave you one Claude Code session reviewing PRs with a CLAUDE.md. This module's lab refactors that CLAUDE.md into rules. [Module 6](../m6-subagents-skills/)'s lab decomposes the review itself into three persona reviewers (security, performance, readability) as sub-agents, with a couple of skills (`/pr-summary`, `/explain-code`) for the recurring patterns. Each lab builds on the previous one — you're not starting over, just adding a layer.
 
-## TLDR
+## TL;DR
+
+:::tldr
 
 1. **Scoping is the move after pruning, not instead of it.** [Module 4](../m4-claude-md/) made CLAUDE.md tight. This module makes the loading rule finer. Same principle, finer granularity.
 2. **Conventions about a place go in rules; conventions about the project stay in CLAUDE.md.** That's the decision rule for what splits and what doesn't. Cross-cutting things stay global.
@@ -169,6 +171,8 @@ The PR Assistant arc continues. [Module 4](../m4-claude-md/lab/) gave you one Cl
 5. **Verify rules load before trusting them.** Inspect the working context. Globs that look right but don't match are the most common silent failure.
 6. **Duplication across rules signals a project-wide convention.** If three rules say the same thing, the convention belongs in CLAUDE.md.
 7. **The discipline transfers from [Modules 1](../../tier-1/m1-prompting/) through [4](../m4-claude-md/).** Specify well, manage context, scope tightly, prune what doesn't earn its place. The medium gets one more layer; the job is the same.
+
+:::
 
 ## Lab handoff
 

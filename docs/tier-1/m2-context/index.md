@@ -179,7 +179,9 @@ When the work shifts from "help me think through this" to "go do this thing in m
 
 The context principles from this module carry over directly. What changes is the mechanics.
 
-## TLDR
+## TL;DR
+
+:::tldr
 
 1. **Context is the product, not the prompt.** What you're managing across real work is the whole context window, not just the latest message.
 2. **Four layers of context: system prompt, persistent, conversation history, just-in-time.** Different failure modes per layer, different fixes.
@@ -188,6 +190,8 @@ The context principles from this module carry over directly. What changes is the
 5. **Project files, artifacts, and attachments are tiers of durable context.** Promote things up the tiers as they start to matter across conversations.
 6. **Over-contextualizing is the other failure mode.** Everything in context costs attention, even when it's free in tokens.
 7. **Start fresh when the conversation is more noise than signal.** Distill against the original, not against what you remember. The summary is only as good as what you put in it.
+
+:::
 
 ## Lab handoff
 

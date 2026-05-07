@@ -173,7 +173,9 @@ Past CLAUDE.md, `.claude/` grows. Tier 2 covers path-scoped rules (instructions 
 
 For PMs and architects, this is where the hands-on labs end. The remaining concept posts (M4-7) are still worth reading; CLAUDE.md, scoping rules, sub-agents and skills, and oracles are mental models that come up in any conversation about how engineering teams use these tools. The labs are how engineers internalize them. The concepts apply more broadly.
 
-## TLDR
+## TL;DR
+
+:::tldr
 
 1. **Claude Code shifts the model from advisor to operator.** It has hands. The inputs, outputs, and your job all change. Treating it like fast chat is the most common early mistake.
 2. **The plan/edit/exec loop is where the work happens, and the brakes live inside it.** Reject bad plans before approving any edits. Treat command approvals as the most attention-worthy step.
@@ -182,6 +184,8 @@ For PMs and architects, this is where the hands-on labs end. The remaining conce
 5. **Most chat failure modes carry over.** A few are sharpened by the operator role: edits to unexpected files, destructive commands, loops the model can't escape without your intervention.
 6. **Not every task wants Claude Code.** Course-correcting mid-execution, exploratory thinking, architecture decisions, reading-heavy work. Chat is often better. The interface should match the shape of the work.
 7. **The discipline didn't change. The list got longer.** Specify well, manage context, watch the failure modes. Same job; more places to apply it.
+
+:::
 
 ## Lab handoff
 

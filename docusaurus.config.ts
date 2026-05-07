@@ -36,6 +36,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           editUrl: 'https://github.com/ramboz/agentic-learning-path/tree/main/',
+          admonitions: {
+            keywords: ['tldr'],
+            extendDefaults: true,
+          },
         },
         blog: false,
         theme: {
