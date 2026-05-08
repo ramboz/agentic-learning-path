@@ -1,6 +1,6 @@
 # Agentic Learning Path
 
-A 10-module curriculum on Claude and Claude Code, from prompts to crews.
+A 12-module curriculum on Claude and Claude Code, from prompts to crews.
 Concept posts and hands-on labs ship together. Published as a Docusaurus
 site to GitHub Pages.
 
