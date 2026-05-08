@@ -62,6 +62,8 @@ A skill is a markdown file in `.claude/skills/`. Claude Code loads it into the m
 
 The format: optional YAML frontmatter plus a markdown body. The body is the workflow the model follows.
 
+:::example
+
 ```markdown
 ---
 description: Summarize a PR diff in a short structured block
@@ -75,6 +77,8 @@ description: Summarize a PR diff in a short structured block
 4. List each changed file with a one-line note on why it changed.
 5. Output as a labeled block: **Type**, **Summary**, **Files**.
 ```
+
+:::
 
 Invocation: type `/pr-summary` in a Claude Code session. The model loads the skill's body as instructions and follows them. The model can also invoke skills it determines are relevant, without a slash command from you.
 
@@ -104,6 +108,8 @@ The read-only constraint on Explore earns its keep as a trust boundary. Routing 
 
 A custom sub-agent is a markdown file in `.claude/agents/`. The format is YAML frontmatter plus a markdown body that serves as the agent's persistent instructions.
 
+:::example
+
 ```markdown
 ---
 name: security-reviewer
@@ -119,6 +125,8 @@ Out of scope: performance, readability, style.
 For each finding, report: (1) file and line number, (2) issue class, (3) severity (high/medium/low), (4) one sentence on the risk. Return a numbered list. No commentary outside the list.
 ```
 
+:::
+
 **Context isolation.** When the orchestrating session spawns a sub-agent, the agent starts a fresh context. It does not inherit the main conversation's history. The orchestrator must brief it explicitly in the delegation prompt: attach the diff, name the files, provide whatever context the agent needs to work correctly. Context isolation is both the benefit (no noise from the main session's history) and the cost (the agent only knows what you give it).
 
 **Tool scoping.** The `tools:` frontmatter field restricts which tools the agent can call. A security reviewer that can only `Read`, `Glob`, and `Grep` cannot accidentally edit files. Set tool lists to the minimum the agent needs; don't leave `tools:` empty unless the agent genuinely requires full access.
@@ -129,12 +137,16 @@ For each finding, report: (1) file and line number, (2) issue class, (3) severit
 
 A delegation prompt that uses the contract:
 
+:::example
+
 ```
 Run the security-reviewer agent on the diff at src/reviewer/.
 Scope: src/reviewer/auth.ts only.
 Expect: a numbered list of findings with file, line, severity, and one sentence per finding.
 Aggregate with the performance and readability reports when done.
 ```
+
+:::
 
 ## The sub-agent vs skill decision
 
@@ -156,10 +168,16 @@ Contrast with rules from [Module 5](../m5-rules/): rules apply automatically whe
 
 The same domain knowledge can live in any of the three depending on how it should activate. A worked side-by-side on API conventions:
 
+:::example
+
 ```markdown
 # As a rule (paths: src/api/**)
 API endpoints use Zod schemas. Errors go through ApiError. Response shape is { data, error }.
 ```
+
+:::
+
+:::example
 
 ```markdown
 # As a skill (/api-audit)
@@ -168,12 +186,18 @@ Check: (1) Zod schema for all inputs, (2) ApiError for all throws, (3) response 
 List violations with file and line numbers.
 ```
 
+:::
+
+:::example
+
 ```markdown
 # As a sub-agent (api-security-reviewer)
 tools: [Read, Glob, Grep]
 Review the diff for API security issues: missing input validation, unguarded error leakage,
 direct token use. Return a numbered list with file, line, and severity.
 ```
+
+:::
 
 The rule applies automatically when Claude touches `src/api/**`. The skill runs in the main conversation when invoked. The sub-agent does isolated analysis and returns a summary. Same domain, different trigger.
 

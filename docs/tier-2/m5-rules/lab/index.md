@@ -61,6 +61,8 @@ Write down the split plan in plain text. Three columns: entry, target file, glob
 
 Create the directory if it doesn't exist (`mkdir -p .claude/rules`). Add a file with frontmatter and the API-only entries from your split plan:
 
+:::example
+
 ```markdown
 ---
 paths: src/api/**
@@ -71,6 +73,8 @@ paths: src/api/**
 [entries from your split plan, e.g. error handling, token handling via auth.ts, never inline GITHUB_TOKEN, always pass a fetchImpl in tests]
 ```
 
+:::
+
 Keep the body short. The same "earns its place" discipline from [Module 4](../../m4-claude-md/) applies; a rule body that's too long is the same failure mode as a bloated CLAUDE.md.
 
 **Time:** ~10 minutes.
@@ -78,6 +82,8 @@ Keep the body short. The same "earns its place" discipline from [Module 4](../..
 ### Step 3: Create `.claude/rules/tests.md`
 
 Same shape, different glob. PR Assistant keeps tests co-located, so the glob targets `*.test.ts` files anywhere in the tree:
+
+:::example
 
 ```markdown
 ---
@@ -89,6 +95,8 @@ paths: "**/*.test.ts"
 [entries from your split plan, e.g. Vitest not Jest, fixtures via factories not shared mutables, mock fetch via fetchImpl option, no real network calls]
 ```
 
+:::
+
 If you ever add a top-level `tests/` tree later, you can extend this to a list (`["tests/**", "**/*.test.ts"]`) without touching the rule body.
 
 **Time:** ~10 minutes.
@@ -96,6 +104,8 @@ If you ever add a top-level `tests/` tree later, you can extend this to a list (
 ### Step 4: Create `.claude/rules/markdown.md`
 
 The rendering subsystem (`src/markdown.ts`, `src/toc.ts`, etc.) has its own conventions: how the inline renderer composes, what gets escaped where, the relationship between the line scanner and TOC generation. These don't apply to the API or to tests, so they earn a path-scoped rule:
+
+:::example
 
 ```markdown
 ---
@@ -108,6 +118,8 @@ paths:
 
 [entries from your split plan, e.g. always run inline content through escapeHtml before pattern replacements, headings beyond h3 need explicit handling, never bypass sanitizeHtml in renderPost]
 ```
+
+:::
 
 The PR Assistant repo has no `docs/` tree, so a docs-style rule has nothing to scope against; the markdown rule fills the same slot in the api/tests/markdown trio. If your version of the M4 CLAUDE.md had documentation conventions in it, those entries are project-wide noise here; consider promoting them back to CLAUDE.md or dropping them.
 
@@ -208,6 +220,8 @@ Keep all of these. [Module 6](../../m6-subagents-skills/) inherits this rules st
 
 If taking notes inline helps, copy this template into a scratch file and fill it as you go. Not required.
 
+:::example
+
 ```
 STEP 1: Split plan
   Entry → target file → glob
@@ -244,6 +258,8 @@ STEP 9: Reflection
   Rule that shouldn't have been split: ___
   Surprising placement: ___
 ```
+
+:::
 
 ## When you're done
 

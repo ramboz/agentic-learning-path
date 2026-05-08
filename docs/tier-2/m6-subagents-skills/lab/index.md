@@ -66,6 +66,8 @@ Don't help the model. The gaps are the data this baseline is here to show.
 
 Create `.claude/skills/pr-summary.md` with a body that gives a five-step procedure:
 
+:::example
+
 ```markdown
 ---
 description: Summarize a PR diff in a short structured block
@@ -80,6 +82,8 @@ description: Summarize a PR diff in a short structured block
 5. Output as a labeled block: **Type**, **Summary**, **Files**.
 ```
 
+:::
+
 Invoke `/pr-summary` in a fresh session on the same branch. Observe:
 
 - The skill loaded only when invoked; the rules still loaded automatically for file matches.
@@ -91,6 +95,8 @@ Invoke `/pr-summary` in a fresh session on the same branch. Observe:
 ### Step 3: Add `/explain-code`
 
 Create `.claude/skills/explain-code.md` with a body that walks through a named function or file:
+
+:::example
 
 ```markdown
 ---
@@ -107,6 +113,8 @@ The user will name a file or function. Do this:
 4. Describe what would break if it were removed or its interface changed.
 5. Output as: **What it does**, **Depends on**, **Breaks if changed**.
 ```
+
+:::
 
 Invoke it on `src/reviewer/index.ts`. The skill should give you a clear picture of the new subsystem's entry point before you write any agents.
 
@@ -138,6 +146,8 @@ Standardizing the return format across all three agents is the structured output
 
 A starting structure:
 
+:::example
+
 ```
 Security reviewer:
   In scope: [...]
@@ -155,11 +165,15 @@ Readability reviewer:
   Return format: [...]
 ```
 
+:::
+
 **Time:** ~15 minutes.
 
 ### Step 6: Create the security reviewer
 
 Create `.claude/agents/security-reviewer.md`:
+
+:::example
 
 ```markdown
 ---
@@ -175,6 +189,8 @@ Out of scope: performance, readability, style.
 
 For each finding, report: (1) file and line number, (2) issue class, (3) severity (high/medium/low), (4) one sentence on the risk. Return a numbered list. No commentary outside the list.
 ```
+
+:::
 
 Keep `tools:` to `[Read, Glob, Grep]`. A reviewer that can only read cannot accidentally edit.
 
@@ -196,11 +212,15 @@ Both should use `tools: [Read, Glob, Grep]` and the same return format you chose
 
 Fresh Claude Code session, on `mock-pr/add-review-engine`. Prompt the orchestrator:
 
+:::example
+
 ```
 Run the security-reviewer, perf-reviewer, and readability-reviewer agents on the diff at src/reviewer/.
 For each agent, brief it: the diff adds a new PR review engine subsystem. Scope each agent to src/reviewer/ only.
 Aggregate the results. If a finding appears in more than one review, mark it as cross-cutting.
 ```
+
+:::
 
 Observe:
 
@@ -257,6 +277,8 @@ Keep all of these. [Module 7](../../m7-oracle/) picks up the three agents and bu
 
 If notes inline help, copy this template into a scratch file. Not required.
 
+:::example
+
 ```
 STEP 1: Rules-only baseline
   Branch: mock-pr/add-review-engine
@@ -290,6 +312,8 @@ STEP 10: Reflection
   Hard scope boundary: ___
   One improvement without a fourth agent: ___
 ```
+
+:::
 
 ## When you're done
 

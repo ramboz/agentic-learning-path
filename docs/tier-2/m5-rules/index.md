@@ -53,6 +53,8 @@ The directory is `.claude/rules/`. Each file inside is a markdown document with 
 
 A minimal example:
 
+:::example
+
 ```markdown
 ---
 paths: src/api/**
@@ -65,6 +67,8 @@ paths: src/api/**
 - Errors are thrown as `ApiError` (see `src/api/errors.ts`); never return error objects.
 - Response shape is always `{ data, error }`. Never bare arrays.
 ```
+
+:::
 
 Loading rule: when Claude reads or edits a file matching `src/api/**`, this rule's body is added to the working context. When Claude is operating elsewhere, the rule sits dormant. The frontmatter is metadata; only the body counts toward the per-turn cost when it loads.
 
@@ -98,15 +102,23 @@ The difference is the trigger.
 
 Same instruction, two homes:
 
+:::example
+
 ```markdown
 # As a rule (paths: tests/**)
 Use `vitest` not `jest`. Mock with `vi.fn()`, not `jest.fn()`. Coverage threshold is 80% per file; failing it blocks merge.
 ```
 
+:::
+
+:::example
+
 ```markdown
 # As a skill (/migrate-to-vitest)
 Walk the test file the user provides. Replace `jest` imports with `vitest`. Replace `jest.fn()` with `vi.fn()`. Run the file under `npx vitest run` and report failures.
 ```
+
+:::
 
 The rule applies whenever Claude touches a test file, even if the turn isn't about testing. The skill applies only when the user explicitly asks for a migration. Same domain knowledge, different trigger model.
 

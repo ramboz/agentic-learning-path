@@ -222,6 +222,8 @@ because they're easy to fall into mid-flow:
 If taking notes inline helps, copy this template into a scratch file and
 fill it as you go. Not required.
 
+:::example
+
 ```
 TASK 1: read-only
   File reads taken: ___
@@ -248,6 +250,8 @@ CALIBRATION
   Where I over-intervened: ___
   Change to CLAUDE.md I'd make: ___
 ```
+
+:::
 
 ## When you're done
 

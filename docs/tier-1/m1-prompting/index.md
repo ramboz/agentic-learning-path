@@ -80,6 +80,8 @@ Not every prompt needs all four. "What's the capital of France" is a one-liner, 
 
 **A worked example.** Here's a prompt I wrote early on when I needed a weekly project update:
 
+:::example
+
 ```
 Here is everything we shipped this sprint:
 
@@ -88,11 +90,15 @@ Here is everything we shipped this sprint:
 Write an update.
 ```
 
+:::
+
 Run the task check on that. If you handed this to a competent stranger, would they know what to produce? No. The prompt ships a list of raw changes with no task attached. "Write an update" isn't a task — it's an invitation to guess. Who's the audience? What format? A Slack post, a slide, an email? What should the reader feel or do after reading it?
 
 The actual answers lived in my head: a short Slack message for a non-technical stakeholder, focused on impact rather than activity. None of that was in the prompt.
 
 The fix:
+
+:::example
 
 ```
 Write a two-paragraph Slack update for a non-technical stakeholder. Focus on
@@ -101,6 +107,8 @@ this sprint:
 
 [list of features and fixes]
 ```
+
+:::
 
 Same inputs, task now specified. The output lands on the first try.
 

@@ -37,7 +37,7 @@ const config: Config = {
           routeBasePath: '/',
           editUrl: 'https://github.com/ramboz/agentic-learning-path/tree/main/',
           admonitions: {
-            keywords: ['tldr'],
+            keywords: ['tldr', 'example'],
             extendDefaults: true,
           },
         },

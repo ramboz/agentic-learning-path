@@ -3,21 +3,97 @@
  * Variables follow the Infima design system used by the classic theme.
  */
 
-/* TL;DR well pattern */
+/* Hide default Docusaurus admonition heading on tldr & example */
+.theme-admonition-tldr [class*='admonitionHeading'],
+.theme-admonition-example [class*='admonitionHeading'] {
+  display: none;
+}
+
+/* TL;DR: well pattern with prominent icon */
 .theme-admonition-tldr {
+  position: relative;
   background-color: var(--ifm-color-emphasis-100);
   border: 1px solid var(--ifm-color-emphasis-300);
   border-left-width: 1px;
   border-radius: var(--ifm-global-radius);
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.07), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  padding: 1rem 1rem 1rem 4rem;
 }
 
 [data-theme='dark'] .theme-admonition-tldr {
   box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.theme-admonition-tldr [class*='admonitionHeading'] {
-  display: none;
+.theme-admonition-tldr::before {
+  content: '';
+  position: absolute;
+  top: 0.875rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--ifm-color-emphasis-700);
+  opacity: 0.6;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'/%3E%3C/svg%3E");
+}
+
+/* Example: no outer wrapper — style sits directly on the code block */
+.theme-admonition-example {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.theme-admonition-example .theme-code-block {
+  position: relative;
+}
+
+.theme-admonition-example pre {
+  padding-left: 4rem;
+}
+
+/* Backdrop column matching the code block bg, hides any code scrolled under the icon */
+.theme-admonition-example .theme-code-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3.25rem;
+  background: var(--prism-background-color);
+  border-radius: var(--ifm-pre-border-radius, var(--ifm-global-radius)) 0 0
+    var(--ifm-pre-border-radius, var(--ifm-global-radius));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Icon sits on top of the backdrop */
+.theme-admonition-example .theme-code-block::after {
+  content: '';
+  position: absolute;
+  top: 0.875rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--ifm-color-emphasis-700);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 2;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z'/%3E%3C/svg%3E");
 }
 
 :root {

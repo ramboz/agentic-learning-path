@@ -109,10 +109,14 @@ The referenced content (full architecture, individual design decisions, research
 
 One specific entry in the conventions section is worth pulling out as a real example of anti-knowledge compressed into a guardrail:
 
+:::example
+
 ```
 USE withStructuredOutput() with Zod schemas for guaranteed JSON
   CRITICAL: Use method: 'jsonSchema' (camelCase), NOT 'json_schema' (v0.3 syntax)
 ```
+
+:::
 
 The CRITICAL line is there because at some point we tried the v0.3 syntax, it failed, and we lost time figuring out why. Future sessions don't need to relearn this. That's the failed-approaches pattern at its smallest scale: one line, enough specificity to override the model's instinct, in a file that's loaded every session.
 
@@ -163,6 +167,8 @@ The pattern: write the rejected approach down, in a file loaded when the relevan
 
 **In a progress file's failed-approaches section.** When the anti-knowledge is scoped to a specific in-flight task rather than a project-wide convention. Rough template:
 
+:::example
+
 ```markdown
 ## Failed approaches
 
@@ -171,6 +177,8 @@ Why we tried it: [the reasoning at the time]
 Why it didn't work: [specific failure, ideally reproducible]
 Replaced with: [what's in scope now]
 ```
+
+:::
 
 Three things make this work regardless of where it lives:
 

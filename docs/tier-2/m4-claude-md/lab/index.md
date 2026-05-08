@@ -119,6 +119,8 @@ Keep all of these. Module 5 builds on this CLAUDE.md when it refactors into path
 
 If taking notes inline helps, copy this template into a scratch file and fill it as you go. Not required.
 
+:::example
+
 ```
 STEP 1: Run without CLAUDE.md
   Mock PR picked: ___
@@ -149,6 +151,8 @@ STEP 5: Reflection
   Expected but didn't help: ___
   Add/remove if I ran it again: ___
 ```
+
+:::
 
 ## When you're done
 
