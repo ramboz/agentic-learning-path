@@ -43,8 +43,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'/%3E%3C/svg%3E");
 }
 
-/* Example: no outer wrapper — icon sits inline at the start of the code,
-   scrolling with the content so it can't overlap when scrolled. */
+/* Example: no outer wrapper — pre is padded so all lines indent, icon sits
+   in the padding via relative positioning + zero layout width. */
 .theme-admonition-example {
   background: transparent;
   border: none;
@@ -52,12 +52,18 @@
   padding: 0;
 }
 
+.theme-admonition-example pre {
+  padding-left: 4rem;
+}
+
 .theme-admonition-example pre code::before {
   content: '';
   display: inline-block;
+  position: relative;
+  left: -3rem;
   width: 2rem;
   height: 2rem;
-  margin-right: 1rem;
+  margin-right: -2rem;
   vertical-align: -0.6em;
   background-color: var(--ifm-color-emphasis-700);
   opacity: 0.6;
