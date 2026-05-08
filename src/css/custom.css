@@ -17,7 +17,7 @@
   border-left-width: 1px;
   border-radius: var(--ifm-global-radius);
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.07), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-  padding: 1rem 1rem 1rem 4rem;
+  padding: 1rem 1rem 1rem 5rem;
 }
 
 [data-theme='dark'] .theme-admonition-tldr {
@@ -28,7 +28,7 @@
   content: '';
   position: absolute;
   top: 0.875rem;
-  left: 1rem;
+  left: 2rem;
   width: 2rem;
   height: 2rem;
   background-color: var(--ifm-color-emphasis-700);
