@@ -43,7 +43,8 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'/%3E%3C/svg%3E");
 }
 
-/* Example: no outer wrapper — style sits directly on the code block */
+/* Example: no outer wrapper — icon sits inline at the start of the code,
+   scrolling with the content so it can't overlap when scrolled. */
 .theme-admonition-example {
   background: transparent;
   border: none;
@@ -51,41 +52,15 @@
   padding: 0;
 }
 
-.theme-admonition-example .theme-code-block {
-  position: relative;
-}
-
-.theme-admonition-example pre {
-  padding-left: 4rem;
-}
-
-/* Backdrop column matching the code block bg, hides any code scrolled under the icon */
-.theme-admonition-example .theme-code-block::before {
+.theme-admonition-example pre code::before {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 3.25rem;
-  background: var(--prism-background-color);
-  border-radius: var(--ifm-pre-border-radius, var(--ifm-global-radius)) 0 0
-    var(--ifm-pre-border-radius, var(--ifm-global-radius));
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Icon sits on top of the backdrop */
-.theme-admonition-example .theme-code-block::after {
-  content: '';
-  position: absolute;
-  top: 0.875rem;
-  left: 1rem;
+  display: inline-block;
   width: 2rem;
   height: 2rem;
+  margin-right: 1rem;
+  vertical-align: -0.6em;
   background-color: var(--ifm-color-emphasis-700);
   opacity: 0.6;
-  pointer-events: none;
-  z-index: 2;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
