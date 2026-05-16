@@ -96,6 +96,13 @@ threshold) is the worked example — it presupposes M7 and M8.
 - Lab: add hooks to make the M8 Ralph loop safe. `PreToolUse(Bash)`
   validates commands; `Stop` hook spawns the meta-judge.
 - Publishable standalone.
+- Reference to consider (battle-tested, side project): [jig](https://github.com/ramboz/jig)
+  frames its design as "hooks are the spine; skills are the LLM layer" —
+  five hooks total, each enforcing a deterministic gate the skills layer
+  can't bypass. README "Design philosophy" section is the one-line quote;
+  `hooks/scripts/` shows the actual implementations. Optional further
+  reading; phrase as "another side project of mine if you want a more
+  battle-tested reference."
 
 ### M10: Parallel workers, worktrees, and racing hypotheses
 Multiple Claude Code processes, git worktrees, one-agent-one-file discipline.
@@ -103,6 +110,13 @@ When parallelism hurts.
 - Lab: race 4 fix strategies in separate worktrees; oracle picks the highest
   score.
 - Needs M8.
+- Reference to consider (battle-tested, side project): [jig](https://github.com/ramboz/jig)'s
+  spec 003-03 (`reserve-spec-on-main`) exists because parallel-worktree
+  sessions kept colliding on spec numbers — a concrete real-world failure
+  mode of the one-agent-one-file discipline (specifically: shared sequence
+  state across worktrees) and the fix that was needed. Skim
+  [`docs/specs/003-spec-workflow-promotion/`](https://github.com/ramboz/jig/tree/main/docs/specs)
+  if you want to see the scar. Optional, framed as side-project reference.
 
 ### M11: Agent Teams and the manager-worker mental model
 Claude Code's experimental Agent Teams; shared task lists; reframing user
@@ -117,6 +131,14 @@ crew is worse than a single well-instructed agent.
 - Lab: package as GitHub Action with Slack MCP for notifications. One-page
   post-mortem on whether complexity was worth it.
 - Finale; not publishable standalone.
+- Reference to consider (battle-tested, side project): [jig](https://github.com/ramboz/jig)'s
+  "Design philosophy" — 5 Tier 0 skills (not 100+), 3 sub-agents (not 48
+  like ECC), 8-12 skills total when complete — is *literally* the M12
+  conclusion in one project's positioning. The product-vision.md
+  "competitive landscape" table contrasts focused skill packs against
+  maximalist ones and against hand-rolled CLAUDE.md baselines.
+  Optional further reading; phrase as "another side project of mine if
+  you want a more battle-tested reference."
 
 ## Open structural questions
 
