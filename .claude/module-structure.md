@@ -101,6 +101,13 @@ End of concept page. Doc-register. Each reference is:
 3-6 references per module. Mix vendor docs, practitioner notes, and
 academic where it earns its place. No "further reading" filler.
 
+**Depth handoff.** A module is a light conceptual introduction, not a
+reference. When a topic has a deeper, more current home (the team's
+AI-First Development Guidelines, or official vendor docs), introduce the
+concept and link out instead of reproducing the depth. The curriculum
+owns the why and the local relevance, not the coverage. Internal depth
+and destination targets are mapped in `_authoring/external-references.md`.
+
 ## Heading structure
 
 The sidebar TOC is driven by H2 and H3 headings. The goal is a clear

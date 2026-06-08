@@ -9,7 +9,7 @@ pagination_label: M3 — Claude Code
 **Tier 1** — for everyone (PMs, architects, engineers).  
 **Prerequisites:** [Module 1](../m1-prompting/) (Prompting as a design problem), [Module 2](../m2-context/) (Context is the product).
 
-Note: from M4 on, the labs are engineer-only. PMs and architects continue with concept posts through M4-6.
+Note: from M4 on, the labs are engineer-only. PMs and architects continue with concept posts through M4-7.
 
 ---
 
@@ -32,7 +32,7 @@ By the end of this module, you'll be able to:
 
 The lab is a 90-minute setup-and-explore exercise. You install Claude Code on a small repo, run tasks of increasing autonomy, and watch where the loop strains.
 
-From Module 4 on, the labs are engineer-only. PMs and architects get concept posts for Modules 4 through 6.
+From Module 4 on, the labs are engineer-only. PMs and architects get concept posts for Modules 4 through 7.
 
 ## The reframe: advisor vs. operator
 
@@ -197,4 +197,5 @@ The lab is a setup-and-explore exercise. You install Claude Code, point it at a 
 
 - [**Claude Code documentation**](https://docs.claude.com/en/docs/claude-code/overview). Official docs covering installation, configuration, permissions, and the plan/edit/exec mechanics. The single best reference for current syntax. Mechanical details change quarter to quarter; defer to docs over anything specific in this module.
 - [**Anthropic's CLAUDE.md guidance**](https://docs.claude.com/en/docs/claude-code/memory). Official notes on what makes a useful CLAUDE.md and what to avoid. Pairs with [Module 4](../../tier-2/m4-claude-md/)'s deeper treatment.
+- [**AI-First Development Guidelines**](https://github.com/adobe/mysticat-ai-native-guidelines). The team's operating playbook, in more depth than a module carries. For the team's actual Claude Code setup, see its workspace setup, getting-started, and Claude Code configuration sections. This module is the chat-to-terminal shift; the guidelines are how the team configures the tool.
 - [**"How I Use Every Claude Code Feature" (Willison)**](https://simonwillison.net/2025/Nov/2/how-i-use-every-claude-code-feature/). Heavy-user tour of plan/edit/exec, permissions, and the smaller features the docs gloss over. Concrete examples to anchor the mechanics this module introduces.

@@ -36,7 +36,7 @@ By the end of this module, you'll be able to:
 
 The lab at the end is a 90-minute self-paced exercise. You take 5 bad prompts, rewrite each three ways, predict which version wins, then run and compare.
 
-The rest of the curriculum assumes you think about prompts as specs. Skipping this one makes Modules 2 through 10 feel like a pile of tools with no handle.
+The rest of the curriculum assumes you think about prompts as specs. Skipping this one makes Modules 2 through 12 feel like a pile of tools with no handle.
 
 ## The reframe: prompts as specs
 

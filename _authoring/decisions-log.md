@@ -19,6 +19,33 @@ reason.
 - Voice samples remain internal-only calibration data. Customer names,
   JIRA IDs, internal URLs, unreleased timelines excluded from module
   prose.
+- Positioning (settled 2026-06-08): the curriculum is the foundations
+  layer, an on-ramp that teaches the concepts from zero. It is not a
+  reference manual and not a record of team practice. It is complementary
+  to the team's other AI-native tracks, and links out to them rather than
+  duplicating:
+  - AI-First Development Guidelines (github.com/adobe/mysticat-ai-native-guidelines, public):
+    the operating playbook (foundations, 5-phase lifecycle, deep
+    evaluation-driven-development section, multi-tool config, guardrails,
+    adoption, leadership). The depth hand-off target for most modules.
+    Overlap review (2026-06-08) verdict: heavy topic overlap, but the
+    guidelines assume buy-in and don't teach a newcomer (their onboarding
+    is "go read the philosophy"); the curriculum is the missing
+    pedagogical on-ramp. Supersession risk is real if the curriculum
+    drifts into being a second reference, so stay conceptual and link out.
+  - jig (github.com/ramboz/jig, public), servo (github.com/ramboz/servo,
+    public), experience-success-skills (github.com/adobe/experience-success-skills,
+    PRIVATE): the artifact layer. Named as destinations (what the foundations
+    build toward), not duplicated. servo mirrors the M7-M10 arc.
+    experience-success-skills is private but still linked from the published
+    site with an "Adobe-internal" annotation. Deliberate exception to the
+    "internal URLs excluded from module prose" rule above, since the audience
+    is Adobe-internal-primary and most readers have access (decided 2026-06-08).
+- Depth handoff: modules stay light conceptual introductions. Mechanics,
+  feature surface, and deep procedure link out (to the guidelines and to
+  official docs). The curriculum owns the concept and the local relevance,
+  not the coverage. Actionable form of the reviewer feedback on reference
+  rabbit holes (2026-06).
 
 ## Structure
 

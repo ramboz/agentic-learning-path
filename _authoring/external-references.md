@@ -22,6 +22,47 @@ Verification dates: agent research run 2026-05-01.
 
 ---
 
+## Internal depth and destination targets
+
+The curriculum hands depth off to the team's own material instead of
+competing with it. Visibility checked 2026-06-08: the AI-First Development
+Guidelines, jig, and servo are public and safe to link from the published
+site. experience-success-skills is PRIVATE: link it with an "Adobe-internal"
+annotation (audience is internal-primary, most readers have access; decided
+2026-06-08, a deliberate exception to the internal-URL rule).
+
+**Depth target (introduce the concept, then link out for the deep version):**
+
+- [**AI-First Development Guidelines**](https://github.com/adobe/mysticat-ai-native-guidelines)
+  (public). The operating playbook. Per-module hooks:
+  - M3 chat-to-Claude-Code → `01-foundations/workspace-setup.md`,
+    `01-foundations/tools-checklist.md`, `presentations/getting-started.md`,
+    `04-configuration/ai-tools/claude-code.md`, `04-configuration/ai-tools/permissions.md`.
+  - M4 CLAUDE.md → `examples/` (workspace + project CLAUDE.md),
+    `04-configuration/ai-tools/claude-code.md`.
+  - M5 rules, M9 hooks → `05-guardrails/` (must-rules, should-rules,
+    mechanical-enforcement, anti-patterns).
+  - M6 sub-agents/skills → `04-configuration/skills/`,
+    `01-foundations/skill-distribution.md`.
+  - M7 oracle → `02-lifecycle/` evaluation-driven-development section
+    (eval-driven-development, llm-powered-evals, prompt-optimization,
+    self-improving-agents). Deepest overlap. Keep M7 conceptual; point
+    here for the machinery.
+  - M12 MCP/crews → `04-configuration/mcp/`.
+
+**Destination artifacts (name as what the foundations build toward):**
+
+- [**jig**](https://github.com/ramboz/jig). Supervised spec-driven
+  workflow. Already referenced in M9/M10/M12.
+- [**servo**](https://github.com/ramboz/servo). The unattended sibling:
+  oracle, agent loop, hooks, worktree races. Mirrors the M7-M10 arc; name
+  in M8/M10 as the shipped version of the hand-built loop.
+- [**experience-success-skills**](https://github.com/adobe/experience-success-skills)
+  (PRIVATE, annotate as Adobe-internal when linking). Shipped team skill
+  packs. Name in M6/M12 as packaged, distributed skills.
+
+---
+
 ## Tier 1
 
 ### M1 — Prompting as design/specification

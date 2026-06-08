@@ -18,7 +18,7 @@ That gap is real, and it isn't just mine. Most of the organization sits somewher
 
 Twelve modules across three tiers, each pairing a concept post with a hands-on lab. You can start with any module; later ones build on earlier frames.
 
-The curriculum is being written on a spiral schedule, one module at a time. Right now, M1 to M5 are published. M6 to M12 are stubs that link to outline notes while I draft them.
+Modules are published as they're finished, so some later ones may still be in progress.
 
 - **Tier 1 — Everyone.** M1–M3. *M1–M2 work in Claude.ai chat. M3 is the move to the terminal.*
   - Prompting as a specification problem
@@ -37,6 +37,18 @@ The curriculum is being written on a spiral schedule, one module at a time. Righ
   - Parallel workers and worktrees
   - Agent Teams
   - Multi-tool crews and MCP
+
+## What this is, and what it isn't
+
+This curriculum teaches the foundations. The concepts you need to work well with AI coding agents, introduced one at a time, with a lab in each module to make them stick. It starts from zero and assumes no prior AI experience.
+
+It is not a reference manual, and it is not a description of how any one team works. Two kinds of material already cover that ground, and this curriculum points to them instead of repeating them.
+
+For how the team operates day to day, see the [AI-First Development Guidelines](https://github.com/adobe/mysticat-ai-native-guidelines). That is the operating playbook: the lifecycle, the templates, the guardrails, the per-tool setup, in far more depth than a single module should carry. The split is simple. Read here to understand why something matters. Read the guidelines to see how the team applies it.
+
+For what gets built on these foundations, see [jig](https://github.com/ramboz/jig), [servo](https://github.com/ramboz/servo), and the [Experience Success skills](https://github.com/adobe/experience-success-skills) (private repo, Adobe-internal). These are real, shipped tools, and they are what the concepts here are for. servo, for one, automates the same overnight-agent loop that the later modules build up by hand.
+
+The foundations are not here to be memorized as current practice. They are here so you can tell whether a given practice is sound, and build the next tool instead of only running the ones that already exist.
 
 ## How to read it
 
